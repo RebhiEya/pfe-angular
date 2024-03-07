@@ -1,0 +1,29 @@
+ion-header{
+  ion-toolbar{
+    --background: #4863a0;
+    color: white;
+  }
+.color{
+  color: white;
+}
+}
+.data-card {
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.data-card-1 {
+  background-color: #ffcccc; /* Rouge clair */
+}
+
+.data-card-2 {
+  background-color: #ccffcc; /* Vert clair */
+}
+
+.data-card-3 {
+  background-color: #ccccff; /* Bleu clair */
+}
+
+.data-card-4 {
+  background-color: #ffffcc; /* Jaune clair */
+}

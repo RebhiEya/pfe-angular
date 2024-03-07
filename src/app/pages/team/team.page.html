@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>team</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let i = index let item of teamData; ">
+      <ion-label class="item-label">
+        <div class="item-container">
+          <div class="item-header">
+            <div class="item-title">{{ item.stateStr}}</div>
+          </div>
+          <div class="item-row">
+            <div class="item-left">
+              <p>{{ item.reference }}</p>
+              <p p class="g-text">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p>
+              <p class="red-text">{{ item.internalReference }}</p>
+            </div>
+            <div class="item-right">
+              <p>{{ item.date }}</p>
+              <p class="g-text">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p>
+              <p class="red-text">{{ item.productFamilyId }}</p>
+            </div>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="encours-checkbox">
+            <label for="encours-checkbox" class="checkbox-label">Encours</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="final-checkbox">
+            <label for="final-checkbox" class="checkbox-label">Final</label>
+          </div>
+          <br>
+          <!-- Description -->
+          <ion-item>
+            <ion-textarea rows="1" cols="100" placeholder="Description"></ion-textarea>
+          </ion-item>
+          <div>
+
+            <!-- Champ de commentaire -->
+
+          </div>
+
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,56 @@
+ion-content{
+  --background: linear-gradient(90deg , #87AFC7 0%, #98AFC7,35% , #98AFC7 100%);
+}
+
+ion-item {
+  --padding-start: 15px; /* Marge à gauche pour l'icône */
+  --inner-padding-end: 15px; /* Espace à droite pour le contenu */
+}
+
+/* Pour ajuster la taille de l'icône */
+ion-icon {
+  --ionicon-stroke-width: 24px; /* Taille de l'icône */
+  --ionicon-color: var(--ion-color-primary); /* Couleur de l'icône */
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+ .item-left,
+ .item-right {
+  width: 48%;
+ }
+
+ion-card{
+
+  max-height: 550px; /* Ajustez selon votre préférence */
+  overflow-y: auto; /* Ajoutez une barre de défilement si nécessaire */
+}
+
+
+
+
+.blue-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0054e9;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon-row {
+  display: flex;
+  align-items: center; /* Alignement vertical au centre */
+  --size: 32px;
+
+}
+
+.custom-checkbox {
+  margin-left: 10px; /* Marge entre les icônes et les cases à cocher */
+  --color: #ff00ff; /* Couleur de la coche */
+}

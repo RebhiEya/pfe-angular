@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Contrôles Qualités</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button class="color" menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="item-details">
+  <ion-list>
+    <ion-item *ngFor="let i = index let item of data; ">
+      <ion-label class="item-label">
+        <div class="item-container">
+          <div class="item-header">
+            <div class="item-title">{{ item.stateStr}}</div>
+          </div>
+          <div class="item-row">
+            <div class="item-left">
+              <p>{{ item.reference }}</p>
+              <p p class="g-text">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p>
+              <p class="red-text">{{ item.internalReference }}</p>
+            </div>
+            <div class="item-right">
+              <p>{{ item.date }}</p>
+              <p class="g-text">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p>
+              <p class="red-text">{{ item.productFamilyId }}</p>
+            </div>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="encours-checkbox">
+            <label for="encours-checkbox" class="checkbox-label">Encours</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="final-checkbox">
+            <label for="final-checkbox" class="checkbox-label">Final</label>
+          </div>
+          <br>
+          <!-- Description -->
+          <ion-item>
+            <ion-textarea rows="1" cols="100" placeholder="Description"></ion-textarea>
+          </ion-item>
+          <div>
+            <ion-button routerLink="/defaut" (click)="navigateToDefects(item.id)" style="--background: #bfd7ea; --color: #1b3a51;">
+              <ion-icon name="warning" style="--color: #4d83ab;"></ion-icon>
+            </ion-button>
+
+            <ion-button routerLink="/Checklist" (click)="navigateToChecklists(item.id)" style="--background:#bfd7ea; --color: #1b3a51;">
+              <ion-icon name="list" style="--color: #4d83ab;"></ion-icon>
+            </ion-button>
+            <ion-button routerLink="/decision" style="--background:#bfd7ea; --color: #1b3a51;">
+              <ion-icon name="create" style="--color: #4d83ab;"></ion-icon> <!-- Utilisez le nom d'icône "create" pour le bouton "Modifier" -->
+            </ion-button>
+            <ion-button routerLink="/team" (click)="navigateToteam(item.id)" style="--background:#bfd7ea; --color: #1b3a51;">
+              <ion-icon name="people" style="--color: #4d83ab;"></ion-icon> <!-- Utilisez le nom d'icône "people" pour le bouton "Team" -->
+            </ion-button>
+            <ion-button style="--background:#bfd7ea; --color: #1b3a51;">
+              <ion-icon name="chatbubbles" style="--color: #4d83ab;"></ion-icon>
+            </ion-button>
+            <ion-button (click)="openAttachment()" style="--background:#bfd7ea; --color: #1b3a51;">
+              <ion-icon name="attach" style="--color: #4d83ab;"></ion-icon> <!-- Utilisez le nom d'icône "attach" pour le bouton "Fichier joint" -->
+            </ion-button>
+            <!-- Champ de commentaire -->
+            <ion-item *ngIf="showComment">
+              <ion-textarea rows="3" cols="100" placeholder="Ajouter un commentaire"></ion-textarea>
+            </ion-item>
+          </div>
+
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

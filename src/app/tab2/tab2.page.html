@@ -1,0 +1,42 @@
+<ion-content>
+  <div id="header">
+    <div id="ap-bar">
+      <ion-icon name="arrow-back" routerLink="/singup"></ion-icon>
+      <div id="logo">
+        <img src="assets/logo.png" alt="" />
+      </div>
+    <div> </div>
+    </div>
+
+    <h1>Sign in</h1>
+    <p>Hi to discover amazing things near <br> around you</p>
+  </div>
+
+  <div class="wrapper">
+    <ion-card class="form-wrapper">
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Country</ion-label>
+          <ion-select placeholder="Select country">
+            <ion-select-option value="usa">USA</ion-select-option>
+            <ion-select-option value="uk">UK</ion-select-option>
+            <ion-select-option value="france">France</ion-select-option>
+            <ion-select-option value="germany">Germany</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <ion-input placeholder="Username" [(ngModel)]="username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="lock-closed" slot="start"></ion-icon>
+          <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <ion-button (click)="setItem()" expand="block">Sign in</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="lines-text"></div>
+  </div>
+</ion-content>

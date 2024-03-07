@@ -1,0 +1,7 @@
+{
+  "name": "myFirst",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

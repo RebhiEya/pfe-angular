@@ -1,0 +1,26 @@
+<ion-content>
+  <div id="header">
+    <div id="app-bar">
+    </div>
+
+    <div id="logo">
+      <img src="assets/logo.png" alt="logo">
+    </div>
+
+    <h2>QALITAS </h2>
+  </div>
+
+  <ion-card class="wrapper">
+    <ion-card-content>
+      <ion-item>
+        <!-- Change the icon name from "mail" to "globe" for a URL icon -->
+        <ion-icon name="globe" slot="start"></ion-icon>
+        <ion-input type="text" placeholder="URL"></ion-input>
+      </ion-item>
+      <ion-button (click)="setValue()" expand="block">Sign in</ion-button>
+
+      <div>{{value}}</div>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

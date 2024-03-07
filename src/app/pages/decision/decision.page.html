@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar class="color" >
+    <ion-title>Défaut</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   <ion-card> <!-- *ngFor="let item of DefautData">-->
+  <ion-card-header>
+  <!--  <ion-card-title>{{ item.defectCategory}}</ion-card-title>
+    <ion-card-subtitle>{{ item.defectDefectCode}}</ion-card-subtitle>
+    <ion-card-subtitle>{{ item.defectDesignation}}</ion-card-subtitle>
+    <ion-card-subtitle>{{ item.defectId}}</ion-card-subtitle>
+    -->
+
+    <div class="item-row">
+
+      <div class="item-left">
+    <ion-icon name="ellipse" style="font-size: 2em; color: rgb(106, 179, 106); margin-left: 20px; "></ion-icon>
+      <ion-icon name="ellipse" style="font-size: 2em; color: rgb(211, 26, 26); "></ion-icon>
+      <ion-icon name="ellipse" style="font-size: 2em; color: rgb(7, 7, 7); "></ion-icon>
+    </div>
+
+    <div class="item-right">
+        <ion-toggle  color="tertiary"></ion-toggle>
+</div>
+</div>
+
+<ion-button color="tertiary">Mon Bouton Tertiaire</ion-button>
+  </ion-card-header>
+
+
+
+<ion-card-content class="ion-title-left">
+
+    <div class="item-row">
+
+      <div class="item-left">
+        <ion-label position="floating"> <ion-icon name="person" slot="start"></ion-icon> Nom</ion-label>
+        <ion-input></ion-input>
+      </div>
+
+        <div class="item-right">
+        <ion-label position="floating">   <ion-icon name="mail" slot="start"></ion-icon>  Email</ion-label>
+        <ion-input></ion-input>
+      </div>
+    </div>
+  <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+</ion-card-content>
+
+</ion-card>
+<div class="blue-bar">
+  <ion-icon name="camera" style="font-size: 2em; color: #fff;"></ion-icon>
+  <ion-icon name="mic" style="font-size: 2em; color: #fff;"></ion-icon>
+  <ion-icon name="image" style="font-size: 2em; color: #fff;"></ion-icon>
+  <ion-icon name="videocam" style="font-size: 2em; color: #fff;"></ion-icon>
+</div>
+
+</ion-content>

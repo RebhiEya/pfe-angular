@@ -1,0 +1,64 @@
+// variables.scss
+
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$background-color: #f5f5f5;
+$arrow-color: #ff5733; // Couleur pour les flèches
+
+ion-header{
+  ion-toolbar{
+    --background: #4863a0;
+    color: white;
+  }
+.color{
+  color: white;
+}
+}
+
+ /* Styles pour les icônes personnalisées */
+.custom-icon {
+  color: #007bff; /* Couleur des icônes */
+  font-size: 1.5rem; /* Taille des icônes */
+}
+
+/* Styles pour les labels personnalisés */
+.custom-label {
+  font-weight: bold; /* Texte en gras */
+}
+
+/* Styles pour les inputs personnalisés */
+.custom-input {
+  border-radius: 5px; /* Bord arrondi des inputs */
+  border: 1px solid #ced4da; /* Bordure */
+  padding: 8px; /* Espacement interne */
+}
+
+
+  // Styles pour le tableau
+  ion-table {
+    width: 100%;
+    margin-top: 20px;
+
+    ion-row {
+      border-bottom: 1px solid #ddd;
+
+      ion-col {
+        padding: 10px;
+      }
+    }
+
+    ion-row:first-child {
+      ion-col {
+        font-weight: bold;
+      }
+    }
+  }
+
+  // Styles pour les boutons
+  ion-button {
+    display: none; // Cacher tous les boutons
+  }
+
+  .arrow-icon {
+    font-size: 24px; // Taille des icônes de flèche
+  }
