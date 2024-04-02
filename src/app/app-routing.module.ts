@@ -1,57 +1,66 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { Tab3Page } from './tab3/tab3.page';
 
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/tab1',
+    redirectTo: 'authentification', // Redirection vers AccueilPage
     pathMatch: 'full'
   },
 
-  { path: 'tab1',
-    loadChildren: () => import('./tab1/tab1.module').then(m => m.Tab1PageModule)
-  },
-
   {
-    path: 'tab2',
-    loadChildren: () => import('./tab2/tab2.module').then(m => m.Tab2PageModule)
+    path: 'app.component',
+    loadChildren: () => import('./app.component').then( m => m.AppComponent)
   },
-
   {
-    path: 'page3',
-    loadChildren: () => import('./tab3/tab3.module').then(m => m.Tab3PageModule)
+    path: 'authentification',
+    loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
   },
   {
     path: 'add-control',
-    loadChildren: () => import('./pages/add-control/add-control.module').then( m => m.AddControlPageModule)
+    loadChildren: () => import('./admin/add-control/add-control.module').then( m => m.AddControlPageModule)
   },
   {
-    path: 'control-list',
-    loadChildren: () => import('./pages/control-list/control-list.module').then( m => m.ControlListPageModule)
+    path: 'checklist',
+    loadChildren: () => import('./admin/checklist/checklist.module').then( m => m.ChecklistPageModule)
   },
   {
-    path: 'checklist/:id',
-    loadChildren: () => import('./pages/checklist/checklist.module').then( m => m.ChecklistPageModule)
+    path: 'tableau-bord',
+    loadChildren: () => import('./employe/tableau-bord/tableau-bord.module').then( m => m.TableauBordPageModule)
   },
-
   {
-    path: 'defaut/:id',
-    loadChildren: () => import('./pages/defaut/defaut.module').then( m => m.DefautPageModule)
+    path: 'menu',
+    loadChildren: () => import('./employe/menu/menu.module').then( m => m.MenuPageModule)
   },
   {
     path: 'mycontrol',
-    loadChildren: () => import('./pages/mycontrol/mycontrol.module').then( m => m.MycontrolPageModule)
+    loadChildren: () => import('./employe/mycontrol/mycontrol.module').then( m => m.MycontrolPageModule)
   },
   {
-    path: 'decision',
-    loadChildren: () => import('./pages/decision/decision.module').then( m => m.DecisionPageModule)
+    path: 'produits',
+    loadChildren: () => import('./admin/produits/produits.module').then( m => m.ProduitsPageModule)
   },
   {
-    path: 'team/:id',
-    loadChildren: () => import('./pages/team/team.module').then( m => m.TeamPageModule)
+    path: 'add-audit',
+    loadChildren: () => import('./employe/audit/add-audit/add-audit.module').then( m => m.AddAuditPageModule)
+  },
+  {
+    path: 'auditprocess',
+    loadChildren: () => import('./employe/audit/auditprocess/auditprocess.module').then( m => m.AuditprocessPageModule)
+  },
+  {
+    path: 'addprocess',
+    loadChildren: () => import('./employe/audit/addprocess/addprocess.module').then( m => m.AddprocessPageModule)
+  },
+  {
+    path: 'checklistprocess',
+    loadChildren: () => import('./employe/audit/checklistprocess/checklistprocess.module').then( m => m.ChecklistprocessPageModule)
+  },
+  {
+    path: 'addchecklistprocess',
+    loadChildren: () => import('./employe/audit/addchecklistprocess/addchecklistprocess.module').then( m => m.AddchecklistprocessPageModule)
   },
 
 

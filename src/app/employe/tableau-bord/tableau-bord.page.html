@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-title>Tableau de bord</ion-title>
+    <ion-buttons slot="start">
+      <ion-button  (click)="goToMenuPage()">menu</ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button > <!--(click)="logout()"-->
+        <ion-icon class="color" name="power"></ion-icon>
+
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <h2> Controle Qualités </h2>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card class="data-card data-card-1">
+          <ion-card-header>
+            <ion-card-title >A réaliser </ion-card-title>
+          </ion-card-header>
+         <!--  <ion-card-content>
+            Contenu de la donnée 1
+          </ion-card-content>  -->
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card class="data-card data-card-2">
+          <ion-card-header>
+            <ion-card-title>A Clôturer </ion-card-title>
+          </ion-card-header>
+          <!-- <ion-card-content>
+            Contenu de la donnée 2
+          </ion-card-content> -->
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <h2> les audits </h2>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card class="data-card data-card-3">
+          <ion-card-header>
+            <ion-card-title>Audités</ion-card-title>
+          </ion-card-header>
+         <!--  <ion-card-content>
+            Contenu de la donnée 3
+          </ion-card-content>  -->
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card class="data-card data-card-4">
+          <ion-card-header>
+            <ion-card-title>Auditeurs</ion-card-title>
+          </ion-card-header>
+         <!--  <ion-card-content>
+            Contenu de la donnée 3
+          </ion-card-content>  -->
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card class="data-card data-card-2">
+          <ion-card-header>
+            <ion-card-title>A Clôturer </ion-card-title>
+          </ion-card-header>
+         <!--  <ion-card-content>
+            Contenu de la donnée 3
+          </ion-card-content>  -->
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-menu-toggle auto-hide="false">
+      <ion-item (click)="navigateToPage('Accueil')">
+        <ion-icon name="home" slot="start"></ion-icon>
+        <ion-label>Accueil</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle auto-hide="false">
+      <ion-item (click)="navigateToPage('Profil')">
+        <ion-icon name="person" slot="start"></ion-icon>
+        <ion-label>Profil</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <!-- Ajoutez d'autres éléments de menu ici -->
+  </ion-list>
+</ion-content>
