@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { audit } from '../models/audit.model';
+import { Audit } from '../models/audit.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,8 +12,8 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) {}
 
-  createControl(audit: audit): Observable<object> {
-  //  console.log( item);
+  createControl(audit: Audit): Observable<object> {
+    console.log( audit);
     return this.httpClient.post(this.urlRoot , audit ) ;
   }
 

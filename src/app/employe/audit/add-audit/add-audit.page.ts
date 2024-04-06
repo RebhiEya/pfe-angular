@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Audit } from 'src/app/models/audit.model';
 
 
 @Component({
@@ -10,24 +11,28 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./add-audit.page.scss'],
 })
 export class AddAuditPage implements OnInit {
-  empFrom : FormGroup;
+  audit: Audit = new Audit('', '', '', '', new Date(), new Date()); // Initialisation avec des valeurs par défaut
+  auditForm: FormGroup;
 
 
 
   constructor(private router: Router,
     private dataService: DataService ,
-    private _fb : FormBuilder) {
-      this.empFrom = this._fb.group({
-        category:'',
-        designation:'',
-        startDate:'',
-        endDate:'',
-        state:'',
-        reference:'',
-      })
+    private formBuilder: FormBuilder
+
+    ) {
+      this.auditForm = this.formBuilder.group({
+        category: [''],
+        designation: [''],
+        state: [''],
+        reference: [''],
+        startDate: [''],
+        endDate: [''],
+      });
+
     }
 
-  ngOnInit() {
+  ngOnInit(){
   }
 
 //  async ajouterdefaut() {
@@ -36,15 +41,15 @@ export class AddAuditPage implements OnInit {
   //}
 
   onFormSubmit(){
-    if (this.empFrom.valid){
-      console.log(this.empFrom.value);
+    if (this.auditForm.valid) {
+      const auditData: Audit = this.auditForm.value;
+      this.dataService.createControl(auditData).subscribe(data => {
+        console.log(data);
+        // Redirection ou autre action après l'envoi réussi
+      });
+    } else {
+      console.error("Le formulaire n'est pas valide");
     }
-
-    this.dataService.createControl(this.audit).subscribe(data =>{
-      console.log(data);
-      this.r
-    })
-
   }
 
 }

@@ -19,14 +19,6 @@ const routes: Routes = [
     loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
   },
   {
-    path: 'add-control',
-    loadChildren: () => import('./admin/add-control/add-control.module').then( m => m.AddControlPageModule)
-  },
-  {
-    path: 'checklist',
-    loadChildren: () => import('./admin/checklist/checklist.module').then( m => m.ChecklistPageModule)
-  },
-  {
     path: 'tableau-bord',
     loadChildren: () => import('./employe/tableau-bord/tableau-bord.module').then( m => m.TableauBordPageModule)
   },
@@ -37,10 +29,6 @@ const routes: Routes = [
   {
     path: 'mycontrol',
     loadChildren: () => import('./employe/mycontrol/mycontrol.module').then( m => m.MycontrolPageModule)
-  },
-  {
-    path: 'produits',
-    loadChildren: () => import('./admin/produits/produits.module').then( m => m.ProduitsPageModule)
   },
   {
     path: 'add-audit',
@@ -61,6 +49,31 @@ const routes: Routes = [
   {
     path: 'addchecklistprocess',
     loadChildren: () => import('./employe/audit/addchecklistprocess/addchecklistprocess.module').then( m => m.AddchecklistprocessPageModule)
+  },
+
+  {
+    path: 'add-audit',
+    loadChildren: () => import('./admin/audits/add-audit/add-audit.module').then( m => m.AddAuditPageModule)
+  },
+  {
+    path: 'checklist',
+    loadChildren: () => import('./admin/CQ/checklist/checklist.module').then( m => m.ChecklistPageModule)
+  },
+  {
+    path: 'add-control',
+    loadChildren: () => import('./admin/CQ/add-control/add-control.module').then( m => m.AddControlPageModule)
+  },
+  {
+    path: 'produits',
+    loadChildren: () => import('./admin/CQ/produits/produits.module').then( m => m.ProduitsPageModule)
+  },
+  {
+    path: 'defects',
+    loadChildren: () => import('./admin/CQ/defects/defects.module').then( m => m.DefectsPageModule)
+  },
+  {
+    path: 'add-produit',
+    loadChildren: () => import('./admin/CQ/add-produit/add-produit.module').then( m => m.AddProduitPageModule)
   },
 
 
