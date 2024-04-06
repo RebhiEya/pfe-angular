@@ -1,0 +1,57 @@
+ion-header{
+  ion-toolbar{
+    --background: #4863A0;
+    color: white;
+  }
+  .color{
+    color: white;
+  }
+  }
+  ion-button {
+   // --padding-start: 20px; /* Espacement à gauche du bouton */
+  //  --padding-end: 20px; /* Espacement à droite du bouton */
+    font-size: 20px; /* Taille de la police */
+    --min-height: 48px; /* Hauteur minimale du bouton */
+    --border-radius: 12px; /* Rayon des coins du bouton */
+  }
+
+
+ /* Styles pour les icônes personnalisées */
+.custom-icon {
+  color: #007bff; /* Couleur des icônes */
+  font-size: 1.5rem; /* Taille des icônes */
+}
+
+/* Style pour l'élément ion-item */
+ion-item.item-color {
+  --background: #f48888;
+  --color: #090909;
+  font-size: 18px !important;
+}
+
+ion-item.item-color1 {
+  --background: #f2f488; /* Couleur de fond */
+  --color: #090909; /* Couleur du texte */
+  font-size: 18px !important;/* Taille du texte */
+}
+
+ion-item.item-color2 {
+  --background: #88e2f4;
+  --color: #090909;
+  font-size: 18px !important;
+}
+
+ion-item.item-color3 {
+  --background: #b5f488;
+  --color: #090909;
+  font-size: 18px !important;
+}
+
+/* Style pour l'icône de flèche */
+.arrow-icon {
+  color: #090909; /* Couleur de l'icône de flèche */
+}
+
+
+
+
