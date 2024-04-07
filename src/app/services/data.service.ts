@@ -17,6 +17,11 @@ export class DataService {
     return this.httpClient.post(this.urlRoot , audit ) ;
   }
 
+  async getAllControls() {
+    return this.httpClient.get<any[]>(`${this.urlRoot}/api/QualityControls`);
+
+    }
+
 }
 
 
