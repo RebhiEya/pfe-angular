@@ -1,13 +1,16 @@
-/* CSS personnalisé pour styliser le formulaire */
-ion-card {
-  max-width: 400px;
-  margin: auto;
-}
+ion-header{
+  ion-toolbar{
+    --background: rgb(72, 99, 160);
+    color: white;
+  }
+  .color{
+    color: white;
+  }
+  }
 
-ion-item {
-  margin-bottom: 16px;
-}
+  .my-form {
+    --ion-color-primary: rgb(72, 99, 160); /* Couleur de fond */
+    --ion-color-primary-contrast: #ffffff; /* Couleur du texte */
+  }
 
-ion-button {
-  margin-top: 16px;
-}
+//

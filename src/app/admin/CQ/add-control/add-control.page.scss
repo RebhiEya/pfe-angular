@@ -7,6 +7,7 @@ ion-header{
     color: white;
   }
   }
+
   ion-button {
    // --padding-start: 20px; /* Espacement à gauche du bouton */
   //  --padding-end: 20px; /* Espacement à droite du bouton */
@@ -50,6 +51,11 @@ ion-item.item-color3 {
 /* Style pour l'icône de flèche */
 .arrow-icon {
   color: #090909; /* Couleur de l'icône de flèche */
+}
+
+.my-form {
+  --ion-color-primary: rgb(72, 99, 160); /* Couleur de fond */
+  --ion-color-primary-contrast: #ffffff; /* Couleur du texte */
 }
 
 

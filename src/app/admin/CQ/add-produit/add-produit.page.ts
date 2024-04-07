@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; 
+import { DataService } from 'src/app/services/data.service';
+import { Produit } from 'src/app/models/produit.model';
+
 
 @Component({
   selector: 'app-add-produit',
@@ -7,23 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddProduitPage implements OnInit {
 
-  nouveauProduit = {
-    nom: '',
-    prix: null,
-    description: ''
+  produit: Produit = {
+    category: '',
+    designation: '',
+    reference: '',
+    Famille:''
+
   };
-  constructor() { }
+  constructor(private dataService: DataService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
   ajouterProduit() {
-    // Ici vous pouvez ajouter la logique pour enregistrer le produit
-    console.log('Nouveau produit :', this.nouveauProduit);
-    // Réinitialiser le formulaire après l'ajout
-    this.nouveauProduit = {
-      nom: '',
-      prix: null,
-      description: ''
-    };
+  this.dataService.createproduit(this.produit).subscribe(data =>{
+    console.log(data);
+    this.router.navigate(['/produits'])
+  })
   }
 }
