@@ -32,27 +32,6 @@ const routes: Routes = [
   },
   {
     path: 'add-audit',
-    loadChildren: () => import('./employe/audit/add-audit/add-audit.module').then( m => m.AddAuditPageModule)
-  },
-  {
-    path: 'auditprocess',
-    loadChildren: () => import('./employe/audit/auditprocess/auditprocess.module').then( m => m.AuditprocessPageModule)
-  },
-  {
-    path: 'addprocess',
-    loadChildren: () => import('./employe/audit/addprocess/addprocess.module').then( m => m.AddprocessPageModule)
-  },
-  {
-    path: 'checklistprocess',
-    loadChildren: () => import('./employe/audit/checklistprocess/checklistprocess.module').then( m => m.ChecklistprocessPageModule)
-  },
-  {
-    path: 'addchecklistprocess',
-    loadChildren: () => import('./employe/audit/addchecklistprocess/addchecklistprocess.module').then( m => m.AddchecklistprocessPageModule)
-  },
-
-  {
-    path: 'add-audit',
     loadChildren: () => import('./admin/audits/add-audit/add-audit.module').then( m => m.AddAuditPageModule)
   },
   {
@@ -74,6 +53,22 @@ const routes: Routes = [
   {
     path: 'add-produit',
     loadChildren: () => import('./admin/CQ/add-produit/add-produit.module').then( m => m.AddProduitPageModule)
+  },
+  {
+    path: 'addprocess',
+    loadChildren: () => import('./admin/audits/addprocess/addprocess.module').then( m => m.AddprocessPageModule)
+  },
+  {
+    path: 'auditprocess',
+    loadChildren: () => import('./admin/audits/auditprocess/auditprocess.module').then( m => m.AuditprocessPageModule)
+  },
+  {
+    path: 'checklistprocess',
+    loadChildren: () => import('./admin/audits/checklistprocess/checklistprocess.module').then( m => m.ChecklistprocessPageModule)
+  },
+  {
+    path: 'addchecklistprocess',
+    loadChildren: () => import('./admin/audits/addchecklistprocess/addchecklistprocess.module').then( m => m.AddchecklistprocessPageModule)
   },
 
 
