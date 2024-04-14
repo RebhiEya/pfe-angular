@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>addprocess</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">addprocess</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>addprocess</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openDialog()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Ajout des champs de référence produit et description -->
+  <ion-item>
+    <ion-label position="stacked">nom</ion-label>
+    <ion-input placeholder="Enter product reference"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">recommendation</ion-label>
+    <ion-input placeholder="Enter product reference"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">weakness</ion-label>
+    <ion-input placeholder="Enter description"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">strength</ion-label>
+    <ion-input  placeholder="Select Description"></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-item routerLink="/checklistprocess">
+      <ion-label>checklistprocess</ion-label>
+      <ion-icon name="arrow-forward-outline" slot="end" class="arrow-icon"></ion-icon> <!-- Flèche -->
+    </ion-item>
+  </ion-list>
+</ion-content>

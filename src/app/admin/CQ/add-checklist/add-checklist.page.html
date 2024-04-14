@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="title"> Ajouter Checklist</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-content class="my-form">
+      <form (ngSubmit)="ajouterchecklist()">
+        <ion-list>
+    <!-- Ajout des champs de référence produit et description -->
+    <ion-item>
+      <ion-label position="floating">
+        <ion-icon name="barcode" slot="start" class="custom-icon"></ion-icon> category
+      </ion-label>
+      <ion-input  class="custom-input"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">
+        <ion-icon name="cube" slot="start" class="custom-icon"></ion-icon> critéres
+      </ion-label>
+      <ion-input  class="custom-input"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">
+        <ion-icon name="pencil" slot="start" class="custom-icon"></ion-icon> operation
+      </ion-label>
+      <ion-input  class="custom-input"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">
+        <ion-icon name="link" slot="start" class="custom-icon"></ion-icon> Exigences
+      </ion-label>
+      <ion-input class="custom-input"></ion-input>
+    </ion-item>
+  </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="primary" type="submit">Ajouter</ion-button>
+      </ion-col>
+    </ion-row>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
