@@ -8,7 +8,7 @@ ion-header{
   }
   }
   /* CSS personnalisé pour agrandir la taille du bouton */
-ion-button {
+.iconajouter {
   --padding-start: 20px; /* Espacement à gauche du bouton */
   --padding-end: 20px; /* Espacement à droite du bouton */
   font-size: 20px; /* Taille de la police */
@@ -18,10 +18,38 @@ ion-button {
 
 
 .item-container {
-  padding: 20px;
-  background-color: white;
+  padding: 10px;
+  background-color: rgb(237, 235, 235);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+}
+
+/* CSS pour agrandir la taille de l'écriture des balises <p> */
+.item-label p {
+  font-size: 18px; /* Taille de la police des balises <p> */
+}
+
+/* CSS pour agrandir la taille des boutons */
+ion-button {
+  --padding-start: 10px; /* Espacement à gauche du bouton */
+  --padding-end: 10px; /* Espacement à droite du bouton */
+  font-size: 18px; /* Taille de la police des boutons */
+  --min-height: 48px; /* Hauteur minimale du bouton */
+  --border-radius: 12px; /* Rayon des coins du bouton */
+}
+
+
+
+
+
+
+
 
 

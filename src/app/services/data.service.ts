@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Audit } from '../models/audit.model';
 import { Produit } from '../models/produit.model';
-import { Observable } from 'rxjs';
+import { ControlCheckList } from '../models/ControlCheckList.model';
+import { Observable ,lastValueFrom} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -9,26 +10,58 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  private  urlRoot ="";
+  private  urlRoot ="http://localhost:8089/produit";
 
   constructor(private httpClient: HttpClient) {}
+  private product: Produit = {
+    idProduit:0,
+    category: '',
+    designation: '',
+    reference: '',
+    famille:''
+
+  };
+
+  setProduct(product: any) {
+    this.product = product;
+  }
+
+  getProduct() {
+    return this.product;
+  }
 
   createControl(audit: Audit): Observable<object> {
     console.log( audit);
-    return this.httpClient.post(this.urlRoot , audit ) ;
+    return this.httpClient.post(  this.urlRoot , audit ) ;
   }
-
+  getAllProduit() {
+    return this.httpClient.get<any[]>(`${this.urlRoot}/getAll`);
+    }
+    getChecklistByProduit(id: any) {
+      return this.httpClient.get<any[]>(`http://localhost:8089/controlCheckList/getByIdProduit/${id}`);
+      }
   createproduit(produit: Produit): Observable<object> {
-    console.log( produit);
-    return this.httpClient.post(this.urlRoot , produit ) ;
+
+  return this.httpClient.post( `${this.urlRoot}/add` , produit ) ;
+
   }
 
-  async getAllControls() {
-    return this.httpClient.get<any[]>(`${this.urlRoot}/api/QualityControls`);
+  updateProduit(id: any,item: any): Observable<any>{
+      return this.httpClient.put<any>(`${this.urlRoot}/update/${id}`, item );
 
     }
+  deleteProduit(id: any): Observable<any> {
+      return this.httpClient.delete<any>(`${this.urlRoot}/delete/${id}`);
+    }
 
-}
+
+
+    createchecklist(controlCheckList: ControlCheckList): Observable<object> {
+      console.log( controlCheckList);
+      return this.httpClient.post(this.urlRoot , controlCheckList ) ;
+    }
+
+  }
 
 
 

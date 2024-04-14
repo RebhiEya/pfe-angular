@@ -70,6 +70,14 @@ const routes: Routes = [
     path: 'addchecklistprocess',
     loadChildren: () => import('./admin/audits/addchecklistprocess/addchecklistprocess.module').then( m => m.AddchecklistprocessPageModule)
   },
+  {
+    path: 'updat-produit',
+    loadChildren: () => import('./admin/CQ/updat-produit/updat-produit.module').then( m => m.UpdatProduitPageModule)
+  },
+  {
+    path: 'add-checklist',
+    loadChildren: () => import('./admin/CQ/add-checklist/add-checklist.module').then( m => m.AddChecklistPageModule)
+  },
 
 
 ];

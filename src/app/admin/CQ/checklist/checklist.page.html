@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="title">Checklist</ion-title>
+    <ion-title class="title"> Checklist</ion-title>
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button routerLink="/add-checklist" >
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -10,34 +10,30 @@
 </ion-header>
 
 
-<ion-content>
-    <!-- Ajout des champs de référence produit et description -->
+<ion-content class="item-details">
+  <ion-list>
     <ion-item>
-      <ion-label position="floating">
-        <ion-icon name="barcode" slot="start" class="custom-icon"></ion-icon> category
+      <ion-label class="item-label">
+        <div class="item-container">
+          <div class="flex-container">
+
+              <p class="reference-text"> item.designation</p>
+              <p class="reference-value"> item.reference</p>
+              <!-- Bouton de modification -->
+              <!--  <ion-button fill="clear" color="primary" routerLink="/updat-produit" class="button-spacing">
+                <ion-icon name="create"></ion-icon>
+              </ion-button> -->
+              <!-- Bouton de suppression -->
+             <!--  <ion-button fill="clear" color="danger" (click)="delete()" class="button-spacing">
+                <ion-icon name="trash"></ion-icon>
+              </ion-button> -->
+            </div>
+        </div>
       </ion-label>
-      <ion-input  class="custom-input"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">
-        <ion-icon name="cube" slot="start" class="custom-icon"></ion-icon> critéres
-      </ion-label>
-      <ion-input  class="custom-input"></ion-input>
-    </ion-item>
+  </ion-list>
 
-    <ion-item>
-      <ion-label position="floating">
-        <ion-icon name="pencil" slot="start" class="custom-icon"></ion-icon> operation
-      </ion-label>
-      <ion-input  class="custom-input"></ion-input>
-    </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">
-        <ion-icon name="link" slot="start" class="custom-icon"></ion-icon> Exigences
-      </ion-label>
-      <ion-input class="custom-input"></ion-input>
-    </ion-item>
 
 </ion-content>

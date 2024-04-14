@@ -18,12 +18,12 @@
 
     <ion-item>
       <ion-label position="floating">
-        <ion-icon name="cube" slot="start" class="custom-icon"></ion-icon> Produit
+        <ion-icon name="cube" slot="start" class="custom-icon" ></ion-icon> Produit
       </ion-label>
       <ion-button slot="end" fill="clear" routerLink="/produits">
         <ion-icon  name="ellipsis-horizontal"></ion-icon>
       </ion-button>
-      <ion-input class="custom-input"></ion-input>
+      <ion-input class="custom-input" [(ngModel)]="selectedProduit.reference"></ion-input>
 
     </ion-item>
 
@@ -70,7 +70,7 @@
         <ion-icon name="checkmark-done-circle-outline"></ion-icon>
         Check Lists
       </ion-label>
-      <ion-icon name="arrow-forward-outline" slot="end" class="arrow-icon"></ion-icon> <!-- Flèche -->
+      <ion-icon name="arrow-forward-outline" slot="end" class="arrow-icon" (click)="getChecklist()"></ion-icon> <!-- Flèche -->
     </ion-item>
 
     <ion-item  routerLink="/defects"  class="item-color1">

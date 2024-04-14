@@ -2,29 +2,37 @@
   <ion-toolbar>
     <ion-title>produits</ion-title>
     <ion-buttons slot="end">
-      <ion-button routerLink="/add-produit" >
+      <ion-button class="iconajouter" routerLink="/add-produit">
         <ion-icon slot="start" name="add"></ion-icon>
       </ion-button>
-      </ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="item-details">
   <ion-list>
-    <ion-item *ngFor="let i = index let item of data; ">
+    <ion-item *ngFor="let item of data; index as i " (click) ="selectProduit(item)">
       <ion-label class="item-label">
         <div class="item-container">
-          <div class="item-row">
-            <div class="item-left">
-              <p>{{ item.designation }}</p>
-            </div>
-            <div class="item-right">
-              <p>{{ item.reference}}</p>
-            </div>
+          <div class="flex-container">
 
-          </div>
+              <p class="reference-text">{{ item.reference }}</p>
+
+              <p class="reference-value">{{ item.category}}</p>
+              <!-- Bouton de modification -->
+              <ion-button fill="clear" color="primary" (click)="update(item)"  class="button-spacing">
+                <ion-icon name="create"></ion-icon>
+              </ion-button>
+              <!-- Bouton de suppression -->
+              <ion-button fill="clear" color="danger" (click)="delete(item.idProduit)" class="button-spacing">
+                <ion-icon name="trash"></ion-icon>
+              </ion-button>
+
+            </div>
         </div>
       </ion-label>
     </ion-item>
+
   </ion-list>
 </ion-content>
+
