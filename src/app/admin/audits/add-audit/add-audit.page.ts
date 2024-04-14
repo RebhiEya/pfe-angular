@@ -1,55 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Audit } from 'src/app/models/audit.model';
-
 
 @Component({
   selector: 'app-add-audit',
   templateUrl: './add-audit.page.html',
   styleUrls: ['./add-audit.page.scss'],
 })
-export class AddAuditPage implements OnInit {
-  audit: Audit = new Audit('', '', '', '', new Date(), new Date()); // Initialisation avec des valeurs par défaut
-  auditForm: FormGroup;
+export class AddAuditPage {
+  category: string = '';
+  designation: string = '';
+  startDate: string = '';
+  endDate: string = '';
+  state: string = '';
+  reference: string = '';
 
+  constructor(private auditService: DataService) {}
 
+  addAudit() {
+    const auditData = {
+      category: this.category,
+      designation: this.designation,
+      startDate: this.startDate,
+      endDate: this.endDate,
+      state: this.state,
+      reference: this.reference
+    };
 
-  constructor(private router: Router,
-    private dataService: DataService ,
-    private formBuilder: FormBuilder
-
-    ) {
-      this.auditForm = this.formBuilder.group({
-        category: [''],
-        designation: [''],
-        state: [''],
-        reference: [''],
-        startDate: [''],
-        endDate: [''],
-      });
-
-    }
-
-  ngOnInit(){
+    this.auditService.addAudit(auditData).subscribe((response: any) => {
+      console.log('Audit ajouté avec succès:', response);
+      // Réinitialiser les champs après l'ajout
+      this.category = '';
+      this.designation = '';
+      this.startDate = '';
+      this.endDate = '';
+      this.state = '';
+      this.reference = '';
+    }, (error: any) => {
+      console.error('Erreur lors de l\'ajout de l\'audit:', error);
+    });
   }
-
-//  async ajouterdefaut() {
- //   const result = await this.dataService.createControl(this.emp);
- //   console.log(result);
-  //}
-
-  onFormSubmit(){
-    if (this.auditForm.valid) {
-      const auditData: Audit = this.auditForm.value;
-      this.dataService.createControl(auditData).subscribe(data => {
-        console.log(data);
-        // Redirection ou autre action après l'envoi réussi
-      });
-    } else {
-      console.error("Le formulaire n'est pas valide");
-    }
-  }
-
 }

@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { AddchecklistprocessPage } from '../addchecklistprocess/addchecklistprocess.page';
-import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
-
-
-
+import { auditProcesses } from 'src/app/models/processus.model'; // Import de l'interface auditProcesses
 
 @Component({
   selector: 'app-addprocess',
@@ -14,24 +9,29 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class AddprocessPage implements OnInit {
 
-  constructor(private modalController: ModalController,
-    private router: Router,
-    private dataService: DataService
-    ) {}
+  constructor(private dataService: DataService) { } // Injection du service DataService
 
   ngOnInit() {
   }
 
-  async openDialog() {
-    const modal = await this.modalController.create({
-      component: AddchecklistprocessPage,
-      componentProps: {
-        // Vous pouvez passer des données à votre boîte de dialogue si nécessaire
-        // Par exemple, data: { key: 'value' }
-      }
-    });
-    await modal.present();
-  }
+  addProcess() {
+    const newProcess: auditProcesses = {
+      processId: 0, // Vous pouvez initialiser processId à 0 ou à null selon votre logique
+      processDesignation: '', // Vous devez spécifier la valeur ici
+      recommendation: '',    // Vous devez spécifier la valeur ici
+      strength: '',          // Vous devez spécifier la valeur ici
+      weakness: '',          // Vous devez spécifier la valeur ici
+      checklistScore: 0     // Vous devez spécifier la valeur ici
+    };
 
+    this.dataService.addProcess(newProcess).subscribe(
+      (response: auditProcesses) => { // Spécification du type de response
+        // Processus ajouté avec succès, vous pouvez implémenter le code pour gérer la réponse ici
+      },
+      (error: any) => { // Spécification du type de error
+        console.error('Erreur lors de l\'ajout du processus :', error);
+      }
+    );
+  }
 
 }

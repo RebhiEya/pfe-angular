@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { AuditprocessPageRoutingModule } from './auditprocess-routing.module';
 
-import { AuditprocessPage } from './auditprocess.page';
+import { ProcessusPage  } from './auditprocess.page';
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { AuditprocessPage } from './auditprocess.page';
     IonicModule,
     AuditprocessPageRoutingModule
   ],
-  declarations: [AuditprocessPage]
+  declarations: [ProcessusPage ]
 })
 export class AuditprocessPageModule {}

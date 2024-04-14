@@ -1,64 +1,65 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ajout d'un nouvel contrôle
+      Ajouter un nouvel audit
     </ion-title>
-    <ion-buttons slot="start">
-      <ion-menu-button menu="main-menu"></ion-menu-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- Ajout des champs de référence produit et description -->
-  <form [formGroup]="auditForm" (ngSubmit)="onFormSubmit()">
+  <ion-item>
+    <ion-label position="stacked">Catégorie</ion-label>
+    <ion-input [(ngModel)]="category" type="text"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="stacked">Désignation</ion-label>
+    <ion-input [(ngModel)]="designation" type="text"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="stacked">Date de début</ion-label>
+    <ion-input [(ngModel)]="startDate" type="date"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="stacked">Date de fin</ion-label>
+    <ion-input [(ngModel)]="endDate" type="date"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="stacked">État</ion-label>
+    <ion-input [(ngModel)]="state" type="text"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="stacked">Référence</ion-label>
+    <ion-input [(ngModel)]="reference" type="text"></ion-input>
+  </ion-item>
+  <!-- Listes de contrôle -->
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="clipboard-outline"></ion-icon> Quality Control
+    </ion-title>
+  </ion-toolbar>
 
-    <ion-item>
-      <ion-label position="stacked">Référence</ion-label>
-      <ion-input formControlName="category" placeholder="Entrer la référence du produit"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Produit</ion-label>
-      <ion-input formControlName="designation" placeholder="Entrer le produit"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Description</ion-label>
-      <ion-input formControlName="state" placeholder="Entrer la description"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Chaine</ion-label>
-      <ion-input formControlName="reference" placeholder="Entrer la chaine"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Date</ion-label>
-      <ion-input #dateInput type="date" placeholder="Sélectionner une date"></ion-input>
+  <ion-list>
+    <ion-item routerLink="/auditprocess">
+      <ion-label>
+        
+      processus audités
+      </ion-label>
+    
+      <ion-icon name="arrow-forward-outline" slot="end" class="arrow-icon"></ion-icon> <!-- Flèche -->
     </ion-item>
 
-    <!-- Listes de contrôle -->
-    <ion-toolbar>
-      <ion-title>
-        <ion-icon name="clipboard-outline"></ion-icon> Contrôle Qualité
-      </ion-title>
-    </ion-toolbar>
-
-    <ion-list>
-      <ion-item routerLink="/auditprocess">
-        <ion-label>
-          <ion-icon name="checkmark-done-circle-outline"></ion-icon>
-          Processus audités
-        </ion-label>
-        <ion-icon name="arrow-forward-outline" slot="end" class="arrow-icon"></ion-icon>
-      </ion-item>
-
-      <ion-item routerLink="/defaut">
-        <ion-label>
-          <ion-icon name="alert-circle-outline"></ion-icon>
-          Equipe d'audit
-        </ion-label>
-        <ion-icon name="arrow-forward-outline" slot="end" class="arrow-icon"></ion-icon>
-      </ion-item>
-    </ion-list>
-
-    <ion-button type="submit">Ajouter</ion-button>
-  </form>
+    <ion-item routerLink="/equipeaudit">
+      <ion-label>
+      
+      equipe d'audit
+      </ion-label>
+      <ion-icon name="arrow-forward-outline" slot="end" class="arrow-icon"></ion-icon>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="addAudit()">Ajouter l'audit</ion-button>
 </ion-content>

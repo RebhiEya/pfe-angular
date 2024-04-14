@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-
-
+import { DataService } from 'src/app/services/data.service';
+import {  ProcessChecklist } from 'src/app/models/ProcessChecklist.model'; 
 @Component({
   selector: 'app-addchecklistprocess',
   templateUrl: './addchecklistprocess.page.html',
@@ -9,12 +8,17 @@ import { ModalController } from '@ionic/angular';
 })
 export class AddchecklistprocessPage implements OnInit {
 
-  constructor(private modalController: ModalController) { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
+  customPopoverOptions = {
+    header: 'conformity',
+    subHeader: 'Select conformity',
+    message: 'Only select your conformity',
+  };
+  addchecklistProcess() {
+   
 
-  closeDialog() {
-    this.modalController.dismiss();
-  }
+}
 }
