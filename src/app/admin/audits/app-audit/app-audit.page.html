@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Ajouter un Produit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content class="my-form">
+      <form (ngSubmit)="update()">
+        <ion-list>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">processDesignation</ion-label>
+            <ion-input type="text" name="reference" [(ngModel)]="process.nom" ></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">recommendation</ion-label>
+            <ion-input type="text" name="category" [(ngModel)]="process.recommendation"  ></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Famille</ion-label>
+            <ion-input type="text" name="Famille"  [(ngModel)]="process.strength"></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Désignation</ion-label>
+            <ion-input type="text" name="designation" [(ngModel)]="process.weakness" ></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" color="primary" type="submit" >modifier</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
