@@ -1,9 +1,9 @@
 export interface auditProcesses {
-  processId:number;
-    processDesignation: string;
+  idProcess:number;
+    nom: string;
     recommendation: string;
     strength: string;
     weakness: string;
     checklistScore: number;
-    
+
   }

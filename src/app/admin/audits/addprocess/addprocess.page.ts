@@ -1,37 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
+import { Router } from '@angular/router';
+import { AuditprocessesService } from 'src/app/services/auditprocesses.service';
 import { auditProcesses } from 'src/app/models/processus.model'; // Import de l'interface auditProcesses
+
 
 @Component({
   selector: 'app-addprocess',
   templateUrl: './addprocess.page.html',
   styleUrls: ['./addprocess.page.scss'],
 })
-export class AddprocessPage implements OnInit {
+export class AddprocessPage {
+  auditprocesses: auditProcesses = {
+    idProcess: 0, // Vous pouvez initialiser processId à 0 ou à null selon votre logique
+    nom: '', // Vous devez spécifier la valeur ici
+    recommendation: '',    // Vous devez spécifier la valeur ici
+    strength: '',          // Vous devez spécifier la valeur ici
+    weakness: '',          // Vous devez spécifier la valeur ici
+    checklistScore: 0     // Vous devez spécifier la valeur ici
+  };
 
-  constructor(private dataService: DataService) { } // Injection du service DataService
+  constructor(private dataService: AuditprocessesService,
+    private router: Router
+  ) { } // Injection du service DataService
 
   ngOnInit() {
   }
 
-  addProcess() {
-    const newProcess: auditProcesses = {
-      processId: 0, // Vous pouvez initialiser processId à 0 ou à null selon votre logique
-      processDesignation: '', // Vous devez spécifier la valeur ici
-      recommendation: '',    // Vous devez spécifier la valeur ici
-      strength: '',          // Vous devez spécifier la valeur ici
-      weakness: '',          // Vous devez spécifier la valeur ici
-      checklistScore: 0     // Vous devez spécifier la valeur ici
-    };
+  ajouterProcesses() {
 
-    this.dataService.addProcess(newProcess).subscribe(
-      (response: auditProcesses) => { // Spécification du type de response
-        // Processus ajouté avec succès, vous pouvez implémenter le code pour gérer la réponse ici
-      },
-      (error: any) => { // Spécification du type de error
-        console.error('Erreur lors de l\'ajout du processus :', error);
-      }
+    this.dataService.addProcess(this.auditprocesses).subscribe(
+     ()=>this.router.navigate(['/auditprocess']),
     );
-  }
+}
+
 
 }

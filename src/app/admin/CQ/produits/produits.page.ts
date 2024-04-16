@@ -10,8 +10,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./produits.page.scss'],
 })
 export class ProduitsPage  {
-  controlId: string = '';
-  data: any; // Utilisez la variable de classe ici
+  data: any; 
   showComment: boolean = false;
   item :any;
 

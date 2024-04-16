@@ -5,31 +5,34 @@
 </ion-header>
 
 <ion-content>
-  <!-- Ajout des champs de référence produit et description -->
-  <ion-item>
-    <ion-label position="stacked">nom</ion-label>
-    <ion-input placeholder="Enter product reference"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">recommendation</ion-label>
-    <ion-input placeholder="Enter product reference"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">weakness</ion-label>
-    <ion-input placeholder="Enter description"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-item>
-      <ion-label position="stacked">strength</ion-label>
-      <ion-input  placeholder="Select Description"></ion-input>
-    </ion-item>
-    
-  </ion-item>
-  <ion-list>
-    <ion-item routerLink="/checklistprocess">
-      <ion-label>checklistprocess</ion-label>
-      <ion-icon name="arrow-forward-outline" slot="end" class="arrow-icon"></ion-icon> <!-- Flèche -->
-    </ion-item>
-  </ion-list>
-  <ion-button (click)="addProcess()" expand="block">Add Process</ion-button>
+  <ion-card>
+    <ion-card-content class="my-form">
+      <form (ngSubmit)=" ajouterProcesses()">
+        <ion-list>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">processDesignation</ion-label>
+            <ion-input type="text" name="nom" [(ngModel)]="auditprocesses.nom" required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">recommendation</ion-label>
+            <ion-input type="text" name="category" [(ngModel)]="auditprocesses.recommendation" required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">strength</ion-label>
+            <ion-input type="text" name="Famille" [(ngModel)]="auditprocesses.strength"></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">weakness</ion-label>
+            <ion-input type="text" name="designation" [(ngModel)]="auditprocesses.weakness"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="ajouterProcesses()" expand="block" color="primary" type="submit">Ajouter</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+

@@ -11,7 +11,11 @@ import { Produit } from 'src/app/models/produit.model';
   styleUrls: ['./checklist.page.scss'],
 })
 export class ChecklistPage  {
+  data: any; // Utilisez la variable de classe ici
+  item :any;
   controlCheckList : any ;
+
+
   selectedProduit : Produit = {
     idProduit :0,
     category: '',
@@ -31,6 +35,8 @@ export class ChecklistPage  {
       }
       )
 
+
+
     }
   ajouterchecklist() {
     this.productService.createchecklist(this.controlCheckList).subscribe(data =>{
@@ -38,5 +44,6 @@ export class ChecklistPage  {
       this.router.navigate(['/produits'])
     })
     }
+
 
 }

@@ -26,17 +26,17 @@ export class AddAuditPage {
       reference: this.reference
     };
 
-    this.auditService.addAudit(auditData).subscribe((response: any) => {
-      console.log('Audit ajouté avec succès:', response);
-      // Réinitialiser les champs après l'ajout
-      this.category = '';
-      this.designation = '';
-      this.startDate = '';
-      this.endDate = '';
-      this.state = '';
-      this.reference = '';
-    }, (error: any) => {
-      console.error('Erreur lors de l\'ajout de l\'audit:', error);
-    });
+    // this.auditService.addAudit(auditData).subscribe((response: any) => {
+    //   console.log('Audit ajouté avec succès:', response);
+    //   // Réinitialiser les champs après l'ajout
+    //   this.category = '';
+    //   this.designation = '';
+    //   this.startDate = '';
+    //   this.endDate = '';
+    //   this.state = '';
+    //   this.reference = '';
+    // }, (error: any) => {
+    //   console.error('Erreur lors de l\'ajout de l\'audit:', error);
+    // });
   }
 }

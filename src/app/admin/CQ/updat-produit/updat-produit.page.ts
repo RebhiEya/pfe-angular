@@ -13,7 +13,6 @@ export class UpdatProduitPage implements OnInit {
   controlId: string = '';
   produit : any ;
 
-
   constructor(private dataService: DataService ,
     private router: Router ,
     private toastController: ToastController,

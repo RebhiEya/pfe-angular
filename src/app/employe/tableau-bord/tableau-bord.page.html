@@ -1,21 +1,23 @@
-<ion-header>
-  <ion-toolbar>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu Content</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">This is the menu content.</ion-content>
+  </ion-menu>
 
-    <ion-title>Tableau de bord</ion-title>
-    <ion-buttons slot="start">
-      <ion-button  (click)="goToMenuPage()">menu</ion-button>
-    </ion-buttons>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
 
-    <ion-buttons slot="end">
-      <ion-button > <!--(click)="logout()"-->
-        <ion-icon class="color" name="power"></ion-icon>
-
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
   <ion-grid>
     <h2> Controle Qualités </h2>
     <ion-row>
@@ -24,9 +26,7 @@
           <ion-card-header>
             <ion-card-title >A réaliser </ion-card-title>
           </ion-card-header>
-         <!--  <ion-card-content>
-            Contenu de la donnée 1
-          </ion-card-content>  -->
+
         </ion-card>
       </ion-col>
 
@@ -35,9 +35,7 @@
           <ion-card-header>
             <ion-card-title>A Clôturer </ion-card-title>
           </ion-card-header>
-          <!-- <ion-card-content>
-            Contenu de la donnée 2
-          </ion-card-content> -->
+
         </ion-card>
       </ion-col>
     </ion-row>
@@ -49,9 +47,7 @@
           <ion-card-header>
             <ion-card-title>Audités</ion-card-title>
           </ion-card-header>
-         <!--  <ion-card-content>
-            Contenu de la donnée 3
-          </ion-card-content>  -->
+
         </ion-card>
       </ion-col>
 
@@ -60,9 +56,7 @@
           <ion-card-header>
             <ion-card-title>Auditeurs</ion-card-title>
           </ion-card-header>
-         <!--  <ion-card-content>
-            Contenu de la donnée 3
-          </ion-card-content>  -->
+
         </ion-card>
       </ion-col>
 
@@ -71,13 +65,14 @@
           <ion-card-header>
             <ion-card-title>A Clôturer </ion-card-title>
           </ion-card-header>
-         <!--  <ion-card-content>
-            Contenu de la donnée 3
-          </ion-card-content>  -->
+
         </ion-card>
       </ion-col>
     </ion-row>
 
 
   </ion-grid>
+  <ion-router-outlet id="main"></ion-router-outlet>
+
 </ion-content>
+</div>

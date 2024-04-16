@@ -2,42 +2,49 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { auditProcesses } from 'src/app/models/processus.model';
+import { AuditprocessesService } from 'src/app/services/auditprocesses.service';
+
 
 @Component({
   selector: 'app-processus',
   templateUrl: './auditprocess.page.html',
   styleUrls: ['./auditprocess.page.scss'],
 })
-export class ProcessusPage implements OnInit {
+export class ProcessusPage {
+  data: any;
   processes: auditProcesses[] = [];
   auditId: number = 0;
+  item :any;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private dataService: DataService
+    private processesService: AuditprocessesService
   ) { }
 
-  ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const auditIdParam = params.get('auditId');
-      if (auditIdParam !== null) {
-        this.auditId = +auditIdParam;
+  ionViewWillEnter() {
+    this.loadData();
+
       }
-      this.getProcessesByAudit(this.auditId);
+
+      loadData() {
+        this.processesService.getAllProcesses().subscribe((data) => {
+            this.data = data;
+            console.log(this.data);
+        });
+  }
+
+
+  delete(id : any){
+    this.processesService.deleteProsses(id).subscribe((data)=> {
+      this.data = data
     });
   }
 
-  getProcessesByAudit(auditId: number) {
-    this.dataService.getProcessesByAudit(auditId).subscribe(
-      (response: auditProcesses[]) => {
-        this.processes = response;
-      },
-      (error) => {
-        console.error('Erreur lors de la récupération des processus liés à l\'audit :', error);
-      }
-    );
+  update(process : any){
+    this.router.navigate(['/app-audit'],{ state:process })
   }
+
 
   redirectToAddProcess() {
     this.router.navigate(['/addprocess']);

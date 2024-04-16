@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'authentification',
-    loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
+    loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule),
   },
   {
     path: 'tableau-bord',
@@ -78,12 +78,17 @@ const routes: Routes = [
     path: 'add-checklist',
     loadChildren: () => import('./admin/CQ/add-checklist/add-checklist.module').then( m => m.AddChecklistPageModule)
   },
+  {
+    path: 'app-audit',
+    loadChildren: () => import('./admin/audits/app-audit/app-audit.module').then( m => m.AppAuditPageModule)
+  },
 
 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
-  exports: [RouterModule]
+  exports: [RouterModule],
+
 })
 export class AppRoutingModule {}

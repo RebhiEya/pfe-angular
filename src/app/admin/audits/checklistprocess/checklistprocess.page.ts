@@ -24,25 +24,25 @@ export class ChecklistprocessPage implements OnInit {
     this.route.params.subscribe(params => {
       this.processId = +params['id'];
       // Appeler la méthode pour récupérer les checklists associés à ce processus
-      this.getChecklistsByProcess(this.processId);
+     // this.getChecklistsByProcess(this.processId);
     });
   }
 
-  getChecklistsByProcess(processId: number) {
-    this.dataService.getChecklistsByProcess(processId).subscribe(
-      (response: ProcessChecklist[]) => {
-        this.checklists = response;
-      },
-      (error) => {
-        console.error('Erreur lors de la récupération des checklists :', error);
-      }
-    );
-  }
+  // getChecklistsByProcess(processId: number) {
+  //   this.dataService.getChecklistsByProcess(processId).subscribe(
+  //     (response: ProcessChecklist[]) => {
+  //       this.checklists = response;
+  //     },
+  //     (error) => {
+  //       console.error('Erreur lors de la récupération des checklists :', error);
+  //     }
+  //   );
+  // }
 
   // Méthode pour rediriger vers l'ajout d'une checklist pour ce processus
-  redirectToAddchecklistProcess(){ 
+  redirectToAddchecklistProcess(){
     this.router.navigate(['/addchecklistprocess']);
 
   }
-  
+
 }
