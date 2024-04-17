@@ -5,5 +5,5 @@ export interface ProcessChecklist {
      state:String;
      conformity:Boolean;
     description:String;
+<<<<<<< HEAD
 }
- 
