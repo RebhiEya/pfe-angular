@@ -12,10 +12,13 @@
 <ion-content class="item-details">
 
   <ion-list>
-    <ion-item *ngFor="let item of data; index as i " (click) ="selectProduit(item)">
+    <ion-item *ngFor="let item of data; index as i " >
       <ion-label class="item-label">
         <div class="item-container">
           <div class="flex-container">
+
+
+            <ion-checkbox color="secondary" (click) ="selectProduit(item)"></ion-checkbox>
 
               <p class="reference-text">{{ item.reference }}</p>
 

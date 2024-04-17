@@ -4,14 +4,12 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Drivers } from '@ionic/storage';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Camera } from '@ionic-native/camera/ngx';
 import { MediaCapture } from '@ionic-native/media-capture/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import{VideoCapturePlus}  from "@ionic-native/video-capture-plus/ngx";
-import { MenuPage } from './employe/menu/menu.page';
 import { ReactiveFormsModule } from '@angular/forms';
 
 

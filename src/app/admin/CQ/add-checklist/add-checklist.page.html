@@ -20,28 +20,28 @@
       <ion-label position="floating">
         <ion-icon name="barcode" slot="start" class="custom-icon"></ion-icon> category
       </ion-label>
-      <ion-input  class="custom-input"></ion-input>
+      <ion-input  class="custom-input" name="category" [(ngModel)]="controlCheckList.category" ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">
         <ion-icon name="cube" slot="start" class="custom-icon"></ion-icon> critéres
       </ion-label>
-      <ion-input  class="custom-input"></ion-input>
+      <ion-input  class="custom-input"  name="criteria" [(ngModel)]="controlCheckList.criteria"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">
         <ion-icon name="pencil" slot="start" class="custom-icon"></ion-icon> operation
       </ion-label>
-      <ion-input  class="custom-input"></ion-input>
+      <ion-input  class="custom-input"  name="operation" [(ngModel)]="controlCheckList.operation"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">
-        <ion-icon name="link" slot="start" class="custom-icon"></ion-icon> Exigences
+        <ion-icon name="link" slot="start" class="custom-icon"></ion-icon> Conformité
       </ion-label>
-      <ion-input class="custom-input"></ion-input>
+      <ion-input class="custom-input"  name="conformity" [(ngModel)]="controlCheckList.conformity"></ion-input>
     </ion-item>
   </ion-list>
 

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { ControlCheckList } from 'src/app/models/ControlCheckList.model';
 import { Produit } from 'src/app/models/produit.model';
+import { ChecklistService } from 'src/app/services/checklist.service';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class ChecklistPage  {
     famille:''
 
   };
-  constructor(private router: Router , private productService: DataService) { }
+  selectedChecklists: ControlCheckList[] = [];
+  constructor(private router: Router , private productService: DataService , private checklistService : ChecklistService) { }
 
 
     ionViewWillEnter() {
@@ -33,17 +35,38 @@ export class ChecklistPage  {
        this.controlCheckList = data
        console.log(data)
       }
+
       )
-
-
-
+      //console.log(this.checklistService.getChecklist)
     }
-  ajouterchecklist() {
-    this.productService.createchecklist(this.controlCheckList).subscribe(data =>{
-      console.log(data);
-      this.router.navigate(['/produits'])
-    })
+    toggleSelection(checklist: ControlCheckList) {
+      const index = this.selectedChecklists.findIndex(item => item.idControlCheckList === checklist.idControlCheckList);
+      if (index !== -1) {
+        this.selectedChecklists.splice(index, 1); // Deselect if already selected
+
+      } else {
+        this.selectedChecklists.push(checklist); // Select if not already selected
+
+      }
     }
+
+    isSelected(checklist: ControlCheckList): boolean {
+      this.selectedChecklists = this.checklistService.getChecklist(); // Get selected checklists from service
+      return this.selectedChecklists.some(item => item.idControlCheckList === checklist.idControlCheckList);
+    }
+
+    saveSelectedChecklists() {
+      // Save the selected checklists to the ControlService for the new Control
+      console.log(this.selectedChecklists)
+      this.checklistService.setChecklist(this.selectedChecklists);
+
+
+       this.router.navigate(['/add-control'] );
+    }
+    isItemCompleted(item: any): boolean {
+      return item.completed || false; // Return true if completed, false if not set
+    }
+
 
 
 }

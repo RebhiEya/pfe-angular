@@ -23,10 +23,6 @@ const routes: Routes = [
     loadChildren: () => import('./employe/tableau-bord/tableau-bord.module').then( m => m.TableauBordPageModule)
   },
   {
-    path: 'menu',
-    loadChildren: () => import('./employe/menu/menu.module').then( m => m.MenuPageModule)
-  },
-  {
     path: 'mycontrol',
     loadChildren: () => import('./employe/mycontrol/mycontrol.module').then( m => m.MycontrolPageModule)
   },
@@ -81,6 +77,10 @@ const routes: Routes = [
   {
     path: 'app-audit',
     loadChildren: () => import('./admin/audits/app-audit/app-audit.module').then( m => m.AppAuditPageModule)
+  },
+  {
+    path: 'control-checklist',
+    loadChildren: () => import('./employe/QC/control-checklist/control-checklist.module').then( m => m.ControlChecklistPageModule)
   },
 
 

@@ -1,15 +1,16 @@
 
 export class ControlCheckList {
+  idControlCheckList: Number;
   category: string;
   criteria: string;
   operation: string;
-  conformity: string;
+  conformity: boolean;
   defects: string;
   measures: Number;
   description: string;
 
 
-  constructor(category: string, criteria: string,  operation: string, conformity: string, defects: string ,  measures: Number,
+  constructor(category: string, criteria: string,  operation: string, conformity: boolean, defects: string ,  measures: Number,
     description: string ) {
     this.category = category;
     this.criteria = criteria;

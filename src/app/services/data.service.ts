@@ -43,7 +43,6 @@ export class DataService {
       return this.httpClient.get<any[]>(`http://localhost:8089/controlCheckList/getByIdProduit/${id}`);
       }
   createproduit(produit: Produit): Observable<object> {
-
   return this.httpClient.post( `${this.urlRoot}/add` , produit ) ;
 
   }
@@ -56,17 +55,10 @@ export class DataService {
       return this.httpClient.delete<any>(`${this.urlRoot}/delete/${id}`);
     }
 
-
-
-    createchecklist(controlCheckList: ControlCheckList): Observable<object> {
+    createchecklist(id : any ,controlCheckList: any): Observable<object> {
       console.log( controlCheckList);
-      return this.httpClient.post(this.urlRoot , controlCheckList ) ;
+      return this.httpClient.post(`http://localhost:8089/produit/assign-checklist-to-produit/${id}` , controlCheckList ) ;
     }
-
-
-
-
-
   }
 
 

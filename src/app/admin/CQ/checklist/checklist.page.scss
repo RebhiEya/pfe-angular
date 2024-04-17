@@ -8,9 +8,39 @@ ion-header{
   }
   }
 
-  .my-form {
-    --ion-color-primary: rgb(72, 99, 160); /* Couleur de fond */
-    --ion-color-primary-contrast: #ffffff; /* Couleur du texte */
+  .item-details {
+    padding: 20px; /* Espacement intérieur du contenu */
   }
 
-//
+  table {
+    width: 100%; /* Table largeur 100% */
+    border-collapse: collapse; /* Fusionner les bordures */
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2; /* Couleur de fond des lignes paires */
+  }
+
+  tr:hover {
+    background-color: #ddd; /* Couleur de fond au survol */
+  }
+
+  td {
+    padding: 10px; /* Espacement intérieur des cellules */
+  }
+
+  .reference-text {
+    font-weight: bold; /* Texte en gras */
+  }
+
+  .reference-value {
+    font-weight: bold; /* Texte en gras */
+  }
+
+  .button-spacing {
+    margin-left: 10px; /* Espacement entre les boutons */
+  }
+
+  ion-checkbox {
+    margin-right: 10px; /* Espacement entre les cases à cocher et le texte */
+  }

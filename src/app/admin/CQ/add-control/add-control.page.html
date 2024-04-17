@@ -26,33 +26,40 @@
       <ion-input class="custom-input" [(ngModel)]="selectedProduit.reference"></ion-input>
 
     </ion-item>
-
+    <form (ngSubmit)="ajouter()">
 
     <ion-item>
       <ion-label position="floating">
         <ion-icon name="barcode" slot="start" class="custom-icon"></ion-icon> Reference
       </ion-label>
-      <ion-input class="custom-input"></ion-input>
+      <ion-input class="custom-input" name="reference" [(ngModel)]="control.reference"></ion-input>
     </ion-item>
 
 
     <ion-item>
       <ion-label position="floating">
-        <ion-icon name="pencil" slot="start" class="custom-icon"></ion-icon> Description
+        <ion-icon name="pencil" slot="start" class="custom-icon" ></ion-icon> Description
       </ion-label>
-      <ion-input class="custom-input"></ion-input>
+      <ion-input class="custom-input" name="description" [(ngModel)]="control.description"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">
-        <ion-icon name="link" slot="start" class="custom-icon"></ion-icon> Chaine
+        <ion-icon name="link" slot="start" class="custom-icon"></ion-icon> internalReference
       </ion-label>
-      <ion-input  class="custom-input"></ion-input>
+      <ion-input  class="custom-input" name="internalReference" [(ngModel)]="control.internalReference"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">
+        <ion-icon name="link" slot="start" class="custom-icon"></ion-icon> State
+      </ion-label>
+      <ion-input  class="custom-input" name="state" [(ngModel)]="control.state"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked" class="custom-label">Date</ion-label>
-      <ion-input #dateInput type="date" placeholder="Select Date" class="custom-input"></ion-input>
+      <ion-input #dateInput type="date" name="date" placeholder="Select Date" class="custom-input"  [(ngModel)]="control.date"></ion-input>
     </ion-item>
 
 
@@ -103,6 +110,6 @@
       <ion-button class="my-form" expand="block" color="primary" type="submit">Ajouter</ion-button>
     </ion-col>
   </ion-row>
-
+</form>
 
 </ion-content>
