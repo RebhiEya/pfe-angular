@@ -1,17 +1,15 @@
 <ion-header>
-  <ion-toolbar color="tertiary">
-    <ion-buttons slot="start">
-      <ion-menu-button menu="main-menu"></ion-menu-button>
-    </ion-buttons>
+  <ion-toolbar >
     <ion-title>Checklist</ion-title>
     <ion-buttons slot="end">
       <!-- (click)="updatChecklistData()" -->
-      <ion-button >
-        <ion-icon slot="icon-only" name="add"></ion-icon>
+      <ion-button (click)="updatChecklist()" >
+        <ion-icon  name="save-outline" style="font-size: 2em; color: #f2eded;"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 
 <ion-content>
@@ -30,16 +28,25 @@
 
   <ion-card-content class="ion-title-left">
 
-    <div class="icon-row">
+
+      <button class="tick-btn" (click)="toggleTick()">
+        <ion-icon [name]="tickClicked ? 'checkbox-outline' : 'checkmark-outline'" style="font-size: 4em; color: green; margin-left: 30px;"></ion-icon>
+      </button>
+
+      <button class="cross-btn" (click)="toggleCross()">
+        <ion-icon [name]="crossClicked ? 'close-circle-outline' : 'checkbox-outline'" style="font-size: 4em; color: red; margin-left: 30px;"></ion-icon>
+      </button>
+
+
+
+
 
       <!-- (click)="NonConform(item)" -->
-      <ion-icon name="close-circle-outline" style="font-size: 4em; color: #ff0000; margin-left: 30px;"></ion-icon>
+
 
       <!-- (click)="Conform(item)" -->
-      <ion-icon name="checkmark-circle"  style="font-size: 4em" slot="end" color="success"></ion-icon>
 
 
-    </div>
   </ion-card-content>
   </ion-card>
 

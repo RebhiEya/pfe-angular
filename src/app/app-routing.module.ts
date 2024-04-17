@@ -82,6 +82,10 @@ const routes: Routes = [
     path: 'control-checklist',
     loadChildren: () => import('./employe/QC/control-checklist/control-checklist.module').then( m => m.ControlChecklistPageModule)
   },
+  {
+    path: 'control-defect',
+    loadChildren: () => import('./employe/QC/control-defect/control-defect.module').then( m => m.ControlDefectPageModule)
+  },
 
 
 ];
