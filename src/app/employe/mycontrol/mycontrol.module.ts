@@ -8,6 +8,7 @@ import { MycontrolPageRoutingModule } from './mycontrol-routing.module';
 
 import { MycontrolPage } from './mycontrol.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
