@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Checklist</ion-title>
+    <ion-buttons slot="end">
+      <!-- (click)="updatChecklistData()" -->
+      <ion-button >
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <!-- *ngFor="let item of checklistData" -->
+  <ion-card >
+
+
+    <ion-card-header>
+      <ion-card-title class="text" >item.category</ion-card-title>
+      <ion-card-subtitle class="text"> item.operation </ion-card-subtitle>
+      <ion-card-subtitle class="text"> item.criteria</ion-card-subtitle>
+      <ion-card-subtitle class="text"> item.controlTypeStr </ion-card-subtitle>
+
+    </ion-card-header>
+
+  <ion-card-content class="ion-title-left">
+
+    <div class="icon-row">
+
+      <ion-icon name="close-circle-outline" style="font-size: 4em; color: #ff0000; margin-left: 30px;"></ion-icon>
+      <!-- (click)="Conform(item)" -->
+      <ion-checkbox   color="primary" class="ion-activated"></ion-checkbox>
+      <!-- (click)="NonConform(item)" -->
+      <ion-checkbox  color="secondary" class="ion-activated"></ion-checkbox>
+      <ion-checkbox color="tertiary" class="ion-activated"></ion-checkbox>
+
+    </div>
+
+    <ion-progress-bar value="0.5" color="custom"></ion-progress-bar>
+
+  </ion-card-content>
+
+  </ion-card>
+
+
+
+  <div  class="blue-bar">
+    <ion-icon  name="camera" style="font-size: 2em; color: #fff;"> </ion-icon>
+    <ion-icon name="mic" style="font-size: 2em; color: #fff;"></ion-icon>
+    <ion-icon name="image" style="font-size: 2em; color: #fff;"></ion-icon>
+    <ion-icon name="videocam" style="font-size: 2em; color: #fff;"></ion-icon>
+  </div>
+
+
+
+
+</ion-content>
