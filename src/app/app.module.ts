@@ -19,14 +19,15 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     IonicModule.forRoot(), // Assurez-vous que IonicModule est importé avec forRoot()
-    HttpClientModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
 
   ],
   providers: [
     HttpClient,
-    { provide: RouteReuseStrategy,useClass: IonicRouteStrategy },
+    { provide: RouteReuseStrategy,
+      useClass: IonicRouteStrategy },
     Camera,
     MediaCapture,
     File,

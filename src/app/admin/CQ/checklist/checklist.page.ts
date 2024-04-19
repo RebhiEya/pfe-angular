@@ -39,6 +39,8 @@ export class ChecklistPage  {
       )
       //console.log(this.checklistService.getChecklist)
     }
+
+    
     toggleSelection(checklist: ControlCheckList) {
       const index = this.selectedChecklists.findIndex(item => item.idControlCheckList === checklist.idControlCheckList);
       if (index !== -1) {

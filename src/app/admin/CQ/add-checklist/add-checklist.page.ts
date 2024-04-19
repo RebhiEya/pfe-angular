@@ -30,36 +30,18 @@ export class AddChecklistPage  {
       private dataService:DataService,
       private router: Router) { }
 
-      // ajouterchecklist() {
-      //   this.dataService.createchecklist(this.selectedProduit,this.controlCheckList).subscribe(data =>{
-      //     console.log(data);
-      //     this.router.navigate(['/produits'])
-      //   },
-      //   (error) => {
-      //     console.error(error);
-      //     // Handle error, show error message, etc.
-      //   }
-      // );
-      //   }
-      ajouterchecklist() {
-        // Vérifiez si un produit est sélectionné
-        if (this.selectedProduit.length > 0) {
-          const selectedProductId = this.selectedProduit[0].idProduit; // Supposons que c'est le bon ID
-          this.dataService.createchecklist(selectedProductId, this.controlCheckList).subscribe(
-            (data) => {
-              console.log(data);
-              this.router.navigate(['/produits']);
-            },
-            (error) => {
-              console.error(error);
-              // Gérer l'erreur, afficher un message d'erreur, etc.
-            }
-          );
-        } else {
-          console.error("Aucun produit sélectionné.");
-          // Afficher un message ou gérer l'absence de produit sélectionné
-        }
-      }
+       ajouterchecklist() {
+         this.dataService.createchecklist(this.selectedProduit,this.controlCheckList).subscribe(data =>{
+          console.log(data);
+           this.router.navigate(['/produits'])
+         },
+        (error) => {
+           console.error(error);
+           // Handle error, show error message, etc.
+         }
+       );
+         }
+
 
 
 }
