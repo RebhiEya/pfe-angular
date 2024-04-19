@@ -1,0 +1,56 @@
+<ion-content class="item-details">
+  <div class="top-bar">
+    <!-- Photo de profil à gauche -->
+    
+    <!-- Flèche à droite -->
+    <div class="arrow-icon">
+      <ion-icon name="refresh-circle" style="font-size: 2em; color: #ffffff;"></ion-icon>
+      <ion-icon name="funnel"  style="font-size: 2em; color: #ffffff;"></ion-icon>
+    </div>
+  </div>
+ 
+  <ion-list>
+    
+      <ion-label class="item-label">
+        <div class="item-container">
+          <div class="item-header">
+            <div class="item-title">
+            </div>
+          </div>
+          <div class="item-row">
+            <div class="item-left">
+              <p>reference </p> 
+              <p p class="g-text">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p>
+              <p class="red-text">auditorScore</p>
+            </div>
+            <div class="item-right">
+              <div class="status-circles">
+                
+                <ion-buttons slot="end">
+                  <ion-button (click)="redirectToProcessPage()">
+                    <ion-icon name="chevron-forward" class="arrow"></ion-icon>
+                  </ion-button>
+                </ion-buttons>
+              </div>
+              <p class="g-text">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p>
+              <p class="red-text"> costsAudit</p>
+            </div>
+          </div>
+          <div>
+            <ion-button  style="--background:#bfd7ea; --color: #1b3a51;">
+              <ion-icon name="brush" style="--color: #4d83ab;"></ion-icon>
+            </ion-button>
+            <ion-button  style="--background:#bfd7ea; --color: #1b3a51;">
+              <ion-icon name="people" style="--color: #4d83ab;"></ion-icon>
+            </ion-button>
+            <ion-button style="--background:#bfd7ea; --color: #1b3a51;">
+              <ion-icon name="folder" style="--color: #4d83ab;"></ion-icon>
+            </ion-button>
+            
+            <!-- Champ de commentaire -->
+          </div>
+        </div>
+      </ion-label>
+    
+  </ion-list>
+</ion-content>

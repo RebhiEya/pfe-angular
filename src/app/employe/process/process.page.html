@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>la processus </ion-title>
+    <ion-buttons slot="end">
+      <!-- (click)="updatChecklistData()" -->
+      <ion-button >
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+    <ion-item >
+      <ion-label>
+       <div class="item-row">
+         <div class="item-left">          
+           <p>checklistScore</p>
+         </div>        
+        </div>            
+        <p>processDesignation</p>
+        <p class="g-text">- - - - - - - - - - - - - - - - - - - - -</p>
+        
+        <p class="g-text">- - - - - - - - - - - - - - - - - - -</p>
+        <ion-icon name="document-text-outline"  style="font-size: 3em; color: #ea1111; margin-left: 20px;"></ion-icon>
+        <ion-icon name="document-text-outline"  style="font-size: 3em; color: #014b2a; margin-left: 20px;"></ion-icon>
+        <ion-icon name="document-text-outline"  style="font-size: 3em; color: #034ab4; margin-left: 20px;"></ion-icon>
+        
+        
+        <ion-icon name="list-outline" (click)="navigatetoauditchecklist()" style="font-size: 3em; color: #030303; margin-left: 70px;"></ion-icon>
+ 
+       
+      </ion-label>
+    </ion-item>
+    <!-- Barre d'icônes -->
+  </ion-list>
+
+  <div  class="blue-bar">
+    <ion-icon  name="camera" style="font-size: 2em; color: #fff;"> </ion-icon>
+    <ion-icon name="mic" style="font-size: 2em; color: #fff;"></ion-icon>
+    <ion-icon name="image" style="font-size: 2em; color: #fff;"></ion-icon>
+    <ion-icon name="videocam" style="font-size: 2em; color: #fff;"></ion-icon>
+  </div>
+
+
+
+
+</ion-content>

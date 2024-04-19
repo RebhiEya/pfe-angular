@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>adduser</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content class="my-form">
+      <form (ngSubmit)="ajouterUser()">
+        <ion-list>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Nom </ion-label>
+            <ion-input type="text" name="firstName" [(ngModel)]="user.firstName" required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Prenom</ion-label>
+            <ion-input type="text" name="LastName" [(ngModel)]="user.LastName" required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Matricule</ion-label>
+            <ion-input type="text" name="matricule" [(ngModel)]="user.matricule"></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Password</ion-label>
+            <ion-input type="text" name="password" [(ngModel)]="user.password"></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Email</ion-label>
+            <ion-input type="text" name="email" [(ngModel)]="user.email"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="ajouterUser()" expand="block" color="primary" type="submit">Ajouter</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

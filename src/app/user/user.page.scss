@@ -1,0 +1,66 @@
+.custom-toolbar {
+    --background: rgb(87, 87, 231);
+  }
+  /* Styling for ion-toolbar */
+ion-toolbar {
+  --background: #ffffff; /* Background color */
+  --border-color: #cccccc; /* Border color */
+}
+
+/* Styling for ion-title */
+ion-title {
+  color: #333333; /* Title color */
+}
+
+/* Styling for ion-button */
+ion-button {
+  --color: #ffffff; /* Text color */
+}
+
+/* Styling for ion-item */
+ion-item {
+  --background: transparent; /* Transparent background */
+}
+
+/* Styling for item-details */
+.item-details {
+  --background: #f9f9f9; /* Background color */
+}
+
+/* Styling for table */
+table {
+  width: 100%; /* Full width */
+  border-collapse: collapse; /* Collapse border */
+}
+
+/* Styling for table header */
+th {
+  background-color: #eeeeee; /* Background color */
+  color: #5a3ccf; /* Text color */
+  font-weight: bold; /* Bold text */
+  padding: 10px; /* Padding */
+  text-align: left; /* Left align text */
+  border-bottom: 1px solid #cccccc; /* Bottom border */
+}
+
+/* Styling for table cell */
+td {
+  padding: 10px; /* Padding */
+  border-bottom: 1px solid #cccccc; /* Bottom border */
+}
+
+/* Styling for table cell with button */
+td button {
+  margin-right: 5px; /* Right margin */
+}
+/* Styling for button "Modifier" */
+/* Styling for button "Modifier" */
+button.modify-button {
+  --color: #007bff; /* Blue color */
+}
+
+/* Styling for button "Supprimer" */
+button.delete-button {
+  --color: #dc3545; /* Red color */
+}
+  
