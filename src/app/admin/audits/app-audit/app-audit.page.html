@@ -10,19 +10,19 @@
       <form (ngSubmit)="update()">
         <ion-list>
           <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">processDesignation</ion-label>
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Nom de processus</ion-label>
             <ion-input type="text" name="reference" [(ngModel)]="process.nom" ></ion-input>
           </ion-item>
           <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">recommendation</ion-label>
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Recommendation</ion-label>
             <ion-input type="text" name="category" [(ngModel)]="process.recommendation"  ></ion-input>
           </ion-item>
           <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Famille</ion-label>
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Point Fort</ion-label>
             <ion-input type="text" name="Famille"  [(ngModel)]="process.strength"></ion-input>
           </ion-item>
           <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Désignation</ion-label>
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Point Faible</ion-label>
             <ion-input type="text" name="designation" [(ngModel)]="process.weakness" ></ion-input>
           </ion-item>
         </ion-list>

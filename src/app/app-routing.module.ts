@@ -86,9 +86,6 @@ const routes: Routes = [
     path: 'control-defect',
     loadChildren: () => import('./employe/QC/control-defect/control-defect.module').then( m => m.ControlDefectPageModule)
   },
-  
-
-
 
 
 ];

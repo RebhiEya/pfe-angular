@@ -10,19 +10,19 @@
       <form (ngSubmit)=" ajouterProcesses()">
         <ion-list>
           <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">processDesignation</ion-label>
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Nom du processus</ion-label>
             <ion-input type="text" name="nom" [(ngModel)]="auditprocesses.nom" required></ion-input>
           </ion-item>
           <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">recommendation</ion-label>
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Recommendation</ion-label>
             <ion-input type="text" name="category" [(ngModel)]="auditprocesses.recommendation" required></ion-input>
           </ion-item>
           <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">strength</ion-label>
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Point Fort</ion-label>
             <ion-input type="text" name="Famille" [(ngModel)]="auditprocesses.strength"></ion-input>
           </ion-item>
           <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">weakness</ion-label>
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Point Faible</ion-label>
             <ion-input type="text" name="designation" [(ngModel)]="auditprocesses.weakness"></ion-input>
           </ion-item>
         </ion-list>

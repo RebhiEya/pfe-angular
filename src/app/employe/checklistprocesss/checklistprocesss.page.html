@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-icon name="chevron-back" class="arrow" (click)="goTomyprocessPage()" style="font-size: 2em;"></ion-icon>
+  Checklistprocess
+    <ion-buttons slot="end">
+      <!-- (click)="updatChecklistData()" -->
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <!-- *ngFor="let item of checklistData" -->
+  <ion-list>
+    <ion-item >
+      <ion-label>
+       <div class="item-row">
+         <div class="item-left">
+           
+           <p>processDesignation</p>
+         </div>
+          
+        </div>
+              
+        <p>requirement </p>
+        <p class="g-text">- - - - - - - - - - - - - - - - - - - - -</p>
+        <p class="red-text">question</p>
+        
+       
+        <ion-button fill="clear">
+          <ion-icon name="checkmark-circle" style="color: rgb(106, 179, 106);"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear">
+          <ion-icon name="close-circle" style="color: rgb(211, 26, 26);"></ion-icon>
+        </ion-button>
+        <ion-button  fill="clear">
+          <ion-icon name="checkmark-circle" style="color: rgb(48, 36, 208);"></ion-icon>
+        </ion-button>
+        
+      </ion-label>
+    </ion-item>
+    <!-- Barre d'icônes -->
+  </ion-list>
+
+  <div  class="blue-bar">
+    <ion-icon  name="camera" style="font-size: 2em; color: #fff;"> </ion-icon>
+    <ion-icon name="mic" style="font-size: 2em; color: #fff;"></ion-icon>
+    <ion-icon name="image" style="font-size: 2em; color: #fff;"></ion-icon>
+    <ion-icon name="videocam" style="font-size: 2em; color: #fff;"></ion-icon>
+  </div>
+
+
+
+
+</ion-content>

@@ -44,6 +44,8 @@ export class AuditprocessesService {
       return this.httpClient.put<any>(`${this.baseUrl}/update/${id}`, item );
 
     }
+    
+ 
 
     // Ajoutez cette méthode pour récupérer les processus liés à un audit spécifique
     getProcessesByAudit(auditId: number): Observable<auditProcesses[]> {
