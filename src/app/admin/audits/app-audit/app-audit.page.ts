@@ -28,7 +28,7 @@ export class AppAuditPage implements OnInit {
 
 update(){
   this.dataService.updateProcess(this.process.idProcess,this.process).subscribe(
-   ()=>this.router.navigate(['/auditprocrss']),
+   ()=>this.router.navigate(['/auditprocess']),
 );
 
 

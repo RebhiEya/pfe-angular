@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-audit',
@@ -13,8 +14,8 @@ export class AddAuditPage {
   endDate: string = '';
   state: string = '';
   reference: string = '';
-
-  constructor(private auditService: DataService) {}
+  processId: any;
+  constructor(private auditService: DataService,private route: ActivatedRoute) {}
 
   addAudit() {
     const auditData = {
@@ -39,4 +40,13 @@ export class AddAuditPage {
     //   console.error('Erreur lors de l\'ajout de l\'audit:', error);
     // });
   }
+  ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      if (params && params['state'] && params['state'].processId) {
+        this.processId = params['state'].processId;
+        // Utilisez this.processId pour associer le processus à l'audit
+      }
+    });
+  }
+  
 }

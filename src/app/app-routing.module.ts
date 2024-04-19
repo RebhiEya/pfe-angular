@@ -83,9 +83,34 @@ const routes: Routes = [
     loadChildren: () => import('./employe/QC/control-checklist/control-checklist.module').then( m => m.ControlChecklistPageModule)
   },
   {
-    path: 'control-defect',
-    loadChildren: () => import('./employe/QC/control-defect/control-defect.module').then( m => m.ControlDefectPageModule)
+    path: 'my-audit',
+    loadChildren: () => import('./employe/my-audit/my-audit.module').then( m => m.MyAuditPageModule)
   },
+  {
+    path: 'process',
+    loadChildren: () => import('./employe/process/process.module').then( m => m.ProcessPageModule)
+  },
+  {
+    path: 'checklistprocesss',
+    loadChildren: () => import('./employe/checklistprocesss/checklistprocesss.module').then( m => m.ChecklistprocesssPageModule)
+  },
+
+
+  {
+    path: 'user',
+    loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
+  },
+  {
+    path: 'useradd',
+    loadChildren: () => import('./useradd/useradd.module').then( m => m.UseraddPageModule)
+  },
+
+
+
+
+
+
+
 
 
 ];

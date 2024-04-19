@@ -39,6 +39,16 @@
       <ion-select-option value="red">conforme et efficace </ion-select-option>
     </ion-select>
   </ion-item>
+  
+  <!-- Champ pour le critère avec sélecteur conforme/non conforme -->
+  <ion-item>
+    <ion-label position="stacked">Critère</ion-label>
+    <ion-select label="conformité" placeholder="Choisir">
+      <ion-select-option value="conforme">Conforme</ion-select-option>
+      <ion-select-option value="nonconforme">Non conforme</ion-select-option>
+    </ion-select>
+  </ion-item>
+  
   <!-- Bouton pour ajouter la checklist -->
   <ion-button (click)="addchecklistProcess()" expand="full">Ajouter Checklist</ion-button>
 </ion-content>

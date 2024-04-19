@@ -1,39 +1,41 @@
 <ion-content>
   <div id="header">
     <div id="ap-bar">
-      <ion-icon name="arrow-back" routerLink="/singup"></ion-icon>
+      
       <div id="logo">
         <img src="assets/logo.png" alt="" />
       </div>
-    <div> </div>
+      <div> </div>
     </div>
 
-    <h1>Sign in</h1>
-    <p>Hi to discover amazing things near <br> around you</p>
+    <h1>Login to your workspace</h1>
+  
   </div>
 
   <div class="wrapper">
     <ion-card class="form-wrapper">
       <ion-card-content>
-        <ion-item>
-          <ion-label>Country</ion-label>
-          <ion-select placeholder="Select country">
-            <ion-select-option value="usa">USA</ion-select-option>
-            <ion-select-option value="uk">UK</ion-select-option>
-            <ion-select-option value="france">France</ion-select-option>
-            <ion-select-option value="germany">Germany</ion-select-option>
-          </ion-select>
-        </ion-item>
+        <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="setItem()">
+          <ion-item [class.invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-input formControlName="email" placeholder="Email"></ion-input>
+          </ion-item>
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+            <span *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</span>
+            <span *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format</span>
+          </div>
 
-        <ion-item>
-          <ion-icon name="mail" slot="start"></ion-icon>
-          <ion-input placeholder="Username" [(ngModel)]="username"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-icon name="lock-closed" slot="start"></ion-icon>
-          <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
-        </ion-item>
-        <ion-button  (click)="setItem()" expand="block">Sign in</ion-button>
+          <ion-item [class.invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            <ion-icon name="lock-closed" slot="start"></ion-icon>
+            <ion-input formControlName="password" placeholder="Password" type="password"></ion-input>
+          </ion-item>
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+            <span *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</span>
+            <span *ngIf="loginForm.get('password')?.errors?.['pattern']" class="error-text">Le mot de passe doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre, un caractère spécial et comporter au moins 8 caractères..</span>
+          </div>
+
+          <ion-button type="submit" expand="block">Sign in</ion-button>
+        </form>
       </ion-card-content>
     </ion-card>
 

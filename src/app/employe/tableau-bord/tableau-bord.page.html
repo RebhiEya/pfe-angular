@@ -39,32 +39,19 @@
             </div>
           </ion-accordion>
 
+          <ion-accordion value="cq">
+            <ion-item slot="header" color="light">
+              <ion-icon slot="start" name="document-text"></ion-icon>
+              <ion-label>Audit</ion-label>
+            </ion-item>
 
 
-          <ion-accordion value="rc">
-            <ion-router-link routerLink="/rc" slot="header" color="light">
-              <ion-item>
-                <ion-icon slot="start" name="repeat"></ion-icon>
-                <ion-label>RC</ion-label>
-              </ion-item>
-            </ion-router-link>
             <div class="ion-padding" slot="content">
-              <ion-item routerLink="/rc-content">
-                <ion-label>RC Content</ion-label>
+              <ion-item routerLink="/add-audit">
+                <ion-label>Ajout d'un nouveau Audit</ion-label>
               </ion-item>
-            </div>
-          </ion-accordion>
-
-          <ion-accordion value="audit">
-            <ion-router-link routerLink="/audit" slot="header" color="light">
-              <ion-item>
-                <ion-icon slot="start" name="clipboard"></ion-icon>
-                <ion-label>Audit</ion-label>
-              </ion-item>
-            </ion-router-link>
-            <div class="ion-padding" slot="content">
-              <ion-item routerLink="/audit-content">
-                <ion-label>Audit Content</ion-label>
+              <ion-item routerLink="/my-audit" >
+                <ion-label>les audits</ion-label>
               </ion-item>
             </div>
           </ion-accordion>
