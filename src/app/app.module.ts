@@ -12,7 +12,6 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
 import{VideoCapturePlus}  from "@ionic-native/video-capture-plus/ngx";
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [AppComponent ],
 

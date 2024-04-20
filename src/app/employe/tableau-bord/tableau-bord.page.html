@@ -12,63 +12,25 @@
       </div>
 
       <div class="action-button">
-        <ion-button routerLink="/page3">
+        <ion-button routerLink="/tableau-bord">
           <ion-icon slot="start" name="add"></ion-icon>HOME
         </ion-button>
       </div>
 
-
-
       <ion-list class="menu-items menu-icons" lines="none">
         <ion-accordion-group>
 
-          <ion-accordion value="cq">
-            <ion-item slot="header" color="light">
-              <ion-icon slot="start" name="document-text"></ion-icon>
-              <ion-label>Contrôle Qualité</ion-label>
-            </ion-item>
 
+          <ion-item routerLink="/mycontrol"  >
+            <ion-icon slot="start" name="document-text"></ion-icon>
+            <ion-label>Contrôle Qualité</ion-label>
+          </ion-item>
 
-            <div class="ion-padding" slot="content">
-              <ion-item routerLink="/add-control">
-                <ion-label>Ajout d'un nouveau Contrôle Qualité</ion-label>
-              </ion-item>
-              <ion-item routerLink="/mycontrol" >
-                <ion-label>Contrôles Qualités</ion-label>
-              </ion-item>
-            </div>
-          </ion-accordion>
+          <ion-item routerLink="/add-audit"  >
+            <ion-icon slot="start" name="document-text"></ion-icon>
+            <ion-label>les audits</ion-label>
+          </ion-item>
 
-          <ion-accordion value="cq">
-            <ion-item slot="header" color="light">
-              <ion-icon slot="start" name="document-text"></ion-icon>
-              <ion-label>Audit</ion-label>
-            </ion-item>
-
-
-            <div class="ion-padding" slot="content">
-              <ion-item routerLink="/add-audit">
-                <ion-label>Ajout d'un nouveau Audit</ion-label>
-              </ion-item>
-              <ion-item routerLink="/my-audit" >
-                <ion-label>les audits</ion-label>
-              </ion-item>
-            </div>
-          </ion-accordion>
-
-          <ion-accordion value="cr">
-            <ion-router-link routerLink="/cr" slot="header" color="light">
-              <ion-item>
-                <ion-icon slot="start" name="create"></ion-icon>
-                <ion-label>CR</ion-label>
-              </ion-item>
-            </ion-router-link>
-            <div class="ion-padding" slot="content">
-              <ion-item routerLink="/cr-content">
-                <ion-label>CR Content</ion-label>
-              </ion-item>
-            </div>
-          </ion-accordion>
 
           <!-- Log Out button -->
           <ion-item button >

@@ -63,7 +63,7 @@ export class ControlDefectPage {
 
   {    this.mediaRecorder = {} as MediaRecorder;}
   addefault() {
-    this.router.navigate(['/add-defaut']);
+    this.router.navigate(['/mycontrol']);
   }
 
   async ngOnInit() {

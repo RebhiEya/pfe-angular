@@ -1,14 +1,22 @@
 <ion-header>
-  <ion-toolbar >
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button routerLink="/mycontrol">
+        <ion-icon slot="icon-only" name="arrow-back" style="--color: #4d83ab;"></ion-icon> <!-- Icône de flèche -->
+      </ion-button>
+    </ion-buttons>
+
     <ion-title>Checklist</ion-title>
+
     <ion-buttons slot="end">
-      <!-- (click)="updatChecklistData()" -->
-      <ion-button (click)="updatChecklist()" >
-        <ion-icon  name="save-outline" style="font-size: 2em; color: #f2eded;"></ion-icon>
+      <ion-button (click)="updatChecklist()">
+        <ion-icon slot="icon-only" name="save-outline" style="font-size: 2em; color: #f2eded;"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 
 

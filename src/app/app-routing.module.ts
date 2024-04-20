@@ -23,10 +23,6 @@ const routes: Routes = [
     loadChildren: () => import('./employe/tableau-bord/tableau-bord.module').then( m => m.TableauBordPageModule)
   },
   {
-    path: 'mycontrol',
-    loadChildren: () => import('./employe/mycontrol/mycontrol.module').then( m => m.MycontrolPageModule)
-  },
-  {
     path: 'add-audit',
     loadChildren: () => import('./admin/audits/add-audit/add-audit.module').then( m => m.AddAuditPageModule)
   },
@@ -86,6 +82,15 @@ const routes: Routes = [
     path: 'control-defect',
     loadChildren: () => import('./employe/QC/control-defect/control-defect.module').then( m => m.ControlDefectPageModule)
   },
+  {
+    path: 'mycontrol',
+    loadChildren: () => import('./employe/QC/mycontrol/mycontrol.module').then( m => m.MycontrolPageModule)
+  },  {
+    path: 'details',
+    loadChildren: () => import('./employe/QC/details/details.module').then( m => m.DetailsPageModule)
+  },
+
+
 
 
 ];

@@ -12,5 +12,13 @@ export class MycontrolService {
   getAllcontrol(){
       return this.httpClient.get<any[]>(`${this.urlRoot}/getAll`);
       }
+
+
+
+  getControlById(id: any){
+    return this.httpClient.get<any>(`${this.urlRoot}/api/QualityControls/${id}`,);
+
   }
 
+
+}

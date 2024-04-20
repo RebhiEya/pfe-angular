@@ -1,21 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Défaut</ion-title>
+
+
     <ion-buttons slot="start">
-      <ion-menu-button class="color" menu="main-menu"></ion-menu-button>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button >
-        <ion-icon class="color" name="qr-code"></ion-icon>
+      <ion-button routerLink="/mycontrol">
+        <ion-icon slot="icon-only" name="arrow-back" style="--color: #4d83ab;"></ion-icon> <!-- Icône de flèche -->
       </ion-button>
     </ion-buttons>
+
+
+    <ion-title>Défaut</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="addefault()">
-        <ion-icon class="color" name="add"></ion-icon>
+      <ion-button (click)="addefault()" >
+        <ion-icon slot="icon-only" name="save-outline" style="font-size: 2em; color: #f2eded;"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+
 
 <ion-content>
   <!-- *ngFor="let item of DefautData" -->
@@ -54,13 +57,10 @@
           <ion-input  name="quantity" [(ngModel)]="controldefect.quantity"></ion-input>
         </div>
       </div>
-
       <div class="icon-row">
-        <ion-icon name="save" style="color: white; font-size: 2em;"></ion-icon> <!-- Icône de sauvegarde en bleu et de taille augmentée -->
-        <ion-icon name="save" style="color: blue; font-size: 2em;"></ion-icon> <!-- Icône de sauvegarde en bleu et de taille augmentée -->
-
+        <ion-icon name="save" style="color: white; font-size: 2em;"></ion-icon>
+        <ion-icon slot="end" name="add-circle" style="color: blue; font-size: 2em;"></ion-icon>
       </div>
-
       <!-- Utilisation correcte de ion-progress-bar -->
       <ion-progress-bar [value]="0.5" color="custom"></ion-progress-bar>
     </ion-card-content>
@@ -78,11 +78,11 @@
               <p class="reference-value">category</p>
               <!-- Bouton de modification -->
               <ion-button fill="clear" color="primary"  class="button-spacing">
-                <ion-icon name="create"></ion-icon>
+                <ion-icon  slot="icon-only" name="create"></ion-icon>
               </ion-button>
               <!-- Bouton de suppression -->
-              <ion-button fill="clear" color="danger"  class="button-spacing">
-                <ion-icon name="trash"></ion-icon>
+              <ion-button  slot="end" fill="clear" color="danger"  class="button-spacing">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
               </ion-button>
 
             </div>
@@ -103,7 +103,7 @@
       <ion-button slot="end" fill="clear" (click)="startUpload(file)" >
       <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
       </ion-button>
-      <ion-button slot="end" fill="clear" (click)="deleteImage(file)" >
+      <ion-button slot="end" fill="clear" color="danger"  (click)="deleteImage(file)" >
       <ion-icon slot="icon-only" name="trash"></ion-icon>
       </ion-button>
       </ion-item>
