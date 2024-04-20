@@ -85,11 +85,22 @@ const routes: Routes = [
   {
     path: 'mycontrol',
     loadChildren: () => import('./employe/QC/mycontrol/mycontrol.module').then( m => m.MycontrolPageModule)
-  },  {
+  },
+  {
     path: 'details',
     loadChildren: () => import('./employe/QC/details/details.module').then( m => m.DetailsPageModule)
   },
 
+
+
+  {
+    path: 'process',
+    loadChildren: () => import('./employe/audit/process/process.module').then( m => m.ProcessPageModule)
+  },
+  {
+    path: 'my-audit',
+    loadChildren: () => import('./employe/audit/my-audit/my-audit.module').then( m => m.MyAuditPageModule)
+  },
 
 
 
