@@ -101,8 +101,14 @@ const routes: Routes = [
     path: 'my-audit',
     loadChildren: () => import('./employe/audit/my-audit/my-audit.module').then( m => m.MyAuditPageModule)
   },
-
-
+  {
+  path: 'useradd',
+    loadChildren: () => import('./useradd/useradd.module').then( m => m.UseraddPageModule),
+  },
+  {
+    path: 'user',
+      loadChildren: () => import('./user/user.module').then( m => m.UserPageModule),
+    },
 
 ];
 

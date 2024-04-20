@@ -1,21 +1,13 @@
-.custom-toolbar {
-    --background: rgb(87, 87, 231);
-  }
-  /* Styling for ion-toolbar */
-ion-toolbar {
-  --background: #ffffff; /* Background color */
-  --border-color: #cccccc; /* Border color */
+.custom-toolbar-color {
+  --ion-background-color: #4863A0;
+}
+.custom-toolbar-color ion-title  {
+  color: #ffffff; /* Blanc */
+}
+.custom-toolbar-color ion-icon {
+  color: #ffffff; /* Blanc */
 }
 
-/* Styling for ion-title */
-ion-title {
-  color: #333333; /* Title color */
-}
-
-/* Styling for ion-button */
-ion-button {
-  --color: #ffffff; /* Text color */
-}
 
 /* Styling for ion-item */
 ion-item {
@@ -63,4 +55,3 @@ button.modify-button {
 button.delete-button {
   --color: #dc3545; /* Red color */
 }
-  
