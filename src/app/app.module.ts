@@ -10,7 +10,7 @@ import { MediaCapture } from '@ionic-native/media-capture/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import{VideoCapturePlus}  from "@ionic-native/video-capture-plus/ngx";
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent ],
@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
 
   ],
   providers: [

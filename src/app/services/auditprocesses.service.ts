@@ -12,7 +12,7 @@ import { ProcessChecklist } from 'src/app/models/ProcessChecklist.model';
   providedIn: 'root'
 })
 export class AuditprocessesService {
-  baseUrl = 'http://localhost:8089/process';
+  baseUrl = 'http://localhost:8089/admin/process';
 
   constructor(private httpClient: HttpClient) { }
 

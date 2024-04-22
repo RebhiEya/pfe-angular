@@ -32,6 +32,4 @@ export class AddprocessPage {
      ()=>this.router.navigate(['/auditprocess']),
     );
 }
-
-
 }

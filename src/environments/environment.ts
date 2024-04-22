@@ -7,6 +7,7 @@ export const environment = {
   apiUrl: 'https://timserver.northeurope.cloudapp.azure.com/QalitasWebApi'
 
 };
+export const baseUrl= 'http://localhost:8089/';
 
 /*
  * For easier debugging in development mode, you can import the following file

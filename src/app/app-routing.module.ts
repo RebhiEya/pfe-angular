@@ -6,21 +6,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'authentification', // Redirection vers AccueilPage
+    redirectTo: 'authentification',
     pathMatch: 'full'
-  },
-
-  {
-    path: 'app.component',
-    loadChildren: () => import('./app.component').then( m => m.AppComponent)
   },
   {
     path: 'authentification',
-    loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule),
+    loadChildren: () => import('./authentification/authentification.module').then(m => m.AuthentificationPageModule),
   },
   {
     path: 'tableau-bord',
-    loadChildren: () => import('./employe/tableau-bord/tableau-bord.module').then( m => m.TableauBordPageModule)
+    loadChildren: () => import('./employe/tableau-bord/tableau-bord.module').then(m => m.TableauBordPageModule)
   },
   {
     path: 'add-audit',
