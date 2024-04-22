@@ -12,7 +12,7 @@ import { ProcessChecklist } from 'src/app/models/ProcessChecklist.model';
   providedIn: 'root'
 })
 export class DataService {
-  private  urlRoot ="http://localhost:8089/produit";
+  private  urlRoot ="http://localhost:8089/admin/produit";
 
   constructor(private httpClient: HttpClient) {}
   private product: Produit = {
