@@ -11,13 +11,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class UserComponent implements OnInit {
   data: any;
   userss: User [] = [];
-  auditId: number = 0;
+
   item :any;
 
 
   users: User[] = [];
   selectedUser: User | null = null;
-  newUser: User = { idUser: 0, firstName: '', LastName: '', matricule: '', password: '', email: '' };
+  newUser: User = { idUser: 0, firstName: '', lastName: '', matricule: '', password: '', email: '' ,roles: [] };
 
   constructor(private userService: UserService, private router: Router,
     private route: ActivatedRoute,) { }
@@ -39,7 +39,7 @@ export class UserComponent implements OnInit {
   createUser(): void {
     this.userService.createUser(this.newUser).subscribe(() => {
       this.loadUsers();
-      this.newUser = { idUser: 0, firstName: '', LastName: '', matricule: '', password: '', email: '' }; // Clear the form
+      this.newUser = { idUser: 0, firstName: '', lastName: '', matricule: '', password: '', email: '',roles: [] }; // Clear the form
     });
   }
 
@@ -53,7 +53,7 @@ export class UserComponent implements OnInit {
   }
 
   deleteUser(id: number): void {
-    this.userService.deleteUser(id).subscribe(() => {
+    this.userService.deleteUser(id).subscribe((data) => {
       this.loadUsers();
     });
   }

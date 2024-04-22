@@ -13,10 +13,11 @@ export class UseraddComponent implements OnInit {
   user: User = {
     idUser: 0,
     firstName: '',
-    LastName: '',
+    lastName: '',
     matricule: '',
     password: '',
-    email: ''
+    email: '',
+    roles: [] 
   };
 
   constructor(private dataService: UserService, private router: Router) { }
@@ -29,10 +30,11 @@ export class UseraddComponent implements OnInit {
       () => {
         this.router.navigate(['/user']);
       },
-      (error) => {
-        console.error('Erreur lors de la création de l\'utilisateur :', error);
+      error => {
+        console.error('Error creating user:', error);
       }
     );
   }
+  
   
 }

@@ -15,7 +15,7 @@
           </ion-item>
           <ion-item lines="full">
             <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Prenom</ion-label>
-            <ion-input type="text" name="LastName" [(ngModel)]="user.LastName" required></ion-input>
+            <ion-input type="text" name="lastName" [(ngModel)]="user.lastName" required></ion-input>
           </ion-item>
           <ion-item lines="full">
             <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Matricule</ion-label>
@@ -29,6 +29,16 @@
             <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Email</ion-label>
             <ion-input type="text" name="email" [(ngModel)]="user.email"></ion-input>
           </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Role</ion-label>
+            <ion-select name="roles" [(ngModel)]="user.roles" multiple="true">
+              <ion-select-option value="ADMIN">ADMIN</ion-select-option>
+              <ion-select-option value="EMPLOYEE">EMPLOYEE</ion-select-option>
+              <!-- Add other role options as needed -->
+            </ion-select>
+          </ion-item>
+          
+          
         </ion-list>
         <ion-row>
           <ion-col>
