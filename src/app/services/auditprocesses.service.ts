@@ -12,7 +12,7 @@ import { ProcessChecklist } from 'src/app/models/ProcessChecklist.model';
   providedIn: 'root'
 })
 export class AuditprocessesService {
-  baseUrl = 'http://localhost:8089/admin/process';
+  baseUrl = 'http://localhost:8089/process';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -44,8 +44,8 @@ export class AuditprocessesService {
       return this.httpClient.put<any>(`${this.baseUrl}/update/${id}`, item );
 
     }
-    
- 
+
+
 
     // Ajoutez cette méthode pour récupérer les processus liés à un audit spécifique
     getProcessesByAudit(auditId: number): Observable<auditProcesses[]> {
