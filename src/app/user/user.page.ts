@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/models/user.model';
+import { AdminService } from 'src/app/services/admin.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,61 +10,37 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UserComponent implements OnInit {
   data: any;
-  userss: User [] = [];
-
   item :any;
 
 
-  users: User[] = [];
-  selectedUser: User | null = null;
-  newUser: User = { idUser: 0, firstName: '', lastName: '', matricule: '', password: '', email: '' ,roles: [] };
-
-  constructor(private userService: UserService, private router: Router,
-    private route: ActivatedRoute,) { }
+  constructor(private adminService : AdminService,
+    private router: Router,
+    private route: ActivatedRoute,) {}
 
   ngOnInit(): void {
     this.loadUsers();
   }
 
   loadUsers(): void {
-    this.userService.getAllUsers().subscribe(users => {
-      this.users = users;
-    });
-  }
-  
-  onSelect(user: User): void {
-    this.selectedUser = user;
-  }
-
-  createUser(): void {
-    this.userService.createUser(this.newUser).subscribe(() => {
-      this.loadUsers();
-      this.newUser = { idUser: 0, firstName: '', lastName: '', matricule: '', password: '', email: '',roles: [] }; // Clear the form
+    this.adminService.getAllUsers().subscribe((data) => {
+      this.data = data;
+      console.log(this.data);
     });
   }
 
-  update(item: any): void {
-    if (this.selectedUser) {
-      this.userService.updateUser(this.selectedUser.idUser, this.selectedUser).subscribe(() => {
-        this.loadUsers();
-        this.selectedUser = null; // Clear the selected user
-      });
-    }
-  }
+   deleteUser(id: any) {
+     this.adminService.deleteUser(id).subscribe((data) => {
+      this.data = data
+     });
+   }
 
-  deleteUser(id: number): void {
-    this.userService.deleteUser(id).subscribe((data) => {
-      this.loadUsers();
-    });
-  }
-  redirectToChecklistProcessPage(): void {
-    // Implémentez la logique pour la redirection ici
-  }
+
+
 }
 
 
 
 
 
- 
+
 

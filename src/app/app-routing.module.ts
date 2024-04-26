@@ -103,7 +103,19 @@ const routes: Routes = [
   {
     path: 'user',
       loadChildren: () => import('./user/user.module').then( m => m.UserPageModule),
-    },
+    },  {
+    path: 'tabbord',
+    loadChildren: () => import('./admin/tabbord/tabbord.module').then( m => m.TabbordPageModule)
+  },
+  {
+    path: 'control',
+    loadChildren: () => import('./admin/CQ/control/control.module').then( m => m.ControlPageModule)
+  },
+  {
+    path: 'equipe',
+    loadChildren: () => import('./admin/CQ/equipe/equipe.module').then( m => m.EquipePageModule)
+  },
+
 
 ];
 

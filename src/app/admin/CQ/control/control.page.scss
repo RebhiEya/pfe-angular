@@ -1,0 +1,157 @@
+ion-header{
+  ion-toolbar{
+    --background: #4863A0;
+    color: white;
+  }
+  .color{
+    color: white;
+  }
+  }
+  /* CSS personnalisé pour agrandir la taille du bouton */
+.iconajouter {
+  --padding-start: 20px; /* Espacement à gauche du bouton */
+  --padding-end: 20px; /* Espacement à droite du bouton */
+  font-size: 20px; /* Taille de la police */
+  --min-height: 48px; /* Hauteur minimale du bouton */
+  --border-radius: 12px; /* Rayon des coins du bouton */
+}
+
+
+*{
+  font-family: lato;
+  }
+  .menu-header-bg {
+  height: 180px;
+  width: 350px;
+  background: #7590d6;
+  background: linear-gradient(90deg, #7590d6 0%, #4863A0 100%);
+  box-shadow: 0px 1px 10px ☐ #4863A0;
+  transform: rotate(-15deg);
+  border-radius: 10px 10px 10px 50px;
+  margin-left: -18px;
+  margin-top: -60px;
+  margin-bottom: 60px;
+  }
+  .header-content {
+      position: absolute;
+      top: 30px;
+      left: 15px;
+      display: flex;
+      align-items: center;
+
+      img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 7px solid #5e7ccc;
+      margin-right: 14px ;
+      }
+      h2 {
+      font-weight: 300;
+      color:#fff;
+
+      P{
+          font-size: 12px;
+          color: #fff;
+          font-weight: 100;
+          letter-spacing: 0.4px;
+      }}}
+
+      .action-button{
+          display: flex;
+          justify-content: center;
+          margin-bottom: 20px;
+
+          ion-button {
+          text-transform: capitalize;
+          font-weight: 4000;
+          --background: #4863A0;
+          --border-radius: 7px;
+          --box-shadow: none;
+          }
+
+          ion-icon{
+            margin-right:1px;
+          }}
+
+
+        .menu-items {
+          margin: 0px;
+
+            ion-icon {
+              margin-right: 20px;
+              color: #86979f;
+          }
+          ion-item {
+          padding-left: 5px;
+          margin-bottom: 10px;
+          }
+
+          .active {
+              border-left: 5px solid;
+              color: #628cff;
+              padding-left: 15px;
+              ion-icon {
+              color: #628cff;}}
+
+      }
+      .menu-icons ion-icon {
+        color: #4863A0; /* Couleur bleue pour les icônes */
+      }
+
+.iconajouter {
+    --padding-start: 20px; /* Espacement à gauche du bouton */
+    --padding-end: 20px; /* Espacement à droite du bouton */
+    font-size: 20px; /* Taille de la police */
+    --min-height: 48px; /* Hauteur minimale du bouton */
+    --border-radius: 12px; /* Rayon des coins du bouton */
+  }
+
+
+      .item-container {
+        padding: 10px;
+        background-color: rgb(237, 235, 235);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+
+      /* CSS pour agrandir la taille de l'écriture des balises <p> */
+      .item-label p {
+        font-size: 18px; /* Taille de la police des balises <p> */
+      }
+
+      /* CSS pour agrandir la taille des boutons */
+      ion-button {
+        --padding-start: 10px; /* Espacement à gauche du bouton */
+        --padding-end: 10px; /* Espacement à droite du bouton */
+        font-size: 18px; /* Taille de la police des boutons */
+        --min-height: 48px; /* Hauteur minimale du bouton */
+        --border-radius: 12px; /* Rayon des coins du bouton */
+      }
+
+      .item-header {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      .item-title {
+        font-weight: bold;
+      }
+      .item-details .item-row {
+        display: flex;
+        justify-content: space-between;
+      }
+
+/* Flexbox styles for item-left and item-right */
+.item-details .item-left,
+.item-details .item-right {
+  width: 48%; /* Adjust as needed */
+}
+.red-text {
+  color: #4863A0; /* Couleur rouge pour le texte */
+  font-size: 15px;
+}
+
+.g-text {
+  color: rgb(161, 158, 158); /* Couleur rouge pour le texte */
+}

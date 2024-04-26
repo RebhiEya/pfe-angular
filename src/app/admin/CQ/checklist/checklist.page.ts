@@ -23,8 +23,8 @@ export class ChecklistPage  {
     designation: '',
     reference: '',
     famille:''
-
   };
+
   selectedChecklists: ControlCheckList[] = [];
   constructor(private router: Router , private productService: DataService , private checklistService : ChecklistService) { }
 
@@ -37,10 +37,14 @@ export class ChecklistPage  {
       }
 
       )
-      //console.log(this.checklistService.getChecklist)
     }
 
-    
+    saveidChecklists() {
+      // Passez l'ID du produit comme paramètre de route lors de la navigation
+      this.router.navigate(['/add-checklist', { productId: this.selectedProduit.idProduit }]);
+    }
+
+
     toggleSelection(checklist: ControlCheckList) {
       const index = this.selectedChecklists.findIndex(item => item.idControlCheckList === checklist.idControlCheckList);
       if (index !== -1) {

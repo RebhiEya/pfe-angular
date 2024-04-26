@@ -49,7 +49,7 @@ export class AddControlPage  {
   ajouter() {
     const selectedChecklistIds = this.selectedChecklists.map(item => item.idControlCheckList);
 this.checklistService.createControl(this.control, this.selectedProduit.idProduit, selectedChecklistIds).subscribe(
-  ()=>this.router.navigate(['/tableau-bord']),
+  ()=>this.router.navigate(['/control']),
  );
 
   }

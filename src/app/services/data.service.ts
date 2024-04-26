@@ -40,18 +40,20 @@ export class DataService {
     return this.httpClient.get<any[]>(`${this.urlRoot}/getAll`);
     }
 
-    getChecklistByProduit(id: any) {
-      return this.httpClient.get<any[]>(`http://localhost:8089/controlCheckList/getByIdProduit/${id}`);
+  getChecklistByProduit(id: any) {
+    return this.httpClient.get<any[]>(`http://localhost:8089/controlCheckList/getByIdProduit/${id}`);
       }
-  createproduit(produit: Produit): Observable<object> {
-  return this.httpClient.post( `${this.urlRoot}/add` , produit ) ;
 
+
+  createproduit(produit: Produit): Observable<object> {
+    return this.httpClient.post( `${this.urlRoot}/add` , produit ) ;
   }
+
 
   updateProduit(id: any,item: any): Observable<any>{
       return this.httpClient.put<any>(`${this.urlRoot}/update/${id}`, item );
-
     }
+
   deleteProduit(id: any): Observable<any> {
       return this.httpClient.delete<any>(`${this.urlRoot}/delete/${id}`);
     }

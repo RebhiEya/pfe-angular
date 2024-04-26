@@ -80,6 +80,8 @@
         color: #4863A0; /* Couleur bleue pour les icônes */
       }
 
+
+
 ion-header{
   ion-toolbar{
     --background: #4863a0;
@@ -89,77 +91,23 @@ ion-header{
   color: white;
 }
 }
-
-
-
-.ion-content{
-  --background: linear-gradient(90deg , #87AFC7 0%, #98AFC7,35% , #98AFC7 100%);
-
+.data-card {
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-ion-item {
-  --padding-start: 15px; /* Marge à gauche pour l'icône */
-  --inner-padding-end: 15px; /* Espace à droite pour le contenu */
+.data-card-1 {
+  background-color: #ffcccc; /* Rouge clair */
 }
 
-/* Pour ajuster la taille de l'icône */
-ion-icon {
-  --ionicon-stroke-width: 24px; /* Taille de l'icône */
-  --ionicon-color: var(--ion-color-primary); /* Couleur de l'icône */
+.data-card-2 {
+  background-color: #ccffcc; /* Vert clair */
 }
 
-.item-row {
-  display: flex;
-  justify-content: space-between;
+.data-card-3 {
+  background-color: #ccccff; /* Bleu clair */
 }
 
-.item-left,
-.item-right {
-  width: 50%;
+.data-card-4 {
+  background-color: #ffffcc; /* Jaune clair */
 }
-
-ion-card{
-
-  max-height: 550px; /* Ajustez selon votre préférence */
-  overflow-y: auto; /* Ajoutez une barre de défilement si nécessaire */
-}
-
-.icon-row {
-  display: flex;
-  align-items: center; /* Alignement vertical au centre */
-  justify-content: space-between;
-}
-
-.blue-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #4863A0;
-  padding: 10px;
-  display: flex;
-  justify-content: space-around;
-}
-
-ion-label {
-  font-size: 1.2em; /* Taille de la police */
-  font-weight: bold; /* Optionnel : rendre le texte en gras */
-}
-.item-label p {
-  font-size: 18px; /* Taille de la police des balises <p> */
-}
-
-
-.flex-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-
-}
-/* CSS pour agrandir la taille de l'écriture des balises <p> */
-.item-label p {
-  font-size: 18px; /* Taille de la police des balises <p> */
-}
-
-

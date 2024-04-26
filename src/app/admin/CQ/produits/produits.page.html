@@ -9,15 +9,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="item-details">
 
+<ion-content class="item-details">
   <ion-list>
     <ion-item *ngFor="let item of data; index as i " >
       <ion-label class="item-label">
         <div class="item-container">
           <div class="flex-container">
 
-<div>
+          <div>
             <ion-checkbox color="secondary" (click) ="selectProduit(item)"></ion-checkbox>
           </div>
               <p class="reference-text">{{ item.reference }}</p>

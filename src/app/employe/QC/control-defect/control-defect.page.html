@@ -1,14 +1,10 @@
 <ion-header>
   <ion-toolbar>
-
-
     <ion-buttons slot="start">
       <ion-button routerLink="/mycontrol">
         <ion-icon slot="icon-only" name="arrow-back" style="--color: #4d83ab;"></ion-icon> <!-- Icône de flèche -->
       </ion-button>
     </ion-buttons>
-
-
     <ion-title>Défaut</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="addefault()" >
@@ -23,7 +19,8 @@
 <ion-content>
   <!-- *ngFor="let item of DefautData" -->
   <ion-card >
-    <form (ngSubmit)="adddefect()">
+    <form (ngSubmit)="savedefect(controldefect.idControlDefect)">
+
 
     <ion-card-header>
       <div class="item-row">
@@ -31,13 +28,13 @@
           <ion-label position="floating">
             <ion-icon name="code-slash" style="color: rgb(255, 0, 132);"></ion-icon> code
           </ion-label>
-          <ion-input  name="code" [(ngModel)]="controldefect.code"></ion-input>
+          <ion-input  name="code" [(ngModel)]="controldefect.code" placeholder="Code" ></ion-input>
         </div>
         <div class="item-right">
           <ion-label position="floating">
             <ion-icon name="alert-circle" color="warning"></ion-icon> Défaut
           </ion-label>
-          <ion-input name="description" [(ngModel)]="controldefect.description" ></ion-input>
+          <ion-input name="description" [(ngModel)]="controldefect.description" placeholder="Défaut" ></ion-input>
         </div>
       </div>
     </ion-card-header>
@@ -48,47 +45,55 @@
             <ion-icon name="pricetag" color="primary"></ion-icon> category
 
           </ion-label>
-          <ion-input name="category" [(ngModel)]="controldefect.category"></ion-input>
+          <ion-input name="category" [(ngModel)]="controldefect.category" placeholder="category"></ion-input>
         </div>
         <div class="item-right">
           <ion-label position="floating">
             <ion-icon name="cube" style="color: blue;"></ion-icon> Quantité
           </ion-label>
-          <ion-input  name="quantity" [(ngModel)]="controldefect.quantity"></ion-input>
+          <ion-input  name="quantity" [(ngModel)]="controldefect.quantity" placeholder="Quantité"></ion-input>
         </div>
       </div>
       <div class="icon-row">
         <ion-icon name="save" style="color: white; font-size: 2em;"></ion-icon>
-        <ion-icon slot="end" name="add-circle" style="color: blue; font-size: 2em;"></ion-icon>
+
+        <ion-button type="submit" slot="end" fill="clear" color="danger"  class="button-spacing">
+          <ion-icon slot="end" name="checkmark-circle" style="color: green; font-size: 2em;"></ion-icon>
+                </ion-button>
       </div>
       <!-- Utilisation correcte de ion-progress-bar -->
       <ion-progress-bar [value]="0.5" color="custom"></ion-progress-bar>
     </ion-card-content>
   </form>
-
   </ion-card>
 
+
   <ion-card >
-    <!-- *ngFor="let item of data; index as i " -->
-    <ion-item  >
+    <ion-item *ngFor="let item of data; index as i " >
       <ion-label class="item-label">
           <div class="flex-container">
+            <div>
             <ion-checkbox style="color: blue" ></ion-checkbox>
-              <p class="reference-text">reference </p>
-              <p class="reference-value">category</p>
-              <!-- Bouton de modification -->
-              <ion-button fill="clear" color="primary"  class="button-spacing">
-                <ion-icon  slot="icon-only" name="create"></ion-icon>
+          </div>
+              <p > {{item.category}} </p>
+              <p >{{item.code}}</p>
+
+              <ion-button (click)="editDefect(item.idControlDefect)" fill="clear" color="primary" class="button-spacing">
+                <ion-icon slot="icon-only" name="create"></ion-icon>
               </ion-button>
+              <!-- Bouton de modification -->
+              <!-- <ion-button fill="clear" color="primary"  class="button-spacing">
+                <ion-icon  slot="icon-only" name="create"></ion-icon>
+              </ion-button> -->
               <!-- Bouton de suppression -->
-              <ion-button  slot="end" fill="clear" color="danger"  class="button-spacing">
+              <ion-button (click)="delete(item.idControlDefect)" slot="end" fill="clear" color="danger"  class="button-spacing">
                 <ion-icon slot="icon-only" name="trash"></ion-icon>
               </ion-button>
-
             </div>
       </ion-label>
     </ion-item>
   </ion-card>
+
 
   <ion-card >
     <h3 *ngIf="images.length == 0" class="ion-padding ion-text-center">image </h3>
@@ -120,8 +125,8 @@
 
   <div class="blue-bar">
     <ion-icon name="camera" (click)="selectImage()" style="font-size: 2em; color: #fff;"></ion-icon>
-    <ion-icon name="mic" style="font-size: 2em; color: #fff;"></ion-icon>
-    <ion-icon name="image" style="font-size: 2em; color: #fff;"></ion-icon>
+    <ion-icon name="mic" (click)="startRecording" style="font-size: 2em; color: #fff;"></ion-icon>
+    <ion-icon name="image" (click)="stopRecording" style="font-size: 2em; color: #fff;"></ion-icon>
     <ion-icon name="videocam" style="font-size: 2em; color: #fff;"></ion-icon>
   </div>
 </ion-content>

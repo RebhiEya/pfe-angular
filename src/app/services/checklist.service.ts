@@ -30,8 +30,6 @@ export class ChecklistService {
     return this.httpClient.get<any[]>(`http://localhost:8089/controlCheckList/getByIdProduit/${id}`);
     }
 
-
-
     createControl(controlData: any, produitId: Number, checklistIds: Number[]): Observable<Qualitycontrol> {
       const body = {
         qualityControl: controlData,

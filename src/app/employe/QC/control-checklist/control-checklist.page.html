@@ -1,14 +1,11 @@
 <ion-header>
   <ion-toolbar>
-
     <ion-buttons slot="start">
       <ion-button routerLink="/mycontrol">
         <ion-icon slot="icon-only" name="arrow-back" style="--color: #4d83ab;"></ion-icon> <!-- Icône de flèche -->
       </ion-button>
     </ion-buttons>
-
     <ion-title>Checklist</ion-title>
-
     <ion-buttons slot="end">
       <ion-button (click)="updatChecklist()">
         <ion-icon slot="icon-only" name="save-outline" style="font-size: 2em; color: #f2eded;"></ion-icon>
@@ -35,11 +32,10 @@
   <ion-card-content class="ion-title-left">
 
 
-      <button class="tick-btn" (click)="toggleTick()">
+      <button (click)="Conform()" class="tick-btn" (click)="toggleTick()">
         <ion-icon [name]="tickClicked ? 'checkbox-outline' : 'checkmark-outline'" style="font-size: 4em; color: green; margin-left: 30px;"></ion-icon>
       </button>
-
-      <button class="cross-btn" (click)="toggleCross()">
+      <button (click)="nonConform()" class="cross-btn" (click)="toggleCross()">
         <ion-icon [name]="crossClicked ? 'close-circle-outline' : 'checkbox-outline'" style="font-size: 4em; color: red; margin-left: 30px;"></ion-icon>
       </button>
 

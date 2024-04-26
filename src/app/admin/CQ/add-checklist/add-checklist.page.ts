@@ -24,11 +24,15 @@ export class AddChecklistPage  {
     description: ''
     }
 
+
+
     selectedProduit: any[] = [];
 
     constructor(private checklistService: ChecklistService,
       private dataService:DataService,
       private router: Router) { }
+
+      
 
        ajouterchecklist() {
          this.dataService.createchecklist(this.selectedProduit,this.controlCheckList).subscribe(data =>{

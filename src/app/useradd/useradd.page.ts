@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { AdminService } from 'src/app/services/admin.service';
 import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-useradd',
   templateUrl: './useradd.page.html',
   styleUrls: ['./useradd.page.scss'],
 })
-export class UseraddComponent implements OnInit {
+export class UseraddComponent {
 
   user: User = {
     idUser: 0,
@@ -17,24 +19,46 @@ export class UseraddComponent implements OnInit {
     matricule: '',
     password: '',
     email: '',
-    roles: [] 
+    roles: []
   };
 
-  constructor(private dataService: UserService, private router: Router) { }
 
-  ngOnInit() {
-  }
+  constructor(private adminService: AdminService,
+      private router: Router ,
+       private alertController: AlertController
+  ) { }
+
 
   ajouterUser() {
-    this.dataService.createUser(this.user).subscribe(
-      () => {
-        this.router.navigate(['/user']);
-      },
-      error => {
-        console.error('Error creating user:', error);
+      if (this.user.firstName && this.user.lastName && this.user.matricule) {
+        this.adminService.createUser(this.user).subscribe(
+          () => {
+            this.router.navigate(['/user']);
+          },
+          error => {
+            console.error('Erreur lors de l\'ajout du produit', error);
+            // Gérer l'erreur ici, par exemple afficher une autre alerte
+          }
+        );
+
       }
-    );
-  }
-  
-  
+    }
+
+
+
+
+
+  // ajouterUser() {
+  //   this.dataService.createUser(this.user).subscribe(
+  //     () => {
+  //       this.router.navigate(['/user']);
+  //     },
+  //     error => {
+  //       console.error('Error creating user:', error);
+  //     }
+  //   );
+  // }
+
+
+
 }

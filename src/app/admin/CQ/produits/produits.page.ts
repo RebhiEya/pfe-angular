@@ -11,7 +11,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class ProduitsPage  {
   data: any;
-  showComment: boolean = false;
+  //showComment: boolean = false;
   item :any;
 
   constructor(private dataService: DataService ,
@@ -20,27 +20,28 @@ export class ProduitsPage  {
       private route: ActivatedRoute) {}
 
   ionViewWillEnter() {
-     this.loadData();
+    this.loadData();
     }
 
-   loadData() {
+  loadData() {
     this.dataService.getAllProduit().subscribe((data) => {
         this.data = data;
         console.log(this.data);
     });
-
-
   }
+
+
   selectProduit(produit : any){
     this.dataService.setProduct(produit);
     this.router.navigate(['/add-control'])
   }
 
-   delete(id : any){
+  delete(id : any){
     this.dataService.deleteProduit(id).subscribe((data)=> {
       this.data = data
-     });
+    });
   }
+
   update(produit : any){
    this.router.navigate(['/updat-produit'],{ state:produit })
   }

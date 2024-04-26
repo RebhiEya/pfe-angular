@@ -42,7 +42,6 @@ export class AddProduitPage {
       this.presentAlert();
     }
   }
-
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Erreur',

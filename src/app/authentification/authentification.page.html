@@ -3,7 +3,7 @@
   <div id="header">
     <div id="ap-bar">
       <div id="logo">
-        <img src="assets/logo.png" alt="" />
+        <img src="../assets/qalitas.jpeg" alt="">
       </div>
       <div></div>
     </div>
@@ -16,17 +16,16 @@
         <form>
           <ion-item>
             <ion-icon name="mail" slot="start"></ion-icon>
-            <ion-input placeholder="Email" name="email" [(ngModel)]="loginObj.email"></ion-input>
+            <ion-input placeholder="Email" name="email"  [(ngModel)]="credentials.email" ></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-icon name="lock-closed" slot="start"></ion-icon>
-            <ion-input type="password" name="password" [(ngModel)]="loginObj.password"></ion-input>
+            <ion-input type="password" name="password" [(ngModel)]="credentials.password"></ion-input>
           </ion-item>
 
           <ion-button (click)="onLogin()" type="button" expand="block">Sign in</ion-button>
         </form>
-        <p *ngIf="error" class="error">{{ error }}</p>
       </ion-card-content>
     </ion-card>
 

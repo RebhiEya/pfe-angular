@@ -1,0 +1,89 @@
+<ion-menu contentId="main-content">
+  <ion-content contentId="main-content" class="ion-padding">
+    <div class="menu-header-bg"></div>
+    <div class="header-content">
+      <img src="../assets/qalitas.jpeg" alt="">
+      <ion-label>
+        <h2>TIM GROUP</h2>
+        <p>Qalitas</p>
+      </ion-label>
+    </div>
+
+    <div class="action-button">
+      <ion-button routerLink="/tabbord">
+        <ion-icon slot="start" name="add"></ion-icon>HOME
+      </ion-button>
+    </div>
+    <ion-list class="menu-items menu-icons" lines="none">
+      <ion-accordion-group>
+        <ion-item routerLink="/control"  >
+          <ion-icon slot="start" name="document-text"></ion-icon>
+          <ion-label>Contrôle Qualité</ion-label>
+        </ion-item>
+
+        <ion-item routerLink="/audit"  >
+          <ion-icon slot="start" name="document-text"></ion-icon>
+          <ion-label>les audits</ion-label>
+        </ion-item>
+        <ion-item routerLink="/user"  >
+          <ion-icon slot="start" name="document-text"></ion-icon>
+          <ion-label>user</ion-label>
+        </ion-item>
+
+        <!-- Log Out button -->
+        <ion-item button >
+          <ion-icon slot="start" name="exit"></ion-icon>
+          <ion-label>Log Out</ion-label>
+        </ion-item>
+
+      </ion-accordion-group>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>control</ion-title>
+      <ion-buttons slot="end">
+        <ion-button class="iconajouter" routerLink="/add-control">
+          <ion-icon slot="start" name="add"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content class="item-details">
+    <ion-list>
+      <ion-item *ngFor="let item of data; index as i " >
+        <ion-label class="item-label">
+          <div class="item-container">
+            <div class="flex-container">
+
+
+              <div class="item-header">
+                <div class="item-title">{{ item.reference }}</div>
+              </div>
+              <div class="item-row">
+                <div class="item-left">
+                  <p>{{ item.internalReference}} </p>
+                  <p class="red-text"> {{item.description}} </p>
+                </div>
+                <div class="item-right">
+                  <p> {{item.state}} </p>
+                  <p class="red-text"> {{item.date}}  </p>
+                </div>
+              </div>
+                <ion-button fill="clear" color="danger" (click)="delete(item.idQualityControl)" class="button-spacing">
+                  <ion-icon name="trash"></ion-icon>
+                </ion-button>
+              </div>
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>

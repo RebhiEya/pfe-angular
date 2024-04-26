@@ -1,16 +1,19 @@
 import { Component, OnInit , AfterViewInit, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { CameraResultType, CameraSource, Photo } from '@capacitor/camera';
-
+import { VoiceRecorder, RecordingData } from 'capacitor-voice-recorder';
 import { MediaCapture, MediaFile, CaptureError, CaptureVideoOptions } from '@ionic-native/media-capture/ngx';
 import { DataService } from 'src/app/services/data.service';
 import { Controldefect}from 'src/app/models/Controldefect.model'
 import { Plugins } from '@capacitor/core';
-import { GestureController, LoadingController, Platform } from '@ionic/angular';
-import { VideoService } from 'src/app/services/video.service';
+import { GestureController, LoadingController, Platform, ToastController } from '@ionic/angular';
 import { Directory, FileInfo, Filesystem } from '@capacitor/filesystem';
 import { finalize } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { EmployeService } from 'src/app/services/employe.service';
+
 
 const IMAGE_DIR = 'stored-images';
 const { Camera } = Plugins;
@@ -28,7 +31,8 @@ interface LocalFile {
   styleUrls: ['./control-defect.page.scss'],
 })
 export class ControlDefectPage {
-
+  data: any;
+  isEditing: boolean = false;
   controldefect :Controldefect ={
     idControlDefect : 0,
     category : '',
@@ -36,9 +40,8 @@ export class ControlDefectPage {
     quantity: '',
     description: ''
   }
+
   DefautData:any;
-
-
 
   recording = false;
   storedFileNames: FileInfo[] = [];
@@ -56,21 +59,158 @@ export class ControlDefectPage {
     private platform: Platform,
     private loadingCtrl: LoadingController,
     private gestureCtrl: GestureController,
-    private videoService: VideoService,
     private changeDetector: ChangeDetectorRef,
-    private http : HttpClient
+    private http : HttpClient,
+    private employeService: EmployeService,
+      private alertController: AlertController,
+      private toastController: ToastController,
+
   )
 
   {    this.mediaRecorder = {} as MediaRecorder;}
+
+
   addefault() {
     this.router.navigate(['/mycontrol']);
   }
-
-  async ngOnInit() {
-    this.loadFiles();
-
+  ionViewWillEnter() {
+    this.loadData();
+    this.loadFile();
+    this.loadAudio();
+    VoiceRecorder.requestAudioRecordingPermission();
     }
-  async loadFiles() {
+
+//defect
+savedefect(id?: number){
+  if (id) {
+    this.employeService.updateDefect(id, this.controldefect).subscribe(data => {
+      this.controldefect = {
+        idControlDefect : 0,
+        category : '',
+        code : '',
+        quantity: '',
+        description: ''
+      }
+      // Mettre à jour le défaut existant
+      // Naviguer vers la liste des défauts après la mise à jour
+    });
+  } else {
+    this.employeService.createdefect(this.controldefect).subscribe(data => {
+        this.data = [...this.data,data]
+      // Ajouter un nouveau défaut
+      // Réinitialiser le formulaire après l'ajout
+      this.controldefect = {
+        idControlDefect : 0,
+        category : '',
+        code : '',
+        quantity: '',
+        description: ''
+      }
+    });
+  }
+}
+
+//     this.data = [...this.data,data]
+//     this.controldefect = {
+//       idControlDefect : 0,
+//       category : '',
+//       code : '',
+//       quantity: '',
+//       description: ''
+//     }
+//   },
+//   error => console.log(error))
+
+// }
+
+editDefect(id: number) {
+  this.controldefect = this.data.find((item: any) => item.idControlDefect === id);
+  this.isEditing = true; // Définir la variable isEditing à true pour indiquer que vous êtes en mode modification
+}
+
+
+loadData() {
+  this.employeService.getAllDefect().subscribe((data) => {
+      this.data = data;
+      console.log("defect",this.data);
+  });
+}
+
+
+
+update(){
+  this.employeService.updateDefect(this.controldefect.idControlDefect,this.controldefect).subscribe(
+  ()=>this.router.navigate(['/control-defect']),
+);
+
+
+ const toast =  this.toastController.create({
+   message: 'produit updated successfully',
+   duration: 3000,
+   position: 'top',
+   cssClass: 'custom-toast'//Utiliser la classe CSS personnalisée
+ });
+
+
+
+}
+
+delete(id : any){
+  this.employeService.deleteDefect(id).subscribe((data)=> {
+    this.data = data
+  });
+}
+
+
+//audio
+
+
+async loadAudio() {
+  Filesystem.readdir({
+    path: '',
+    directory: Directory.Data
+  }).then(result => {
+    console.log(result);
+    this.storedFileNames = result.files;
+  });
+}
+
+startRecording() {
+  if (this.recording) {
+    return;
+  }
+  this.recording = true;
+  VoiceRecorder.startRecording();
+}
+
+stopRecording() {
+  if (!this.recording) {
+    return;
+  }
+  VoiceRecorder.stopRecording().then(async (result: RecordingData) => {
+    this.recording = false;
+    if (result.value && result.value.recordDataBase64) {
+      const recordData = result.value.recordDataBase64;
+      console.log("hi... line 110044", recordData);
+      const fileName = new Date().getTime() + '.wav';
+      await Filesystem.writeFile({
+        path: fileName,
+        directory: Directory.Data,
+        data: recordData
+      });
+      this.loadAudio();
+    }
+  });
+}
+
+
+
+
+
+
+
+    //image
+  async loadFile() {
     this.images = [];
     const loading = await this.loadingCtrl.create({
       message: 'loading data...',
@@ -138,7 +278,7 @@ async saveImage(photo: Photo) {
     data: base64Data
   });
   console.log('saved: ', savedFile);
-  this.loadFiles();
+  this.loadFile();
 
 }
 
@@ -196,7 +336,7 @@ async deleteImage(file : LocalFile){
     directory: Directory.Data,
     path : file.path
   });
-  this.loadFiles();
+  this.loadFile();
 }
 
 }
