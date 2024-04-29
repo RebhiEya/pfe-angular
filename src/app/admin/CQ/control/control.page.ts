@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MycontrolService } from 'src/app/services/mycontrol.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-control',
@@ -14,11 +15,13 @@ export class ControlPage  {
 
   constructor(private mycontrolService: MycontrolService ,
     private router: Router ,
-    private toastController: ToastController,
+    private toastController: ToastController, private authService : AuthService,
     private route: ActivatedRoute) { }
 
     ionViewWillEnter() {
       this.loadData();
+
+      console.log("user" , this.authService.getCurrentUser())
     }
 
     loadData() {

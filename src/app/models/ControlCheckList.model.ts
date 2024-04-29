@@ -4,7 +4,7 @@ export class ControlCheckList {
   category: string;
   criteria: string;
   operation: string;
-  conformity: boolean;
+  conformity: boolean | null;
   defects: string;
   measures: Number;
   description: string;

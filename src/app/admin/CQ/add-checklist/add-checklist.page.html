@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="title"> Ajouter Checklist</ion-title>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="icon-only" name="add"></ion-icon>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/checklist">
+        <ion-icon slot="icon-only" name="arrow-back" style="--color: #4d83ab;"></ion-icon> <!-- Icône de flèche -->
       </ion-button>
     </ion-buttons>
+    <ion-title class="title"> Ajouter Checklist</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -36,13 +36,14 @@
       </ion-label>
       <ion-input  class="custom-input"  name="operation" [(ngModel)]="controlCheckList.operation"></ion-input>
     </ion-item>
-
+<!--
     <ion-item>
       <ion-label position="floating">
         <ion-icon name="link" slot="start" class="custom-icon"></ion-icon> Conformité
       </ion-label>
       <ion-input class="custom-input"  name="conformity" [(ngModel)]="controlCheckList.conformity"></ion-input>
-    </ion-item>
+    </ion-item> -->
+
   </ion-list>
 
     <ion-row>
@@ -54,3 +55,5 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+

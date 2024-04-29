@@ -17,25 +17,6 @@ ion-header{
 }
 
 
-.item-container {
-  padding: 10px;
-  background-color: rgb(237, 235, 235);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.flex-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-
-}
-
-/* CSS pour agrandir la taille de l'écriture des balises <p> */
-.item-label p {
-  font-size: 18px; /* Taille de la police des balises <p> */
-}
-
 /* CSS pour agrandir la taille des boutons */
 ion-button {
   --padding-start: 10px; /* Espacement à gauche du bouton */
@@ -44,3 +25,68 @@ ion-button {
   --min-height: 48px; /* Hauteur minimale du bouton */
   --border-radius: 12px; /* Rayon des coins du bouton */
 }
+
+
+
+
+table, th, td {
+  padding: 1rem;
+  text-align: left;
+}
+thead th {
+  background-color: #eae8f1fe;
+}
+
+
+.item-details {
+  padding: 20px; /* Espacement intérieur du contenu */
+}
+
+table {
+  width: 100%; /* Table largeur 100% */
+  border-collapse: collapse; /* Fusionner les bordures */
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* Couleur de fond des lignes paires */
+}
+
+tr:hover {
+  background-color: #ddd; /* Couleur de fond au survol */
+}
+
+td {
+  padding: 10px; /* Espacement intérieur des cellules */
+}
+.reference-text {
+  font-weight: bold; /* Texte en gras */
+}
+.reference-value {
+  font-weight: bold; /* Texte en gras */
+}
+
+.button-spacing {
+  margin-left: 10px; /* Espacement entre les boutons */
+}
+
+ion-checkbox {
+  margin-right: 10px; /* Espacement entre les cases à cocher et le texte */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

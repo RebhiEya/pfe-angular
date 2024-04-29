@@ -1,5 +1,5 @@
 // auth.service.ts
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -9,7 +9,11 @@ import { catchError } from 'rxjs/operators';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  @Inject('LOCALSTORAGE') protected localStorage: Storage;
+
+  constructor(private http: HttpClient) {
+   this.localStorage = localStorage
+  }
 
 
 login(credentials: {email: string, password: string}): Observable<any> {
@@ -22,15 +26,13 @@ login(credentials: {email: string, password: string}): Observable<any> {
       );
   }
 
-  // logout(): void {
-  //   localStorage.removeItem('loginToken');
-  // }
 
-  // getToken(): string | null {
-  //   return localStorage.getItem('loginToken');
-  // }
+  logout(): void {
+          this.localStorage.removeItem('currentUser');
+      }
 
-  // isLoggedIn(): boolean {
-  //   return !!this.getToken();
-  // }
+      getCurrentUser(): any {
+
+          return JSON.parse(this.localStorage.getItem('currentUser')!);
+      }
 }

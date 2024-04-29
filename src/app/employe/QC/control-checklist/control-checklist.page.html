@@ -19,23 +19,22 @@
 
 <ion-content>
 
-  <!-- *ngFor="let item of checklistData" -->
-  <ion-card >
+  <ion-card  *ngFor="let item of data">
     <ion-card-header>
-      <ion-card-title class="text" >item.category</ion-card-title>
-      <ion-card-subtitle class="text"> item.operation </ion-card-subtitle>
-      <ion-card-subtitle class="text"> item.criteria</ion-card-subtitle>
-      <ion-card-subtitle class="text"> item.controlTypeStr </ion-card-subtitle>
+      <ion-card-title class="text" >{{item.category}}</ion-card-title>
+      <ion-card-subtitle class="text"> {{item.operation}} </ion-card-subtitle>
+      <ion-card-subtitle class="text"> {{item.criteria}}</ion-card-subtitle>
+      <ion-card-subtitle class="text"> {{item.measures}} </ion-card-subtitle>
 
     </ion-card-header>
 
   <ion-card-content class="ion-title-left">
 
 
-      <button (click)="Conform()" class="tick-btn" (click)="toggleTick()">
+      <button (click)="Conform(item.idControlCheckList)" class="tick-btn" (click)="toggleTick()">
         <ion-icon [name]="tickClicked ? 'checkbox-outline' : 'checkmark-outline'" style="font-size: 4em; color: green; margin-left: 30px;"></ion-icon>
       </button>
-      <button (click)="nonConform()" class="cross-btn" (click)="toggleCross()">
+      <button (click)="nonConform(item.idControlCheckList)" class="cross-btn" (click)="toggleCross()">
         <ion-icon [name]="crossClicked ? 'close-circle-outline' : 'checkbox-outline'" style="font-size: 4em; color: red; margin-left: 30px;"></ion-icon>
       </button>
 

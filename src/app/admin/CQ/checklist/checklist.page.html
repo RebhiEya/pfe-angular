@@ -11,7 +11,15 @@
 
 <ion-content class="item-details">
   <table>
+    <tr>
+      <td> </td>
+      <td>category </td>
+      <td> conformity</td>
+      <td> </td>
+      <td> </td>
 
+
+    </tr>
     <tr *ngFor="let item of controlCheckList; index as i">
       <td>
         <ion-checkbox color="secondary" (ionChange)="toggleSelection(item)" [checked]="isSelected(item)"></ion-checkbox>
@@ -38,8 +46,15 @@
     </tr>
 
   </table>
-  <ion-button fill="clear" color="primary"   class="button-spacing" (click)="saveSelectedChecklists()">
+
+  <ion-row>
+    <ion-col>
+      <ion-button (click)="saveSelectedChecklists()" class="my-form" expand="block" color="primary" type="submit">    valider
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <!-- <ion-button fill="clear" color="primary"   class="button-spacing" (click)="saveSelectedChecklists()">
     valider
-  </ion-button>
+  </ion-button> -->
 </ion-content>
 

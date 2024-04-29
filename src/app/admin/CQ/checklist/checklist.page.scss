@@ -28,11 +28,9 @@ ion-header{
   td {
     padding: 10px; /* Espacement intérieur des cellules */
   }
-
   .reference-text {
     font-weight: bold; /* Texte en gras */
   }
-
   .reference-value {
     font-weight: bold; /* Texte en gras */
   }
@@ -43,4 +41,8 @@ ion-header{
 
   ion-checkbox {
     margin-right: 10px; /* Espacement entre les cases à cocher et le texte */
+  }
+  .my-form {
+    --ion-color-primary: rgb(72, 99, 160); /* Couleur de fond */
+    --ion-color-primary-contrast: #ffffff; /* Couleur du texte */
   }

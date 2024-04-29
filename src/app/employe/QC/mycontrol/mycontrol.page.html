@@ -59,28 +59,27 @@
 
 <ion-content class="item-details">
   <ion-list>
-    <!-- *ngFor="let item of data; index as i " -->
-    <ion-item  >
+    <ion-item  *ngFor="let item of data; index as i ">
       <ion-label class="item-label">
         <div class="item-container">
           <div class="item-header">
-            <div class="item-title"> item.stateStr</div>
+            <div class="item-title"> {{item.state}}</div>
           </div>
           <div class="item-row">
             <div class="item-left">
-              <p>item.reference </p>
-              <p class="red-text">item.internalReference</p>
+              <p>{{item.reference}} </p>
+              <p class="red-text">{{item.internalReference}}</p>
             </div>
             <div class="item-right">
-              <p> item.date </p>
-              <p class="red-text"> item.productFamilyId </p>
+              <p> {{item.date}} </p>
+              <p class="red-text">  {{item.description}}</p>
             </div>
 
           </div>
 
           <div>
 
-            <ion-button routerLink="/control-checklist" style="--background:#bfd7ea; --color: #1b3a51; font-size: 20px;">
+            <ion-button (click)="navigateToChecklist(item.idQualityControl)" style="--background:#bfd7ea; --color: #1b3a51; font-size: 20px;">
               <ion-icon name="list" style="--color: #4d83ab;"></ion-icon>
             </ion-button>
 
@@ -90,7 +89,7 @@
             </ion-button>
 
 
-            <ion-button routerLink="/details" style="--background:#bfd7ea; --color: #1b3a51; font-size: 20px;">
+            <ion-button routerLink="/details"  style="--background:#bfd7ea; --color: #1b3a51; font-size: 20px;">
               <ion-icon name="create" style="--color: #4d83ab;"></ion-icon>
             </ion-button>
 
@@ -102,7 +101,7 @@
 
           </div>
 
-          
+
         </div>
       </ion-label>
     </ion-item>

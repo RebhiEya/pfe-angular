@@ -10,10 +10,111 @@
 </ion-header>
 
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">details</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content >
+  <ion-card *ngFor="let item of data; index as i " >
+    <ion-card-header>
+      <div class="item-row">
+        <div class="item-left">
+          <ion-label position="floating">
+          State :  {{item.state}}
+          </ion-label>
+        </div>
+        <div class="item-right">
+          <ion-label position="floating">
+            Réference : {{item.reference}}
+          </ion-label>
+        </div>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-title-left">
+      <div class="item-row">
+        <div class="item-left">
+          <ion-label position="floating">
+            Internal  <br/>
+            Reference : {{item.internalReference}}
+          </ion-label>
+        </div>
+        <div class="item-right">
+          <ion-label position="floating">
+            Date : {{item.date}}
+          </ion-label>
+        </div>
+      </div>
+      <div class="icon-row">
+      </div>
+      <ion-progress-bar [value]="0.5" color="custom"></ion-progress-bar>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card *ngFor="let item of data ; index as i ">
+    <ion-card-header>
+      <div class="item-row">
+        <div class="item-left">
+          <ion-label position="floating">
+            category : {{item.category}}
+          </ion-label>
+        </div>
+        <div class="item-right">
+          <ion-label position="floating">
+          Défaut
+          </ion-label>
+        </div>
+      </div>
+    </ion-card-header>
+
+  </ion-card>
+
+
+  <ion-card >
+    <ion-card-header>
+      <div class="item-row">
+        <div class="item-left">
+          <ion-label position="floating">
+            Défaut
+          </ion-label>
+        </div>
+
+      </div>
+    </ion-card-header>
+
+  </ion-card>
+
+<ion-card >
+    <ion-card-header>
+      <div class="item-row">
+        <div class="item-left">
+          <ion-label position="floating">
+          </ion-label>
+          <ion-input  name="code" placeholder="Code" ></ion-input>
+        </div>
+        <div class="item-right">
+          <ion-label position="floating">
+            Défaut
+          </ion-label>
+          <ion-input name="description" placeholder="Défaut" ></ion-input>
+        </div>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-title-left">
+      <div class="item-row">
+        <div class="item-left">
+          <ion-label position="floating">
+            <ion-icon name="pricetag" color="primary"></ion-icon> category
+          </ion-label>
+          <ion-input name="category" placeholder="category"></ion-input>
+        </div>
+        <div class="item-right">
+          <ion-label position="floating">
+            Quantité
+          </ion-label>
+          <ion-input  name="quantity" placeholder="Quantité"></ion-input>
+        </div>
+      </div>
+      <div class="icon-row">
+      </div>
+      <ion-progress-bar [value]="0.5" color="custom"></ion-progress-bar>
+    </ion-card-content>
+</ion-card>
+
 </ion-content>

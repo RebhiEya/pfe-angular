@@ -16,18 +16,19 @@ export class EquipePage  {
     private router: Router ,) { }
 
     ionViewWillEnter() {
-      this.loadData();
+      this.loadUsers();
       }
 
-    loadData() {
-      this.adminService.getAllPequipe().subscribe((data) => {
+      loadUsers(): void {
+        this.adminService.getAllUsers().subscribe((data) => {
           this.data = data;
           console.log(this.data);
-      });
-    }
+        });
+      }
 
-    selectProduit(user : any){
-      this.adminService.setUser(user);
+
+    selectProduit(userId : any){
+      this.adminService.setUser(userId);
       this.router.navigate(['/add-control'])
     }
 

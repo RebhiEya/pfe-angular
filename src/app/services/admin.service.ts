@@ -49,5 +49,7 @@ getAllPequipe() {
   setUser(user: any) {
     this.user = user;
   }
-
+  getUser() {
+    return this.user;
+  }
 }

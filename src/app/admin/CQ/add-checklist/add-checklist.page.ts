@@ -18,7 +18,7 @@ export class AddChecklistPage  {
     category: '',
     criteria: '',
     operation: '',
-    conformity: false,
+    conformity:null ,
     defects: '',
     measures: 0,
     description: ''
@@ -26,21 +26,33 @@ export class AddChecklistPage  {
 
 
 
-    selectedProduit: any[] = [];
+    selectedProduit: Produit = {
+      idProduit:0,
+      category: '',
+      designation: '',
+      reference: '',
+      famille:''
+
+    };
 
     constructor(private checklistService: ChecklistService,
-      private dataService:DataService,
+      private dataService:DataService,private productService: DataService,
       private router: Router) { }
 
-      
+      ionViewWillEnter() {
+        this.selectedProduit = this.productService.getProduct();
+
+        console.log("hh",this.selectedProduit)
+
+      }
 
        ajouterchecklist() {
-         this.dataService.createchecklist(this.selectedProduit,this.controlCheckList).subscribe(data =>{
+         this.dataService.createchecklist(this.selectedProduit.idProduit,this.controlCheckList).subscribe(data =>{
           console.log(data);
-           this.router.navigate(['/produits'])
+          this.router.navigate(['/checklist'])
          },
         (error) => {
-           console.error(error);
+          console.error(error);
            // Handle error, show error message, etc.
          }
        );

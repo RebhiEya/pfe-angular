@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './user.page.html',
   styleUrls: ['./user.page.scss']
 })
-export class UserComponent implements OnInit {
+export class UserComponent {
   data: any;
   item :any;
 
@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,) {}
 
-  ngOnInit(): void {
+    ionViewWillEnter(): void {
     this.loadUsers();
   }
 

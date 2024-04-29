@@ -1,5 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/add-control">
+        <ion-icon slot="icon-only" name="arrow-back" style="--color: #4d83ab;"></ion-icon> <!-- Icône de flèche -->
+      </ion-button>
+    </ion-buttons>
     <ion-title>produits</ion-title>
     <ion-buttons slot="end">
       <ion-button class="iconajouter" routerLink="/add-produit">
@@ -9,34 +14,35 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content class="item-details">
-  <ion-list>
-    <ion-item *ngFor="let item of data; index as i " >
-      <ion-label class="item-label">
-        <div class="item-container">
-          <div class="flex-container">
+  <table>
+    <tr>
+      <td> </td>
+      <td>Reference </td>
+      <td>Designatio</td>
+      <td> </td>
+      <td> </td>
 
-          <div>
-            <ion-checkbox color="secondary" (click) ="selectProduit(item)"></ion-checkbox>
-          </div>
-              <p class="reference-text">{{ item.reference }}</p>
 
-              <p class="reference-value">{{ item.category}}</p>
-              <!-- Bouton de modification -->
-              <ion-button fill="clear" color="primary" (click)="update(item)"  class="button-spacing">
-                <ion-icon name="create"></ion-icon>
-              </ion-button>
-              <!-- Bouton de suppression -->
-              <ion-button fill="clear" color="danger" (click)="delete(item.idProduit)" class="button-spacing">
-                <ion-icon name="trash"></ion-icon>
-              </ion-button>
-
-            </div>
-        </div>
-      </ion-label>
-    </ion-item>
-
-  </ion-list>
+    </tr>
+    <tr *ngFor="let item of data; index as i ">
+      <td>
+        <ion-checkbox color="secondary"  (click) ="selectProduit(item)"></ion-checkbox>
+      </td>
+      <td class="reference-text">{{ item.reference }}</td>
+      <td class="reference-value"> {{ item.designation}}</td>
+      <td>
+        <ion-button fill="clear" color="primary" (click)="update(item)"  class="button-spacing">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+      </td>
+      <td>
+        <ion-button fill="clear" color="danger" (click)="delete(item.idProduit)" class="button-spacing">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </td>
+    </tr>
+  </table>
 </ion-content>
+
 
