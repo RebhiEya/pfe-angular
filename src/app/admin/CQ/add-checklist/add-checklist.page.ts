@@ -41,22 +41,21 @@ export class AddChecklistPage  {
 
       ionViewWillEnter() {
         this.selectedProduit = this.productService.getProduct();
-
         console.log("hh",this.selectedProduit)
 
       }
-
-       ajouterchecklist() {
-         this.dataService.createchecklist(this.selectedProduit.idProduit,this.controlCheckList).subscribe(data =>{
+      
+      ajouterchecklist() {
+          this.dataService.createchecklist(this.selectedProduit.idProduit,this.controlCheckList).subscribe(data =>{
           console.log(data);
           this.router.navigate(['/checklist'])
-         },
+          },
         (error) => {
           console.error(error);
            // Handle error, show error message, etc.
-         }
-       );
-         }
+          }
+        );
+          }
 
 
 
