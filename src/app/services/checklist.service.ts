@@ -25,7 +25,6 @@ export class ChecklistService {
   }
 
 
-
   getChecklistByProduit(id: any) {
     return this.httpClient.get<any[]>(`http://localhost:8089/controlCheckList/getByIdProduit/${id}`);
 
@@ -44,10 +43,21 @@ export class ChecklistService {
       return this.httpClient.post<Qualitycontrol>(`http://localhost:8089/qualiyControl/add`, body, { headers: headers });
     }
 
-    updateConformity(itemId: number, conformity: boolean): Observable<any> {
+    updateConformity(controlId: number,checklistId :number, conformity: boolean): Observable<any> {
       // Méthode pour mettre à jour la conformité d'un élément de checklist
-      return this.httpClient.put<any>(`http://localhost:8089/controlCheckList/updateConformity/1${itemId}`, { conformity });
+      return this.httpClient.get<any>(`http://localhost:8089/controlCheckList/updateConformity?controlId=${controlId}&checklistId=${checklistId}&conformity=${conformity}`, {});
     }
 
+    saveChecklists(data: any): Observable<any> {
+      // Code pour enregistrer les données sur le serveur ou dans la base de données
+      // Par exemple :
+      // return this.http.post<any>('your_api_url', data);
+      console.log('Saving checklists:', data);
+      // Dans cet exemple, nous retournons simplement une observable vide
+      return new Observable<any>(observer => {
+        observer.next('Checklists saved successfully');
+        observer.complete();
+      });
+    }
 
 }

@@ -7,7 +7,7 @@
     </ion-buttons>
     <ion-title>Checklist</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="updatChecklist()">
+      <ion-button (click)="saveSelectedChecklists()">
         <ion-icon slot="icon-only" name="save-outline" style="font-size: 2em; color: #f2eded;"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -15,40 +15,23 @@
 </ion-header>
 
 
-
-
 <ion-content>
-
-  <ion-card  *ngFor="let item of data">
+  <ion-card *ngFor="let item of data" >
     <ion-card-header>
-      <ion-card-title class="text" >{{item.category}}</ion-card-title>
-      <ion-card-subtitle class="text"> {{item.operation}} </ion-card-subtitle>
-      <ion-card-subtitle class="text"> {{item.criteria}}</ion-card-subtitle>
-      <ion-card-subtitle class="text"> {{item.measures}} </ion-card-subtitle>
+
+      <ion-card-title style="font-size: 18px; color: #4863A0;">Category : <span style="color: black;">  {{item.checklist.category}}</span> </ion-card-title>
+      <ion-card-subtitle style="font-size: 18px; color: #4863A0;"> Opération : <span style="color: black;"> {{item.checklist.operation}}</span>  </ion-card-subtitle>
+      <ion-card-subtitle style="font-size: 18px; color: #4863A0;"> Criteria : <span style="color: black;"> {{item.checklist.criteria}}</span> </ion-card-subtitle>
+      <ion-card-subtitle style="font-size: 18px; color: #4863A0;"> Measures : <span style="color: black;"> {{item.checklist.measures}}</span>   </ion-card-subtitle>
 
     </ion-card-header>
 
-  <ion-card-content class="ion-title-left">
-
-
-      <button (click)="Conform(item.idControlCheckList)" class="tick-btn" (click)="toggleTick()">
-        <ion-icon [name]="tickClicked ? 'checkbox-outline' : 'checkmark-outline'" style="font-size: 4em; color: green; margin-left: 30px;"></ion-icon>
-      </button>
-      <button (click)="nonConform(item.idControlCheckList)" class="cross-btn" (click)="toggleCross()">
-        <ion-icon [name]="crossClicked ? 'close-circle-outline' : 'checkbox-outline'" style="font-size: 4em; color: red; margin-left: 30px;"></ion-icon>
-      </button>
-
-
-
-
-
-      <!-- (click)="NonConform(item)" -->
-
-
-      <!-- (click)="Conform(item)" -->
-
-
-  </ion-card-content>
+    <ion-card-content class="ion-title-left">
+      <ion-radio-group [(ngModel)]="item.selectedButton">
+        <ion-radio  (click)="Conform(item)" name ="button" class="Conform">Conform </ion-radio>
+        <ion-radio   (click)="nonConform(item)" name ="button" class="nonConform">Non Conform </ion-radio>
+      </ion-radio-group>
+    </ion-card-content>
   </ion-card>
 
   <div  class="blue-bar">
@@ -57,8 +40,4 @@
     <ion-icon name="image" style="font-size: 2em; color: #fff;"></ion-icon>
     <ion-icon name="videocam" style="font-size: 2em; color: #fff;"></ion-icon>
   </div>
-
-
-
-
 </ion-content>

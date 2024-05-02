@@ -1,5 +1,10 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/add-control">
+        <ion-icon slot="icon-only" name="arrow-back" style="--color: #4d83ab;"></ion-icon> <!-- Icône de flèche -->
+      </ion-button>
+    </ion-buttons>
     <ion-title class="title">Checklist</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="saveidChecklists()">
@@ -13,10 +18,9 @@
   <table>
     <tr>
       <td> </td>
-      <td>category </td>
-      <td> conformity</td>
-      <td> </td>
-      <td> </td>
+      <td> Category</td>
+      <td>Criteria </td>
+      <td> Measures</td>
 
 
     </tr>
@@ -24,24 +28,10 @@
       <td>
         <ion-checkbox color="secondary" (ionChange)="toggleSelection(item)" [checked]="isSelected(item)"></ion-checkbox>
       </td>
+      <td class="reference-value">{{ item.category }}</td>
+      <td class="reference-text">{{ item.criteria }}</td>
+      <td class="reference-value">{{ item.measures }}</td>
 
-      <td class="reference-text">{{ item.category }}</td>
-      <td class="reference-value">{{ item.conformity }}</td>
-
-
-      <td>
-        <ion-button fill="clear" color="primary"   class="button-spacing">
-          <ion-icon name="create"></ion-icon>
-        </ion-button>
-
-      </td>
-
-      <td>
-        <!-- Bouton de suppression -->
-        <ion-button fill="clear" color="danger"  class="button-spacing">
-          <ion-icon name="trash"></ion-icon>
-        </ion-button>
-      </td>
 
     </tr>
 
@@ -53,8 +43,6 @@
       </ion-button>
     </ion-col>
   </ion-row>
-  <!-- <ion-button fill="clear" color="primary"   class="button-spacing" (click)="saveSelectedChecklists()">
-    valider
-  </ion-button> -->
+
 </ion-content>
 

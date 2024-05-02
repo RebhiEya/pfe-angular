@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MycontrolService } from 'src/app/services/mycontrol.service';
 import {Qualitycontrol} from 'src/app/models/Qualitycontrol.model'
 import { AuthService } from 'src/app/services/auth.service';
+import { Controldefect } from 'src/app/models/Controldefect.model';
+import { EmployeService } from 'src/app/services/employe.service';
 
 @Component({
   selector: 'app-mycontrol',
@@ -17,6 +19,7 @@ export class MycontrolPage  {
   controlId: string = '';
   currentUser : any = {};
 
+
   control : Qualitycontrol = {
     idQualityControl: 0,
     reference :'',
@@ -26,13 +29,24 @@ export class MycontrolPage  {
     description: '',
   }
 
+  controldefect :Controldefect ={
+    idControlDefect : 0,
+    category : '',
+    code : '',
+    quantity: '',
+    description: ''
+  }
+
+  selecteddefect: Controldefect[] = [];
+
   constructor(private mycontrolService :MycontrolService, private authService : AuthService,
+    private employeService : EmployeService,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ionViewWillEnter() {
+    this.selecteddefect = this.employeService.getDefect();
     this.loadData();
-    this.currentUser = this.authService.getCurrentUser();
 
 
   }
@@ -42,11 +56,7 @@ export class MycontrolPage  {
       this.data = data;
       console.log(this.data);
   });
-    // const currentUser = this.authService.getCurrentUser();
-    // this.mycontrolService.getControlByIdUser(currentUser.idUser).subscribe((data) => {
-    //     this.data = data;
-    //     console.log(this.data);
-    // });
+
 }
 navigateToChecklist(id :number){
   this.router.navigate(['/control-checklist'],{ queryParams: { id: id }});
@@ -63,9 +73,9 @@ async navigateToChecklists(control: any) {
   }
 
 
-  async navigateTodefect(control: any) {
-    const controlData = await this.mycontrolService.getControlById(control.id);
-    console.log(this.mycontrolService);
-    this.router.navigate(['/control-defect',control.id]);
+  navigateTodefect() {
+    // const controlData = await this.mycontrolService.getControlById(control.id);
+    // console.log(this.mycontrolService);
+    this.router.navigate(['/control-defect']);
     }
 }

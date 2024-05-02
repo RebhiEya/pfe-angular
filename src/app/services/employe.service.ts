@@ -20,14 +20,18 @@ export class EmployeService {
     quantity: '',
     description: ''
   }
+
+  
   constructor( private httpClient: HttpClient, private router: Router, private adminService: AdminService,
     private alertController: AlertController) { }
+
+
+    private defect: Controldefect[] = [];
 
 
     getAllDefect(){
         return this.httpClient.get<any[]>(`${this.urlRoot}/controlDefect/getAll`);
       }
-
 
     createdefect(controldefect: Controldefect): Observable<object> {
       return this.httpClient.post( `${this.urlRoot}/controlDefect/add` , controldefect ) ;
@@ -41,5 +45,12 @@ export class EmployeService {
         return this.httpClient.put<any>(`${this.urlRoot}/controlDefect/update/${id}`, item );
       }
 
+      getDefect(): Controldefect[] {
+        return this.defect;
+      }
+
+      setDefect(items: Controldefect[]) {
+        this.defect = items;
+      }
     }
 

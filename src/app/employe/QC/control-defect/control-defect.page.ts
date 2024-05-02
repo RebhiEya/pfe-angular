@@ -51,6 +51,9 @@ export class ControlDefectPage {
   images: LocalFile[] = [];
   mediaRecorder: MediaRecorder | null = null;
 
+
+  selecteddefect: Controldefect[] = [];
+
   constructor(
     private router: Router,
     private mediaCapture: MediaCapture,
@@ -81,6 +84,32 @@ export class ControlDefectPage {
     }
 
 //defect
+
+toggleSelection(defect: Controldefect) {
+  const index = this.selecteddefect.findIndex(item => item.idControlDefect === defect.idControlDefect);
+  if (index !== -1) {
+    this.selecteddefect.splice(index, 1); // Deselect if already selected
+  } else {
+    this.selecteddefect.push(defect); // Select if not already selected
+
+  }
+}
+
+isSelected(defect: Controldefect): boolean {
+  this.selecteddefect = this.employeService.getDefect(); // Get selected checklists from service
+  return this.selecteddefect.some(item => item.idControlDefect === defect.idControlDefect);
+}
+
+
+
+saveSelectedChecklists() {
+  // Save the selected checklists to the ControlService for the new Control
+  console.log(this.selecteddefect)
+  this.employeService.setDefect(this.selecteddefect);
+  this.router.navigate(['/mycontrol'] );
+}
+
+
 savedefect(id?: number){
   if (id) {
     this.employeService.updateDefect(id, this.controldefect).subscribe(data => {
@@ -110,19 +139,6 @@ savedefect(id?: number){
   }
 }
 
-//     this.data = [...this.data,data]
-//     this.controldefect = {
-//       idControlDefect : 0,
-//       category : '',
-//       code : '',
-//       quantity: '',
-//       description: ''
-//     }
-//   },
-//   error => console.log(error))
-
-// }
-
 editDefect(id: number) {
   this.controldefect = this.data.find((item: any) => item.idControlDefect === id);
   this.isEditing = true; // Définir la variable isEditing à true pour indiquer que vous êtes en mode modification
@@ -145,8 +161,8 @@ update(){
 
 
  const toast =  this.toastController.create({
-   message: 'produit updated successfully',
-   duration: 3000,
+  message: 'produit updated successfully',
+  duration: 3000,
    position: 'top',
    cssClass: 'custom-toast'//Utiliser la classe CSS personnalisée
  });

@@ -32,10 +32,9 @@ export class ChecklistPage  {
     ionViewWillEnter() {
       this.selectedProduit = this.productService.getProduct();
       this.productService.getChecklistByProduit(this.selectedProduit.idProduit).subscribe((data) =>{
-       this.controlCheckList = data
-       console.log(data)
+      this.controlCheckList = data
+      console.log(data)
       }
-
       )
     }
 
@@ -44,12 +43,10 @@ export class ChecklistPage  {
       this.router.navigate(['/add-checklist', { productId: this.selectedProduit.idProduit }]);
     }
 
-
     toggleSelection(checklist: ControlCheckList) {
       const index = this.selectedChecklists.findIndex(item => item.idControlCheckList === checklist.idControlCheckList);
       if (index !== -1) {
         this.selectedChecklists.splice(index, 1); // Deselect if already selected
-
       } else {
         this.selectedChecklists.push(checklist); // Select if not already selected
 
@@ -65,14 +62,10 @@ export class ChecklistPage  {
       // Save the selected checklists to the ControlService for the new Control
       console.log(this.selectedChecklists)
       this.checklistService.setChecklist(this.selectedChecklists);
-
-
-       this.router.navigate(['/add-control'] );
+      this.router.navigate(['/add-control'] );
     }
+
     isItemCompleted(item: any): boolean {
       return item.completed || false; // Return true if completed, false if not set
     }
-
-
-
 }

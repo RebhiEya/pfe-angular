@@ -21,8 +21,8 @@ export class DataService {
     designation: '',
     reference: '',
     famille:''
-
   };
+
 
   setProduct(product: any) {
     this.product = product;

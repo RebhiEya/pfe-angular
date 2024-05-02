@@ -55,8 +55,6 @@
 
 
 <ion-content>
-    <!-- Ajout des champs de référence produit et description -->
-
     <ion-item>
       <ion-label position="floating">
         <ion-icon name="cube" slot="start" class="custom-icon" ></ion-icon> Produit
@@ -65,10 +63,10 @@
         <ion-icon  name="ellipsis-horizontal"></ion-icon>
       </ion-button>
       <ion-input class="custom-input" [(ngModel)]="selectedProduit.reference"></ion-input>
-
     </ion-item>
-    <form (ngSubmit)="ajouter()">
 
+
+    <form (ngSubmit)="ajouter()">
     <ion-item>
       <ion-label position="floating">
         <ion-icon name="barcode" slot="start" class="custom-icon"></ion-icon> Reference

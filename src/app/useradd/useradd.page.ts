@@ -14,12 +14,12 @@ export class UseraddComponent {
 
   user: User = {
     idUser: 0,
+    username:'',
     firstName: '',
     lastName: '',
     matricule: '',
     password: '',
     email: '',
-    roles: []
   };
 
 

@@ -7,7 +7,7 @@
     </ion-buttons>
     <ion-title>Défaut</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="addefault()" >
+      <ion-button (click)="saveSelectedChecklists()"  >
         <ion-icon slot="icon-only" name="save-outline" style="font-size: 2em; color: #f2eded;"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -73,7 +73,7 @@
       <ion-label class="item-label">
           <div class="flex-container">
             <div>
-            <ion-checkbox style="color: blue" ></ion-checkbox>
+            <ion-checkbox style="color: blue" (ionChange)="toggleSelection(item)" [checked]="isSelected(item)"></ion-checkbox>
           </div>
               <p > {{item.category}} </p>
               <p >{{item.code}}</p>
@@ -92,6 +92,7 @@
             </div>
       </ion-label>
     </ion-item>
+    
   </ion-card>
 
 

@@ -51,6 +51,29 @@ ion-card{
 
 
 
+.Conform{
+  --size: 32px;
+  --checkbox-background-checked: #1eac08;
+}
+
+.Conform::part(container) {
+  border-radius: 6px;
+  border: 2px solid #1eac08;
+}
+
+.nonConform{
+  --size: 32px;
+  --checkbox-background-checked: #db0a0a;
+}
+
+.nonConform::part(container) {
+  border-radius: 6px;
+  border: 2px solid #db0a0a;
+}
+
+
+
+
 
 
 

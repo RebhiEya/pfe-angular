@@ -13,21 +13,22 @@ export class AdminService {
 
   constructor(private httpClient: HttpClient) { }
 
+  private users: User[] = [];
+
 
 private user : User ={
       idUser:0,
+      username : '',
       firstName: '',
       lastName: '',
       matricule: '',
       password: '',
       email:'',
-      roles: []
 
- };
-
+};
 
  //user
- getAllUsers(): Observable<User[]> {
+getAllUsers(): Observable<User[]> {
     return this.httpClient.get<User[]>(`${this.urlRoot}/user/getAll`);
   }
 
@@ -51,5 +52,9 @@ getAllPequipe() {
   }
   getUser() {
     return this.user;
+  }
+
+  getChecklist(): User[] {
+    return this.users;
   }
 }

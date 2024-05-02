@@ -63,25 +63,17 @@
         <ion-label class="item-label">
           <div class="item-container">
             <div class="flex-container">
-
-
               <div class="item-header">
-                <div class="item-title">{{ item.reference }}</div>
+                <div class="item-title"  style="color: #4863A0;"> reference : <span style="color: black;"> {{ item.reference }} </span></div>
               </div>
-              <div class="item-row">
-                <div class="item-left">
-                  <p>{{ item.internalReference}} </p>
-                  <p class="red-text"> {{item.description}} </p>
+                  <p style="font-size: 18px; color: #4863A0;">Internal Reference : <span style="color: black;">{{ item.internalReference}}</span> </p>
+                  <p class="red-text" style="font-size: 18px; color: #4863A0;" > description : <span style="color: black;"> {{item.description}} </span>  </p>
                 </div>
-                <div class="item-right">
-                  <p> {{item.state}} </p>
-                  <p class="red-text"> {{item.date}}  </p>
-                </div>
-              </div>
+                  <p  style="font-size: 18px; color: #4863A0;"> state : <span style="color: black;"> {{item.state}}</span>  </p>
+                  <p class="red-text"  style="font-size: 18px; color: #4863A0;">date : <span style="color: black;">{{item.date}} </span>  </p>
                 <ion-button fill="clear" color="danger" (click)="delete(item.idQualityControl)" class="button-spacing">
                   <ion-icon name="trash"></ion-icon>
                 </ion-button>
-              </div>
           </div>
         </ion-label>
       </ion-item>
