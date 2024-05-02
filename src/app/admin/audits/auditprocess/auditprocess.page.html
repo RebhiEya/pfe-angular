@@ -1,8 +1,8 @@
 <ion-header [translucent]="true">
-  <ion-toolbar class="custom-toolbar-color" >
-    <ion-title>Liste des processus</ion-title>
+  <ion-toolbar>
+    <ion-title>liste des processus</ion-title>
     <ion-buttons slot="end">
-      <ion-button class="iconajouter" routerLink="/addprocess">
+      <ion-button  routerLink="/addprocess">
         <ion-icon slot="start" name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -12,9 +12,17 @@
 
   <ion-list>
     <ion-item *ngFor="let item of data; index as i">
+
       <ion-label>
-        <h2>{{ item.nom }}</h2>
-        <p>{{ item.recommendation }}</p>
+        <ion-checkbox color="secondary" (click) ="selectProcess(item)"></ion-checkbox>
+        <div>
+          <p style="font-size: 18px; color: #4863A0;">Nom du processus :</p>
+          <p style="font-size: 18px; color: black;">{{ item.nom }}</p>
+        </div>
+        <div>
+          <p style="font-size: 18px; color: #4863A0;">Recommendation :</p>
+          <p style="font-size: 18px; color: black;">{{ item.recommendation }}</p>
+        </div>
       </ion-label>
       <ion-buttons slot="end">
         <ion-button fill="clear" (click)="update(item)" color="primary">
@@ -23,9 +31,11 @@
         <ion-button fill="clear" (click)="delete(item.idProcess)" color="danger">
           <ion-icon name="trash" style="font-size: 24px;"></ion-icon>
         </ion-button>
-        <ion-button fill="clear" color="secondary" (click)="redirectToChecklistProcessPage()">
+        <ion-button fill="clear" color="secondary" (click)="redirectToChecklistProcessPage(item.idProcess)">
           <ion-icon name="list" style="font-size: 24px;"></ion-icon>
         </ion-button>
+
+
       </ion-buttons>
 
     </ion-item>

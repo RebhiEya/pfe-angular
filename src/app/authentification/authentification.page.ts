@@ -1,10 +1,8 @@
-
-// authentification.page.ts
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import * as moment from 'moment';
+
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.page.html',
@@ -13,10 +11,10 @@ import * as moment from 'moment';
 export class AuthentificationPage {
   credentials = { email: '', password: '' };
   error: string = '';
-  isAdmin: boolean;
-  isEmployee: boolean;
+  isEmployee: any;
+  isAdmin: any;
 
-  constructor(private authService: AuthService, private router: Router ,) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onLogin() {
     this.authService.login(this.credentials)
@@ -24,7 +22,7 @@ export class AuthentificationPage {
 
           if (response.role[0] === "ADMIN"){
               this.isAdmin=true
-          }else if (response.role[0]==="EMPLOYEE"){
+          } else if (response.role[0]==="EMPLOYEE"){
               this.isEmployee=true
           }
         console.log("auth",response)

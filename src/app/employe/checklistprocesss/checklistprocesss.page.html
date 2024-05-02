@@ -1,60 +1,42 @@
 <ion-header>
-  <ion-toolbar color="tertiary">
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button menu="main-menu"></ion-menu-button>
+      <ion-button routerLink="/mycontrol">
+        <ion-icon slot="icon-only" name="arrow-back" style="--color: #4d83ab;"></ion-icon> <!-- Icône de flèche -->
+      </ion-button>
     </ion-buttons>
-    <ion-icon name="chevron-back" class="arrow" (click)="goTomyprocessPage()" style="font-size: 2em;"></ion-icon>
-  Checklistprocess
+    <ion-title>Checklist</ion-title>
     <ion-buttons slot="end">
-      <!-- (click)="updatChecklistData()" -->
-      
+      <!-- <ion-button (click)="updatChecklist()">
+        <ion-icon slot="icon-only" name="save-outline" style="font-size: 2em; color: #f2eded;"></ion-icon>
+      </ion-button> -->
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 
+
+
 <ion-content>
 
-  <!-- *ngFor="let item of checklistData" -->
-  <ion-list>
-    <ion-item >
-      <ion-label>
-       <div class="item-row">
-         <div class="item-left">
-           
-           <p>processDesignation</p>
-         </div>
-          
-        </div>
-              
-        <p>requirement </p>
-        <p class="g-text">- - - - - - - - - - - - - - - - - - - - -</p>
-        <p class="red-text">question</p>
-        
-       
-        <ion-button fill="clear">
-          <ion-icon name="checkmark-circle" style="color: rgb(106, 179, 106);"></ion-icon>
-        </ion-button>
-        <ion-button fill="clear">
-          <ion-icon name="close-circle" style="color: rgb(211, 26, 26);"></ion-icon>
-        </ion-button>
-        <ion-button  fill="clear">
-          <ion-icon name="checkmark-circle" style="color: rgb(48, 36, 208);"></ion-icon>
-        </ion-button>
-        
-      </ion-label>
-    </ion-item>
-    <!-- Barre d'icônes -->
-  </ion-list>
+  <ion-card  *ngFor="let item of data">
+    <ion-card-header>
+      <ion-card-title class="text" >{{item.requirement}}</ion-card-title>
+      <ion-card-subtitle class="text"> {{item.category}} </ion-card-subtitle>
+      <ion-card-subtitle class="text"> {{item.state}}</ion-card-subtitle>
+      <ion-card-subtitle class="text"> {{item.description}} </ion-card-subtitle>
 
-  <div  class="blue-bar">
-    <ion-icon  name="camera" style="font-size: 2em; color: #fff;"> </ion-icon>
-    <ion-icon name="mic" style="font-size: 2em; color: #fff;"></ion-icon>
-    <ion-icon name="image" style="font-size: 2em; color: #fff;"></ion-icon>
-    <ion-icon name="videocam" style="font-size: 2em; color: #fff;"></ion-icon>
-  </div>
+    </ion-card-header>
+
+  <ion-card-content class="ion-title-left">
 
 
-
-
+      <!-- <button (click)="Conform(item.idControlCheckList)" class="tick-btn" (click)="toggleTick()">
+        <ion-icon [name]="tickClicked ? 'checkbox-outline' : 'checkmark-outline'" style="font-size: 4em; color: green; margin-left: 30px;"></ion-icon>
+      </button>
+      <button (click)="nonConform(item.idControlCheckList)" class="cross-btn" (click)="toggleCross()">
+        <ion-icon [name]="crossClicked ? 'close-circle-outline' : 'checkbox-outline'" style="font-size: 4em; color: red; margin-left: 30px;"></ion-icon>
+      </button> -->
+  </ion-card-content>
+  </ion-card>
 </ion-content>

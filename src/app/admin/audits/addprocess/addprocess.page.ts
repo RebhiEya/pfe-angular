@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuditprocessesService } from 'src/app/services/auditprocesses.service';
 import { auditProcesses } from 'src/app/models/processus.model'; // Import de l'interface auditProcesses
-
+import { AlertController } from '@ionic/angular'; // Import de AlertController
 
 @Component({
   selector: 'app-addprocess',
@@ -10,26 +10,56 @@ import { auditProcesses } from 'src/app/models/processus.model'; // Import de l'
   styleUrls: ['./addprocess.page.scss'],
 })
 export class AddprocessPage {
+
   auditprocesses: auditProcesses = {
-    idProcess: 0, // Vous pouvez initialiser processId à 0 ou à null selon votre logique
-    nom: '', // Vous devez spécifier la valeur ici
-    recommendation: '',    // Vous devez spécifier la valeur ici
-    strength: '',          // Vous devez spécifier la valeur ici
-    weakness: '',          // Vous devez spécifier la valeur ici
-    checklistScore: 0     // Vous devez spécifier la valeur ici
+    idProcess: 0,
+    nom:'',
+    recommendation: '',
+    strength: '',
+    weakness: '',
+    checklistScore :0
   };
 
+
   constructor(private dataService: AuditprocessesService,
-    private router: Router
+    private router: Router,
+    private alertController: AlertController
   ) { } // Injection du service DataService
 
-  ngOnInit() {
+  ajouterProcesses() {
+    if (this.auditprocesses.nom && this.auditprocesses.recommendation && this.auditprocesses.strength && this.auditprocesses.weakness) {
+      this.dataService.addProcess(this.auditprocesses).subscribe(
+        () => {
+          this.presentSuccessAlert();
+          this.router.navigate(['/auditprocess']);
+        },
+        error => {
+          console.error('Erreur lors de l\'ajout du processus', error);
+          // Gérer l'erreur ici, par exemple afficher une autre alerte
+        }
+      );
+    } else {
+      this.presentAlert();
+    }
   }
 
-  ajouterProcesses() {
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Erreur',
+      message: 'Veuillez remplir tous les champs',
+      buttons: ['OK']
+    });
 
-    this.dataService.addProcess(this.auditprocesses).subscribe(
-     ()=>this.router.navigate(['/auditprocess']),
-    );
-}
+    await alert.present();
+  }
+
+  async presentSuccessAlert() {
+    const alert = await this.alertController.create({
+      header: 'Succès',
+      message: 'Processus ajouté avec succès',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
 }

@@ -1,5 +1,5 @@
 export interface ProcessChecklist{
-
+idProcessChecklist:number;
 requirement : String;
 category : String;
 state : String;

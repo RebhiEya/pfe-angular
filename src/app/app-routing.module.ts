@@ -18,6 +18,10 @@ const routes: Routes = [
     loadChildren: () => import('./employe/tableau-bord/tableau-bord.module').then(m => m.TableauBordPageModule)
   },
   {
+    path: 'tabbord',
+    loadChildren: () => import('./admin/tabbord/tabbord.module').then(m => m.TabbordPageModule)
+  },
+  {
     path: 'add-audit',
     loadChildren: () => import('./admin/audits/add-audit/add-audit.module').then( m => m.AddAuditPageModule)
   },
@@ -49,12 +53,21 @@ const routes: Routes = [
     path: 'auditprocess',
     loadChildren: () => import('./admin/audits/auditprocess/auditprocess.module').then( m => m.AuditprocessPageModule)
   },
+
   {
-    path: 'checklistprocess',
+    path: 'equipe-audit',
+    loadChildren: () => import('./admin/audits/equipe-audit/equipe-audit.module').then( m => m.EquipeAuditPageModule)
+  },
+  {
+    path: 'les-audits',
+    loadChildren: () => import('./admin/audits/les-audits/les-audits.module').then( m => m.LesAuditsPageModule)
+  },
+  {
+    path: 'checklistprocess/:idProcess',
     loadChildren: () => import('./admin/audits/checklistprocess/checklistprocess.module').then( m => m.ChecklistprocessPageModule)
   },
   {
-    path: 'addchecklistprocess',
+    path: 'addchecklistprocess/:idProcess',
     loadChildren: () => import('./admin/audits/addchecklistprocess/addchecklistprocess.module').then( m => m.AddchecklistprocessPageModule)
   },
   {
@@ -86,15 +99,15 @@ const routes: Routes = [
     loadChildren: () => import('./employe/QC/details/details.module').then( m => m.DetailsPageModule)
   },
 
-
-
   {
-    path: 'process',
-    loadChildren: () => import('./employe/audit/process/process.module').then( m => m.ProcessPageModule)
+    path: 'checklistprocesss',
+    loadChildren: () => import('./employe/checklistprocesss/checklistprocesss.module').then( m => m.ChecklistprocesssPageModule)
   },
+
+ 
   {
     path: 'my-audit',
-    loadChildren: () => import('./employe/audit/my-audit/my-audit.module').then( m => m.MyAuditPageModule)
+    loadChildren: () => import('./employe/my-audit/my-audit.module').then( m => m.MyAuditPageModule)
   },
   {
   path: 'useradd',
@@ -103,20 +116,17 @@ const routes: Routes = [
   {
     path: 'user',
       loadChildren: () => import('./user/user.module').then( m => m.UserPageModule),
-    },  {
-    path: 'tabbord',
-    loadChildren: () => import('./admin/tabbord/tabbord.module').then( m => m.TabbordPageModule)
-  },
-  {
-    path: 'control',
-    loadChildren: () => import('./admin/CQ/control/control.module').then( m => m.ControlPageModule)
-  },
-  {
-    path: 'equipe',
-    loadChildren: () => import('./admin/CQ/equipe/equipe.module').then( m => m.EquipePageModule)
-  },
+    },
+    
+    {
+      path: 'equipe',
+        loadChildren: () => import('./admin/CQ/equipe/equipe.module').then( m => m.EquipePageModule),
+      },
 
-
+      {
+        path: 'control',
+          loadChildren: () => import('./admin/CQ/control/control.module').then( m => m.ControlPageModule),
+        },
 ];
 
 @NgModule({

@@ -48,10 +48,19 @@ td button {
 /* Styling for button "Modifier" */
 /* Styling for button "Modifier" */
 button.modify-button {
-  --color: #007bff; /* Blue color */
+  --color: #ffffff; /* Blue color */
 }
 
 /* Styling for button "Supprimer" */
 button.delete-button {
   --color: #dc3545; /* Red color */
 }
+ion-header{
+  ion-toolbar{
+    --background: #4863A0;
+    color: white;
+  }
+  .color{
+    color: white;
+  }
+  }

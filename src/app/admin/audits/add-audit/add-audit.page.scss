@@ -1,9 +1,22 @@
-.custom-toolbar-color {
-    --ion-background-color: #4863A0;
+ion-header {
+  ion-toolbar {
+    --background: #4863A0;
+    color: white;
+    display: flex;
+    align-items: center;
   }
-  .custom-toolbar-color ion-title {
-    color: #ffffff; /* Blanc */
+
+  ion-toolbar ion-title {
+    flex: 1; /* Pour permettre au titre de prendre autant d'espace que possible */
+    margin-left: 10px; /* Pour donner un espace entre le bouton "Arrow Back" et le titre */
   }
-  .custom-toolbar-color ion-icon {
-    color: #ffffff; /* Blanc */
+
+  ion-icon[name="arrow-back"] {
+    color: white; /* Couleur blanche pour l'icône Arrow Back */
   }
+}
+.custom-add-button {
+  --ion-color-primary: rgb(72, 99, 160); /* Couleur de fond */
+  --ion-color-primary-contrast: #ffffff; /* Couleur du texte */
+}
+

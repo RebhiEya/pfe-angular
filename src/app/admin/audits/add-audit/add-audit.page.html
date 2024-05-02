@@ -1,43 +1,54 @@
 <ion-header>
-  <ion-toolbar class="custom-toolbar-color" >
-    <ion-title>Ajouter un nouvel audit</ion-title>
+  <ion-toolbar class="custom-toolbar-color">
     <ion-buttons slot="start">
       <ion-button routerLink="/tableau-bord">
         <ion-icon name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
+    <p> Ajout un nouvel audit</p>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
   <ion-item>
+    <ion-label position="floating">
+      <ion-icon name="cube" slot="start" class="custom-icon" ></ion-icon> Processus
+    </ion-label>
+    <ion-button slot="end" fill="clear" routerLink="/auditprocess">
+      <ion-icon  name="ellipsis-horizontal"></ion-icon>
+    </ion-button>
+    <ion-input class="custom-input" [(ngModel)]="selectedProcess.nom"></ion-input>
+
+  </ion-item>
+  <ion-item>
     <ion-label position="stacked">Catégorie</ion-label>
-    <ion-input [(ngModel)]="category" type="text"></ion-input>
+    <ion-input [(ngModel)]="control.category" type="text"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Désignation</ion-label>
-    <ion-input [(ngModel)]="designation" type="text"></ion-input>
+    <ion-input [(ngModel)]="control.designation" type="text"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Date de début</ion-label>
-    <ion-input [(ngModel)]="startDate" type="date"></ion-input>
+    <ion-input [(ngModel)]="control.startDate" type="date"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Date de fin</ion-label>
-    <ion-input [(ngModel)]="endDate" type="date"></ion-input>
+    <ion-input [(ngModel)]="control.endDate" type="date"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">État</ion-label>
-    <ion-input [(ngModel)]="state" type="text"></ion-input>
+    <ion-input [(ngModel)]="control.state" type="text"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Référence</ion-label>
-    <ion-input [(ngModel)]="reference" type="text"></ion-input>
+    <ion-input [(ngModel)]="control.reference" type="text"></ion-input>
   </ion-item>
   <!-- Listes de contrôle -->
   <ion-toolbar>
@@ -47,22 +58,22 @@
   </ion-toolbar>
 
   <ion-list>
-    <ion-item routerLink="/auditprocess">
+    <ion-item (click)="getChecklist()">
       <ion-label>
-
-      processus audités
+        <ion-icon name="checkmark-done-circle-outline"></ion-icon>
+        Check Lists de processus 
       </ion-label>
-
-      <ion-icon name="arrow-forward-outline" slot="end" class="arrow-icon"></ion-icon> <!-- Flèche -->
+      <ion-icon name="arrow-forward-outline" slot="end" class="arrow-icon" ></ion-icon> 
     </ion-item>
-
-    <ion-item routerLink="/equipeaudit">
+    <ion-item (click)="getuser()" >
       <ion-label>
-
-      equipe d'audit
+        <ion-icon  name="people"></ion-icon>
+        equipe d'audit
       </ion-label>
-      <ion-icon name="arrow-forward-outline" slot="end" class="arrow-icon"></ion-icon>
+      <ion-icon name="arrow-forward-outline" slot="end" class="arrow-icon" ></ion-icon> 
     </ion-item>
+    
   </ion-list>
-  <ion-button (click)="addAudit()">Ajouter l'audit</ion-button>
+  <ion-button class="custom-add-button" (click)="addAudit()">Ajouter l'audit</ion-button>
+
 </ion-content>

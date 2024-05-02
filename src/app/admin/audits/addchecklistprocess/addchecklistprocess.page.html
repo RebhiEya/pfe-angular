@@ -1,54 +1,43 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>addchecklistprocess</ion-title>
+  <ion-toolbar class="custom-toolbar-color" >
+    <ion-title>Ajouter Checklist De Processus</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- Ajout des champs de référence produit et description -->
-  <ion-item>
-    <ion-label position="stacked">category</ion-label>
-    <ion-input placeholder="Enter product reference"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">requirement</ion-label>
-    <ion-input placeholder="Enter product reference"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-select
-      class="always-flip"
-      toggleIcon="caret-down-sharp"
-      interface="popover"
-      label="state"
-      placeholder="Select state"
-    >
-      <ion-select-option value="apples">en cours </ion-select-option>
-      <ion-select-option value="oranges">realisée</ion-select-option>
-      <ion-select-option value="bananas">programée</ion-select-option>
-    </ion-select>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">description</ion-label>
-    <ion-input placeholder="Select Description"></ion-input>
-  </ion-item>
-  <!-- Utilisation d'une liste de ion-select pour le champ conformity -->
-  <ion-item>
-    <ion-select label="conformity" [interfaceOptions]="customPopoverOptions" interface="conformity" placeholder="Select One">
-      <ion-select-option value="brown">conforme</ion-select-option>
-      <ion-select-option value="blonde">non conforme</ion-select-option>
-      <ion-select-option value="red">conforme et efficace </ion-select-option>
-    </ion-select>
-  </ion-item>
-  
-  <!-- Champ pour le critère avec sélecteur conforme/non conforme -->
-  <ion-item>
-    <ion-label position="stacked">Critère</ion-label>
-    <ion-select label="conformité" placeholder="Choisir">
-      <ion-select-option value="conforme">Conforme</ion-select-option>
-      <ion-select-option value="nonconforme">Non conforme</ion-select-option>
-    </ion-select>
-  </ion-item>
-  
-  <!-- Bouton pour ajouter la checklist -->
-  <ion-button (click)="addchecklistProcess()" expand="full">Ajouter Checklist</ion-button>
+  <ion-card>
+    <ion-card-content class="my-form">
+      <form (ngSubmit)=" ajouterchecklist()">
+        <ion-list>
+
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">requirement</ion-label>
+            <ion-input type="text" name="requirement" [(ngModel)]="controlCheckList.requirement" required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">category</ion-label>
+            <ion-input type="text" name="category" [(ngModel)]="controlCheckList.category" required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">state</ion-label>
+            <ion-input type="text" name="state" [(ngModel)]="controlCheckList.state"required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;"> conformity</ion-label>
+            <ion-input type="text" name="conformity" [(ngModel)]="controlCheckList.conformity"required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;"> description</ion-label>
+            <ion-input type="text" name="description" [(ngModel)]="controlCheckList.description"required></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-row>
+          <ion-col>
+            <ion-button class="button"    type="submit">Ajouter</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+

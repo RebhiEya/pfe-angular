@@ -14,9 +14,14 @@ import { ProcessChecklist } from 'src/app/models/ProcessChecklist.model';
 export class AuditprocessesService {
   baseUrl = 'http://localhost:8089/process';
 
-  constructor(private httpClient: HttpClient) { }
+  
+  apiUrl = 'http://localhost:8089/processCheklist';
+  APIURL= 'http://localhost:8089/audit';
 
-  auditprocesses: auditProcesses = {
+  constructor(private httpClient: HttpClient) { }
+  private checklist: ProcessChecklist[] = [];
+
+  process: auditProcesses = {
     idProcess: 0,
     nom: '',
     recommendation: '',
@@ -28,8 +33,9 @@ export class AuditprocessesService {
 
     //audit
     addAudit(auditData: any): Observable<any> {
-      return this.httpClient.post<any>('http://localhost:8080/audit/add/select-checklist-for-audit/1', auditData);
+      return this.httpClient.post<any>(`${this.APIURL}/add`, auditData);
     }
+    
 
     getAllProcesses(){
       return this.httpClient.get<any[]>(`${this.baseUrl}/getAll`);
@@ -56,9 +62,7 @@ export class AuditprocessesService {
       return this.httpClient.post(`${this.baseUrl}/add`, process);
     }
 
-    assignChecklistToProcess(processId: number, processChecklist: any): Observable<auditProcesses> {
-      return this.httpClient.post<auditProcesses>(`${this.baseUrl}/process/assign-checklist-to-process/${processId}`, processChecklist);
-    }
+  
 
     addProcessWithChecklist(process: auditProcesses, checklistId: number): Observable<auditProcesses> {
       return this.httpClient.post<auditProcesses>(`${this.baseUrl}/process/process-with-checklist?checklistId=${checklistId}`, process);
@@ -68,5 +72,52 @@ export class AuditprocessesService {
       return this.httpClient.get<ProcessChecklist[]>(`${this.baseUrl}/process/${processId}/checklists`);
     }
 
-}
+    getProcess(){
+      return this.process;
+    }
 
+    deleteProcessChecklist(checklistId: any): Observable<any> {
+      return this.httpClient.delete<any>(`${this.apiUrl}/delete/${checklistId}`);
+    }
+    
+  
+    
+    setProcess(process : any){
+      this.process = process;
+
+    }
+
+    getProcessbyid(processId: number){
+
+    }
+   
+    createchecklistprocess (idProcess: number, controlCheckList: any): Observable<object> {
+      console.log( controlCheckList);
+      return this.httpClient.post<auditProcesses>(`${this.baseUrl}/assign-checklist-to-process/${idProcess}`, controlCheckList);
+    }
+    createcontrol(){
+
+    }
+
+    getChecklistByProcess(id: any) {
+      return this.httpClient.get<any[]>(`${this.baseUrl}/getByProcess/${id}`);
+        }
+        getChecklist(): ProcessChecklist[] {
+          return this.checklist;
+        }
+      
+        // Method to set the checklist
+        setChecklist(items: ProcessChecklist[]) {
+          this.checklist = items;
+        }
+        all_qualiyControl(){
+          return this.httpClient.get<any[]>(`${this.APIURL}/getAll`);
+      
+        }
+         deleteCQ(id: any): Observable<string> {
+           return this.httpClient.delete(`http://localhost:8089/audit/delete/${id}`, { responseType: 'text' });
+         }
+         getChecklistByaudit(id: any) {
+          return this.httpClient.get<any[]>(`${this.apiUrl}/getByIdAudit/${id}`);
+          }
+      }

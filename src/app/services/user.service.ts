@@ -9,8 +9,8 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:8089/user';
- 
+  private apiUrl = 'http://localhost:8089/auth/signin';
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -22,11 +22,11 @@ export class UserService {
     return this.httpClient.get<User>(`${this.apiUrl}/${id}`);
   }
 
-  
-  createUser(user: User): Observable<object> { 
+
+  createUser(user: User): Observable<object> {
     console.log(user)
     return this.httpClient.post<User>(`${this.apiUrl }/add` , user ) ;
-  
+
     }
 
   updateUser(id: number, user: User): Observable<User> {

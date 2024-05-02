@@ -50,7 +50,16 @@ export class ProcessusPage implements OnInit {
     this.router.navigate(['/add-audit'], { state: { processId: processId } });
   }
 
-  redirectToChecklistProcessPage() {
-    this.router.navigate(['/checklistprocess']);
+  redirectToChecklistProcessPage(idProcess: number) {
+    this.router.navigate(['/checklistprocess', idProcess]); // Utilise simplement le processId comme paramètre dans l'URL
+  }
+  
+  selectProcess(process : any){
+    this.processesService.setProcess(process);
+    this.router.navigate(['/add-audit'])
   }
 }
+
+
+
+

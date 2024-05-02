@@ -1,83 +1,65 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
-
-
+import { MycontrolService } from 'src/app/services/mycontrol.service';
+import {Audit} from 'src/app/models/audit.model'
+import { AuthService } from 'src/app/services/auth.service';
+import { AuditprocessesService } from 'src/app/services/auditprocesses.service';
 
 @Component({
   selector: 'app-my-audit',
   templateUrl: './my-audit.page.html',
   styleUrls: ['./my-audit.page.scss'],
 })
-export class MyAuditPage implements OnInit {
-  data: any[] = []; // Initialize data as an empty array
+export class MyAuditPage  {
+  data: any;
   showComment: boolean = false;
+  teamData: any;
+  controlId: string = '';
+  currentUser : any = {};
 
-  constructor(
- 
+  control : Audit = {
+    idAudit:0,
+   category:'',
+   designation:'',
+  startDate: new Date(),
+   endDate:new Date(),
+  state:'',
+  reference:'',
+}
+
+  constructor(private mycontrolService :AuditprocessesService, private authService : AuthService,
     private router: Router,
-    private popoverController: PopoverController,
-   
-  ) {}
+    private route: ActivatedRoute) { }
 
-  async ngOnInit() {
+  ionViewWillEnter() {
+    this.loadData();
+    this.currentUser = this.authService.getCurrentUser();
+
 
   }
 
- 
-  sortDataByDateDescending() {
-    this.data.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  }
+  loadData() {
+    this.mycontrolService.all_qualiyControl().subscribe((data) => {
+      this.data = data;
+      console.log(this.data);
+  });
+    // const currentUser = this.authService.getCurrentUser();
+    // this.mycontrolService.getControlByIdUser(currentUser.idUser).subscribe((data) => {
+    //     this.data = data;
+    //     console.log(this.data);
+    // });
+}
+navigateToChecklist(id :number){
+  this.router.navigate(['/control-checklist'],{ queryParams: { id: id }});
+}
 
-  onChecklistClick() {
-    // Action à effectuer lors du clic sur Checklist
-  }
 
-  onDefautClick() {
-    // Action à effectuer lors du clic sur Défaut
-  }
-
-  navigate(auditId: any) {
-    this.router.navigate(['/checklist', auditId]);
-  }
-
-  navigateToDefects(auditId: any) {
-    this.router.navigate(['/defaut', auditId]);
-  }
-
-  callTeam() {}
-
-  toggleComment() {
-    this.showComment = !this.showComment;
-  }
-
-  openAttachment() {}
-
-  navigateToChecklists(auditId: any) {
-    this.router.navigate(['/checklist', auditId]);
-  }
-
-  navigateToFILE(auditId: any) {
-    this.router.navigate(['/file', auditId]);
-  }
-
-  redirectToProcessPage() {
-    this.router.navigate(['/process']);
-  
-  }
-
-  redirectToTeamPage(auditId: any) {
-    this.router.navigate(['/team', auditId]);
-  }
-
-  redirectToFilesPage(auditId: any) {
-    this.router.navigate(['/files', auditId]);
-  }
-
-  redirectToUpdatePage(id: any) {
-    this.router.navigate(['/updateaudit', id]);
-  }
+// async navigateToChecklists(control: any) {
+//   const controlData = await this.mycontrolService.getControlById(control.id);
+//   console.log(this.mycontrolService);
+//   this.router.navigate(['/control-checklist',control.id]);
+//   }
 
 
 }
