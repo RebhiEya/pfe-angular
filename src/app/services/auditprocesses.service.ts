@@ -117,7 +117,17 @@ export class AuditprocessesService {
          deleteCQ(id: any): Observable<string> {
            return this.httpClient.delete(`http://localhost:8089/audit/delete/${id}`, { responseType: 'text' });
          }
+
+
+
          getChecklistByaudit(id: any) {
-          return this.httpClient.get<any[]>(`${this.apiUrl}/getByIdAudit/${id}`);
+          return this.httpClient.get<any[]>(`http://localhost:8089/processCheklist/getByIdAudit/${id}`);
           }
+          updateConformity(auditId: number, checklistId: number, conformity: boolean): Observable<any> {
+            // Méthode pour mettre à jour la conformité d'un élément de checklist
+            return this.httpClient.put<any>(`http://localhost:8089/processCheklist/updateConformity/${auditId}/${checklistId}`, { conformity });
+          }
+          
+          
+          
       }

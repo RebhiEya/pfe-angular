@@ -17,7 +17,7 @@ export class MyAuditPage  {
   teamData: any;
   controlId: string = '';
   currentUser : any = {};
-
+item:any;
   control : Audit = {
     idAudit:0,
    category:'',
@@ -51,7 +51,7 @@ export class MyAuditPage  {
     // });
 }
 navigateToChecklist(id :number){
-  this.router.navigate(['/control-checklist'],{ queryParams: { id: id }});
+  this.router.navigate(['/checklistprocesss'],{ queryParams: { id: id }});
 }
 
 

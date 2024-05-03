@@ -1,14 +1,22 @@
-
-ion-header{
-  ion-toolbar{
-    --background: #4863a0;
+ion-header {
+  ion-toolbar {
+    --background: #4863A0;
     color: white;
+    display: flex;
+    align-items: center;
   }
-.color{
-  color: white;
-}
+
+  ion-toolbar ion-title {
+    flex: 1; /* Pour permettre au titre de prendre autant d'espace que possible */
+    margin-left: 20px; /* Augmentez la marge à gauche */
+  }
+
+  ion-icon[name="arrow-back"] {
+    color: white; /* Couleur blanche pour l'icône Arrow Back */
+  }
 }
 .my-form {
   --ion-color-primary: rgb(72, 99, 160); /* Couleur de fond */
   --ion-color-primary-contrast: #ffffff; /* Couleur du texte */
 }
+

@@ -9,7 +9,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:8089/auth/signin';
+  private apiUrl = 'http://localhost:8089/user';
 
 
   constructor(private httpClient: HttpClient) { }

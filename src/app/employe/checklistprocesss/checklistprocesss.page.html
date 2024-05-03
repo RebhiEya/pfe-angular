@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button routerLink="/mycontrol">
+      <ion-button routerLink="/my-audit">
         <ion-icon slot="icon-only" name="arrow-back" style="--color: #4d83ab;"></ion-icon> <!-- Icône de flèche -->
       </ion-button>
     </ion-buttons>
-    <ion-title>Checklist</ion-title>
+    <ion-title>Checklist de processus</ion-title>
     <ion-buttons slot="end">
       <!-- <ion-button (click)="updatChecklist()">
         <ion-icon slot="icon-only" name="save-outline" style="font-size: 2em; color: #f2eded;"></ion-icon>
@@ -18,25 +18,32 @@
 
 
 <ion-content>
-
-  <ion-card  *ngFor="let item of data">
-    <ion-card-header>
-      <ion-card-title class="text" >{{item.requirement}}</ion-card-title>
-      <ion-card-subtitle class="text"> {{item.category}} </ion-card-subtitle>
-      <ion-card-subtitle class="text"> {{item.state}}</ion-card-subtitle>
-      <ion-card-subtitle class="text"> {{item.description}} </ion-card-subtitle>
-
-    </ion-card-header>
-
-  <ion-card-content class="ion-title-left">
-
-
-      <!-- <button (click)="Conform(item.idControlCheckList)" class="tick-btn" (click)="toggleTick()">
-        <ion-icon [name]="tickClicked ? 'checkbox-outline' : 'checkmark-outline'" style="font-size: 4em; color: green; margin-left: 30px;"></ion-icon>
-      </button>
-      <button (click)="nonConform(item.idControlCheckList)" class="cross-btn" (click)="toggleCross()">
-        <ion-icon [name]="crossClicked ? 'close-circle-outline' : 'checkbox-outline'" style="font-size: 4em; color: red; margin-left: 30px;"></ion-icon>
-      </button> -->
-  </ion-card-content>
-  </ion-card>
+  <ion-list>
+    <ion-item *ngFor="let item of data; index as i">
+      <ion-label class="item-label">
+        <div class="item-container">
+          <div class="flex-container">
+            <div style="display: flex; align-items: center;">
+              <p style="font-size: 18px; color: #4863A0; margin-right: 10px;">Requirement:</p>
+              <p style="font-size: 18px; color: black; margin-right: 20px;">{{ item.requirement }}</p>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <p style="font-size: 18px; color: #4863A0; margin-right: 10px;">Category:</p>
+              <p style="font-size: 18px; color: black; margin-right: 20px;">{{ item.category }}</p>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <p style="font-size: 18px; color: #4863A0; margin-right: 10px;">Etat:</p>
+              <p  style="font-size: 18px; color: black; margin-right: 20px;">{{ item.state }}</p> 
+            </div>
+            <div style="display: flex; align-items: center;">
+              <p style="font-size: 18px; color: #4863A0; margin-right: 10px;">Description:</p>
+              <p  style="font-size: 18px; color: black; margin-right: 20px;">{{ item.description }}</p>
+            </div>
+          </div>
+          <ion-button (click)="markAs(item.id)" color="success">Conforme</ion-button>
+        <ion-button (click)="MarkAs(item.id)"  color="danger">Non Conforme</ion-button>
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

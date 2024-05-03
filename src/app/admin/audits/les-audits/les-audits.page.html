@@ -1,6 +1,6 @@
 <ion-menu contentId="main-content">
 
-  <ion-content class="ion-padding">
+  <ion-content contentId="main-content" class="ion-padding">
 
     <div class="menu-header-bg"></div>
     <div class="header-content">
@@ -12,7 +12,7 @@
     </div>
 
     <div class="action-button">
-      <ion-button routerLink="/tableau-bord">
+      <ion-button routerLink="/tabbord">
         <ion-icon slot="start" name="add"></ion-icon>HOME
       </ion-button>
     </div>
@@ -20,7 +20,8 @@
     <ion-list class="menu-items menu-icons" lines="none">
       <ion-accordion-group>
 
-        <ion-item routerLink="/mycontrol"  >
+
+        <ion-item routerLink="/control"  >
           <ion-icon slot="start" name="document-text"></ion-icon>
           <ion-label>Contrôle Qualité</ion-label>
         </ion-item>
@@ -29,12 +30,26 @@
           <ion-icon slot="start" name="document-text"></ion-icon>
           <ion-label>les audits</ion-label>
         </ion-item>
+        <ion-item routerLink="/user"  >
+          <ion-icon slot="start" name="document-text"></ion-icon>
+          <ion-label>user</ion-label>
+        </ion-item>
+        <ion-item routerLink="/produits"  >
+          <ion-icon slot="start" name="document-text"></ion-icon>
+          <ion-label>produits</ion-label>
+        </ion-item>
+        <ion-item routerLink="/auditprocess"  >
+          <ion-icon slot="start" name="document-text"></ion-icon>
+          <ion-label>processus</ion-label>
+        </ion-item>
 
         <!-- Log Out button -->
         <ion-item button >
           <ion-icon slot="start" name="exit"></ion-icon>
           <ion-label>Log Out</ion-label>
         </ion-item>
+
+
 
       </ion-accordion-group>
     </ion-list>
@@ -47,12 +62,15 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>MY AUDIT</ion-title>
-      <ion-buttons slot="start">
-        <ion-menu-button class="color" menu="main-menu"></ion-menu-button>
+      <ion-title>Les Audits</ion-title>
+      <ion-buttons slot="end">
+        <ion-button class="iconajouter" routerLink="/add-audit">
+          <ion-icon slot="start" name="add"></ion-icon>
+        </ion-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
+
 
   <ion-content class="item-details">
     <ion-list>
@@ -67,15 +85,15 @@
               <div style="display: flex; align-items: center;">
                 <p style="font-size: 18px; color: #4863A0; margin-right: 10px;">État :</p>
                 <p style="font-size: 18px; color: black; margin-right: 20px;">{{ item.state }}</p>
-                
+                <ion-button fill="clear" color="danger" (click)="delete(item.idAudit)" class="button-spacing" style="margin-right: 18px;">
+                  <ion-icon name="trash"></ion-icon>
+                </ion-button>   
               </div>
+              
             </div>
           </div>
+          
         </ion-label>
-        <ion-button (click)="navigateToChecklist(item.idAudit)" style="--background:#bfd7ea; --color: #1b3a51; font-size: 20px;">
-          <ion-icon name="list" style="--color: #4d83ab;"></ion-icon>
-        </ion-button>
       </ion-item>
     </ion-list>
   </ion-content>
-</div>

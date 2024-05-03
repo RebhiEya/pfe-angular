@@ -14,23 +14,11 @@ export class ChecklistprocesssPage implements OnInit {
   ngOnInit() {
   }
   idAudit : number
-  tickClicked: boolean = true;
-  crossClicked: boolean = false;
+
   conformity: boolean = false; // Champ pour indiquer si l'élément est conforme
   data: any;
 
-  toggleTick() {
-    this.tickClicked = !this.tickClicked;
-    this.crossClicked = true; // Assurez-vous que l'autre bouton est désactivé
-    this.conformity = true; // Marque l'élément comme conforme
 
-  }
-  toggleCross() {
-    this.crossClicked = !this.crossClicked;
-    this.tickClicked = false; // Assurez-vous que l'autre bouton est désactivé
-    this.conformity = false; // Marque l'élément comme non conforme
-
-  }
   
 
   ionViewWillEnter() {
@@ -67,6 +55,22 @@ export class ChecklistprocesssPage implements OnInit {
 //     this.conformity = false;
 //     this.updateConformity(itemId, this.conformity);
 //   }
+markAs(checklistId: number) {
+  this.updateConformity(checklistId, true);
+}
+
+MarkAs(checklistId: number) {
+  this.updateConformity(checklistId, false);
+}
+updateConformity(checklistId: number, conformity: boolean) {
+  this.ChecklistService.updateConformity(this.idAudit, checklistId, conformity).subscribe(() => {
+    console.log("Conformity updated successfully");
+    // Rechargement des données après la mise à jour de la conformité
+    this.loadData();
+  }, error => {
+    console.error("Error updating conformity:", error);
+  });
+}
 }
 
 
