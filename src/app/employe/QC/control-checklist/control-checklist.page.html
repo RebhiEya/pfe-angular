@@ -18,22 +18,23 @@
 <ion-content>
   <ion-card *ngFor="let item of data" >
     <ion-card-header>
-
       <ion-card-title style="font-size: 18px; color: #4863A0;">Category : <span style="color: black;">  {{item.checklist.category}}</span> </ion-card-title>
       <ion-card-subtitle style="font-size: 18px; color: #4863A0;"> Opération : <span style="color: black;"> {{item.checklist.operation}}</span>  </ion-card-subtitle>
       <ion-card-subtitle style="font-size: 18px; color: #4863A0;"> Criteria : <span style="color: black;"> {{item.checklist.criteria}}</span> </ion-card-subtitle>
       <ion-card-subtitle style="font-size: 18px; color: #4863A0;"> Measures : <span style="color: black;"> {{item.checklist.measures}}</span>   </ion-card-subtitle>
-
     </ion-card-header>
 
+
+      <!-- (ionChange)="toggleSelection(item)" [checked]="isSelected(item)" -->
+
     <ion-card-content class="ion-title-left">
-      <ion-radio-group [(ngModel)]="item.selectedButton">
-        <ion-radio  (click)="Conform(item)" name ="button" class="Conform">Conform </ion-radio>
-        <ion-radio   (click)="nonConform(item)" name ="button" class="nonConform">Non Conform </ion-radio>
+      <ion-radio-group  [(ngModel)]="item.selectedButton">
+        <ion-radio  (click)="Conform(item)" name ="button" class="Conform" style= "font-size: 19px; color: #1eac08;">Conform </ion-radio>
+        <ion-radio (click)="nonConform(item)" name ="button" class="nonConform" style= "font-size: 19px; color: #db0a0a;">Non Conform </ion-radio>
+
       </ion-radio-group>
     </ion-card-content>
   </ion-card>
-
   <div  class="blue-bar">
     <ion-icon  name="camera" style="font-size: 2em; color: #fff;"> </ion-icon>
     <ion-icon name="mic" style="font-size: 2em; color: #fff;"></ion-icon>

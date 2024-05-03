@@ -66,12 +66,6 @@ navigateTodetails(id :number){
   this.router.navigate(['/details'],{ queryParams: { id: id }});
 
 }
-async navigateToChecklists(control: any) {
-  const controlData = await this.mycontrolService.getControlById(control.id);
-  console.log(this.mycontrolService);
-  this.router.navigate(['/control-checklist',control.id]);
-  }
-
 
   navigateTodefect() {
     // const controlData = await this.mycontrolService.getControlById(control.id);
