@@ -7,7 +7,7 @@
     </ion-buttons>
     <ion-title>Défaut</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="saveSelectedChecklists()"  >
+      <ion-button (click)="onSave()"  >
         <ion-icon slot="icon-only" name="save-outline" style="font-size: 2em; color: #f2eded;"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -68,31 +68,24 @@
   </ion-card>
 
 
-  <ion-card >
-    <ion-item *ngFor="let item of data; index as i " >
+  <ion-card>
+    <ion-item *ngFor="let item of allDefects; index as i">
       <ion-label class="item-label">
-          <div class="flex-container">
-            <div>
-            <ion-checkbox style="color: blue" (ionChange)="toggleSelection(item)" [checked]="isSelected(item)"></ion-checkbox>
+        <div class="flex-container">
+          <div>
+            <ion-checkbox style="color: blue" (ionChange)="toggleSelection(item)" [checked]="isDefectSelected(item)"></ion-checkbox>
           </div>
-              <p > {{item.category}} </p>
-              <p >{{item.code}}</p>
-
-              <ion-button (click)="editDefect(item.idControlDefect)" fill="clear" color="primary" class="button-spacing">
-                <ion-icon slot="icon-only" name="create"></ion-icon>
-              </ion-button>
-              <!-- Bouton de modification -->
-              <!-- <ion-button fill="clear" color="primary"  class="button-spacing">
-                <ion-icon  slot="icon-only" name="create"></ion-icon>
-              </ion-button> -->
-              <!-- Bouton de suppression -->
-              <ion-button (click)="delete(item.idControlDefect)" slot="end" fill="clear" color="danger"  class="button-spacing">
-                <ion-icon slot="icon-only" name="trash"></ion-icon>
-              </ion-button>
-            </div>
+          <p>{{ item.category }}</p>
+          <p>{{ item.code }}</p>
+          <ion-button (click)="editDefect(item.idControlDefect)" fill="clear" color="primary" class="button-spacing">
+            <ion-icon slot="icon-only" name="create"></ion-icon>
+          </ion-button>
+          <ion-button (click)="delete(item.idControlDefect)" slot="end" fill="clear" color="danger" class="button-spacing">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+        </div>
       </ion-label>
     </ion-item>
-    
   </ion-card>
 
 

@@ -13,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { EmployeService } from 'src/app/services/employe.service';
+import { MycontrolService } from 'src/app/services/mycontrol.service';
 
 
 const IMAGE_DIR = 'stored-images';
@@ -31,7 +32,7 @@ interface LocalFile {
   styleUrls: ['./control-defect.page.scss'],
 })
 export class ControlDefectPage {
-  data: any;
+  allDefects: any;
   isEditing: boolean = false;
   controldefect :Controldefect ={
     idControlDefect : 0,
@@ -53,9 +54,11 @@ export class ControlDefectPage {
 
 
   selecteddefect: Controldefect[] = [];
-
+  controlDefects : Controldefect[] = [];
+  idControl : number;
   constructor(
     private router: Router,
+    private controlService : MycontrolService,
     private mediaCapture: MediaCapture,
     public dataService: DataService,
     private route: ActivatedRoute,
@@ -77,36 +80,59 @@ export class ControlDefectPage {
     this.router.navigate(['/mycontrol']);
   }
   ionViewWillEnter() {
+    this.route.queryParams.subscribe(params => {
+      this.idControl= params['id'];
+    })
     this.loadData();
     this.loadFile();
     this.loadAudio();
     VoiceRecorder.requestAudioRecordingPermission();
+    this.getControlDefect();
     }
 
 //defect
+getControlDefect(){
+  this.controlService.getControlById(this.idControl).subscribe((data) => {
+    this.controlDefects = data.controlDefect;
+
+    // Populate selectedDefects with defects related to the control
+    this.selecteddefect = this.allDefects.filter((defect: Controldefect) => this.controlDefects.some(cd => cd.idControlDefect === defect.idControlDefect));
+  });
+}
 
 toggleSelection(defect: Controldefect) {
-  const index = this.selecteddefect.findIndex(item => item.idControlDefect === defect.idControlDefect);
-  if (index !== -1) {
-    this.selecteddefect.splice(index, 1); // Deselect if already selected
+  // Toggle the selection of the defect
+  if (this.isDefectSelected(defect)) {
+    this.selecteddefect = this.selecteddefect.filter(selected => selected.idControlDefect !== defect.idControlDefect);
   } else {
-    this.selecteddefect.push(defect); // Select if not already selected
-
+    this.selecteddefect.push(defect);
   }
 }
 
-isSelected(defect: Controldefect): boolean {
-  this.selecteddefect = this.employeService.getDefect(); // Get selected checklists from service
-  return this.selecteddefect.some(item => item.idControlDefect === defect.idControlDefect);
+isDefectSelected(defect: Controldefect): boolean {
+  // Check if the defect is selected
+  return this.selecteddefect.some(selected => selected.idControlDefect === defect.idControlDefect);
 }
 
+onSave(): void {
+  if (this.selecteddefect.length === 0) {
+    console.warn('No defects selected to save.');
+    return;
+  }
 
 
-saveSelectedChecklists() {
-  // Save the selected checklists to the ControlService for the new Control
-  console.log(this.selecteddefect)
-  this.employeService.setDefect(this.selecteddefect);
-  this.router.navigate(['/mycontrol'] );
+  const defectIdsToAdd = this.selecteddefect.map(defect => defect.idControlDefect);
+
+  this.controlService.addDefectToControl(this.idControl,defectIdsToAdd).subscribe(
+    (response) => {
+      console.log('Defects added to control successfully:');
+      this.router.navigate(['/mycontrol'] );
+    },
+    (error) => {
+      console.error('Error adding defects to control:', error);
+
+    }
+  );
 }
 
 
@@ -125,7 +151,7 @@ savedefect(id?: number){
     });
   } else {
     this.employeService.createdefect(this.controldefect).subscribe(data => {
-        this.data = [...this.data,data]
+        this.allDefects = [...this.allDefects,data]
       // Ajouter un nouveau défaut
       // Réinitialiser le formulaire après l'ajout
       this.controldefect = {
@@ -140,15 +166,15 @@ savedefect(id?: number){
 }
 
 editDefect(id: number) {
-  this.controldefect = this.data.find((item: any) => item.idControlDefect === id);
+  this.controldefect = this.allDefects.find((item: any) => item.idControlDefect === id);
   this.isEditing = true; // Définir la variable isEditing à true pour indiquer que vous êtes en mode modification
 }
 
 
 loadData() {
   this.employeService.getAllDefect().subscribe((data) => {
-      this.data = data;
-      console.log("defect",this.data);
+      this.allDefects = data;
+      console.log("defect",this.allDefects);
   });
 }
 
@@ -160,20 +186,18 @@ update(){
 );
 
 
- const toast =  this.toastController.create({
+const toast =  this.toastController.create({
   message: 'produit updated successfully',
   duration: 3000,
-   position: 'top',
-   cssClass: 'custom-toast'//Utiliser la classe CSS personnalisée
- });
-
-
+  position: 'top',
+  cssClass: 'custom-toast'//Utiliser la classe CSS personnalisée
+});
 
 }
 
 delete(id : any){
   this.employeService.deleteDefect(id).subscribe((data)=> {
-    this.data = data
+    this.allDefects = data
   });
 }
 

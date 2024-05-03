@@ -47,8 +47,6 @@ export class MycontrolPage  {
   ionViewWillEnter() {
     this.selecteddefect = this.employeService.getDefect();
     this.loadData();
-
-
   }
 
   loadData() {
@@ -67,9 +65,9 @@ navigateTodetails(id :number){
 
 }
 
-  navigateTodefect() {
+  navigateTodefect(id :number) {
     // const controlData = await this.mycontrolService.getControlById(control.id);
     // console.log(this.mycontrolService);
-    this.router.navigate(['/control-defect']);
+    this.router.navigate(['/control-defect'],{ queryParams: { id: id }});
     }
 }

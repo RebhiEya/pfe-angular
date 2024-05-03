@@ -63,16 +63,16 @@
       <ion-label class="item-label">
         <div class="item-container">
           <div class="item-header">
-            <div class="item-title"> {{item.state}}</div>
+            <div class="item-title">State : {{item.state}}</div>
           </div>
           <div class="item-row">
             <div class="item-left">
-              <p>{{item.reference}} </p>
-              <p class="red-text">{{item.internalReference}}</p>
+              <p> reference : {{item.reference}} </p>
+              <p class="red-text">Internal Reference :{{ item.internalReference}}</p>
             </div>
             <div class="item-right">
-              <p> {{item.date}} </p>
-              <p class="red-text">  {{item.description}}</p>
+              <p>Date : {{item.date}} </p>
+              <p class="red-text"> Description : {{item.description}}</p>
             </div>
 
           </div>
@@ -84,7 +84,7 @@
             </ion-button>
 
 
-            <ion-button routerLink="/control-defect"  style="--background: #bfd7ea; --color: #1b3a51; font-size: 20px;">
+            <ion-button (click)="navigateTodefect(item.idQualityControl)"  style="--background: #bfd7ea; --color: #1b3a51; font-size: 20px;">
               <ion-icon name="warning" style="--color: #4d83ab;"></ion-icon>
             </ion-button>
 

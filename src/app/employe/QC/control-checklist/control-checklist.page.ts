@@ -57,14 +57,12 @@ updateConformity(itemId: number, conformity: boolean) {
     this.updateConformity(item.checklist.idControlCheckList, false);
   }
 
-
   toggleSelection(checklist: ControlCheckList) {
     const index = this.selectedChecklists.findIndex(item => item.idControlCheckList === checklist.idControlCheckList);
     if (index !== -1) {
       this.selectedChecklists.splice(index, 1); // Deselect if already selected
     } else {
       this.selectedChecklists.push(checklist); // Select if not already selected
-
     }
   }
 

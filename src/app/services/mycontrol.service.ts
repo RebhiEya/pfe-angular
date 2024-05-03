@@ -19,10 +19,16 @@ export class MycontrolService {
         }
 
   getControlById(id: any){
-    return this.httpClient.get<any>(`${this.urlRoot}/${id}`,);
+    return this.httpClient.get<any>(`${this.urlRoot}/get/${id}`,);
 
   }
+  addDefectToControl(controlId: number, controlDefects: number[]){
+    const body = {
+      controlDefects: controlDefects
+    };
+    return this.httpClient.post(`${this.urlRoot}/addControlDefects/${controlId}`,body);
 
+  }
   all_qualiyControl(){
     return this.httpClient.get<any[]>(`http://localhost:8089/qualiyControl/retrieve-all-qualiyControl`);
 
