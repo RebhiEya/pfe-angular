@@ -47,7 +47,7 @@
   </ion-item>
 
   <ion-item>
-    <ion-label position="stacked">Référence</ion-label>
+    <ion-label position="stacked" >Référence</ion-label>
     <ion-input [(ngModel)]="control.reference" type="text"></ion-input>
   </ion-item>
   <!-- Listes de contrôle -->
@@ -58,14 +58,14 @@
   </ion-toolbar>
 
   <ion-list>
-    <ion-item (click)="getChecklist()">
+    <ion-item (click)="getChecklist()" class="custom-item custom-item-1">
       <ion-label>
         <ion-icon name="checkmark-done-circle-outline"></ion-icon>
         Check Lists de processus 
       </ion-label>
       <ion-icon name="arrow-forward-outline" slot="end" class="arrow-icon" ></ion-icon> 
     </ion-item>
-    <ion-item (click)="getuser()" >
+    <ion-item (click)="getuser()" class="custom-item custom-item-2">
       <ion-label>
         <ion-icon  name="people"></ion-icon>
         equipe d'audit
@@ -74,6 +74,6 @@
     </ion-item>
     
   </ion-list>
-  <ion-button class="custom-add-button" (click)="addAudit()">Ajouter l'audit</ion-button>
+  <ion-button class="custom-add-button"  (click)="addAudit()">Ajouter l'audit</ion-button>
 
 </ion-content>

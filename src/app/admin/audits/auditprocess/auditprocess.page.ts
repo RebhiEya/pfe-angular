@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { auditProcesses } from 'src/app/models/processus.model';
 import { AuditprocessesService } from 'src/app/services/auditprocesses.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-processus',
@@ -15,10 +16,12 @@ export class ProcessusPage implements OnInit {
   auditId: number = 0;
   item: any;
 
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private processesService: AuditprocessesService
+    private processesService: AuditprocessesService,
+    private alertController: AlertController
   ) {}
 
   ngOnInit() {
@@ -32,11 +35,33 @@ export class ProcessusPage implements OnInit {
     });
   }
 
-  delete(id: any) {
-    this.processesService.deleteProsses(id).subscribe((data) => {
-      this.data = data;
+  async delete(id: any) {
+    const alert = await this.alertController.create({
+      header: 'Confirmation',
+      message: 'Êtes-vous sûr de vouloir supprimer cet élément ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            // L'utilisateur a cliqué sur Annuler, ne rien faire
+          }
+        }, {
+          text: 'OK',
+          handler: () => {
+            // L'utilisateur a cliqué sur OK, supprimer l'élément
+            this.processesService.deleteProsses(id).subscribe((data) => {
+              this.data = data;
+            });
+          }
+        }
+      ]
     });
+
+    await alert.present();
   }
+
 
   update(process: any) {
     this.router.navigate(['/app-audit'], { state: process });
@@ -58,6 +83,7 @@ export class ProcessusPage implements OnInit {
     this.processesService.setProcess(process);
     this.router.navigate(['/add-audit'])
   }
+
 }
 
 

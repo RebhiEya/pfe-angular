@@ -25,23 +25,23 @@
           <div class="flex-container">
             <div style="display: flex; align-items: center;">
               <p style="font-size: 18px; color: #4863A0; margin-right: 10px;">Requirement:</p>
-              <p style="font-size: 18px; color: black; margin-right: 20px;">{{ item.requirement }}</p>
+              <p style="font-size: 18px; color: black; margin-right: 20px;">{{ item.checklist.requirement }}</p>
             </div>
             <div style="display: flex; align-items: center;">
               <p style="font-size: 18px; color: #4863A0; margin-right: 10px;">Category:</p>
-              <p style="font-size: 18px; color: black; margin-right: 20px;">{{ item.category }}</p>
+              <p style="font-size: 18px; color: black; margin-right: 20px;">{{ item.checklist.category }}</p>
             </div>
             <div style="display: flex; align-items: center;">
               <p style="font-size: 18px; color: #4863A0; margin-right: 10px;">Etat:</p>
-              <p  style="font-size: 18px; color: black; margin-right: 20px;">{{ item.state }}</p> 
+              <p  style="font-size: 18px; color: black; margin-right: 20px;">{{ item.checklist.state }}</p> 
             </div>
             <div style="display: flex; align-items: center;">
               <p style="font-size: 18px; color: #4863A0; margin-right: 10px;">Description:</p>
-              <p  style="font-size: 18px; color: black; margin-right: 20px;">{{ item.description }}</p>
+              <p  style="font-size: 18px; color: black; margin-right: 20px;">{{ item.checklist.description }}</p>
             </div>
           </div>
-          <ion-button (click)="markAs(item.id)" color="success">Conforme</ion-button>
-        <ion-button (click)="MarkAs(item.id)"  color="danger">Non Conforme</ion-button>
+          <ion-button (click)="markAs(item.checklist.idProcessChecklist)" color="success">Conforme</ion-button>
+        <ion-button (click)="MarkAs(item.checklist.idProcessChecklist)"  color="danger">Non Conforme</ion-button>
         </div>
       </ion-label>
     </ion-item>

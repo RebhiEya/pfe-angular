@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar class="custom-toolbar-color" >
+  <ion-toolbar class="custom-toolbar-color">
     <ion-title>Ajouter Checklist De Processus</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,37 +7,29 @@
 <ion-content>
   <ion-card>
     <ion-card-content class="my-form">
-      <form (ngSubmit)=" ajouterchecklist()">
-        <ion-list>
+      <form (ngSubmit)="ajouterchecklist()">
+        <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Requirement :</ion-label>
+        <br>
+        <ion-input type="text" name="requirement" [(ngModel)]="controlCheckList.requirement" required></ion-input>
 
-          <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">requirement</ion-label>
-            <ion-input type="text" name="requirement" [(ngModel)]="controlCheckList.requirement" required></ion-input>
-          </ion-item>
-          <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">category</ion-label>
-            <ion-input type="text" name="category" [(ngModel)]="controlCheckList.category" required></ion-input>
-          </ion-item>
-          <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">state</ion-label>
-            <ion-input type="text" name="state" [(ngModel)]="controlCheckList.state"required></ion-input>
-          </ion-item>
-          <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;"> conformity</ion-label>
-            <ion-input type="text" name="conformity" [(ngModel)]="controlCheckList.conformity"required></ion-input>
-          </ion-item>
-          <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;"> description</ion-label>
-            <ion-input type="text" name="description" [(ngModel)]="controlCheckList.description"required></ion-input>
-          </ion-item>
-        </ion-list>
-        <ion-row>
-          <ion-col>
-            <ion-button class="button"    type="submit">Ajouter</ion-button>
-          </ion-col>
-        </ion-row>
+        <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Category :</ion-label>
+        <br>
+        <ion-input type="text" name="category" [(ngModel)]="controlCheckList.category" required></ion-input>
+
+        <ion-label position="stacked" class="ion-text" style="font-size: 25px;">State :</ion-label>
+        <br>
+        <ion-input type="text" name="state" [(ngModel)]="controlCheckList.state" required></ion-input>
+
+        <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Conformity :</ion-label>
+      <br>
+        <ion-input type="text" name="conformity" [(ngModel)]="controlCheckList.conformity" required></ion-input>
+
+        <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Description :</ion-label>
+        <br>
+        <ion-input type="text" name="description" [(ngModel)]="controlCheckList.description" required></ion-input>
+
+        <ion-button class="button" type="submit">Ajouter</ion-button>
       </form>
     </ion-card-content>
   </ion-card>
 </ion-content>
-

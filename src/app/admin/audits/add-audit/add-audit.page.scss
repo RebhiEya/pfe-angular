@@ -1,22 +1,36 @@
+/* Styles pour le header */
 ion-header {
   ion-toolbar {
-    --background: #4863A0;
-    color: white;
-    display: flex;
-    align-items: center;
-  }
-
-  ion-toolbar ion-title {
-    flex: 1; /* Pour permettre au titre de prendre autant d'espace que possible */
-    margin-left: 10px; /* Pour donner un espace entre le bouton "Arrow Back" et le titre */
-  }
-
-  ion-icon[name="arrow-back"] {
-    color: white; /* Couleur blanche pour l'icône Arrow Back */
+    --background: #4863A0; /* Couleur de fond du header */
+    color: white; /* Couleur du texte */
   }
 }
+/* Styles CSS pour colorer les noms de champs en bleu */
+ion-label {
+  color: blue; /* Change la couleur du texte en bleu */
+}
+
+.custom-item.custom-item-1 {
+  --background: #c7b0e6; /* Couleur de fond du premier élément */
+  --color: black; /* Couleur du texte */
+}
+
+.custom-item.custom-item-2 {
+  --background: #90caf9; /* Couleur de fond du deuxième élément */
+  --color: black; /* Couleur du texte */
+}
+
+.custom-item:hover {
+  --background: #a997cc; /* Couleur de fond au survol */
+}
+.custom-item ion-icon {
+  color: black; /* Couleur de l'icône */
+}
+ion-title {
+  color: #4863A0; /* Change la couleur du texte en bleu */
+}
+/* Styles CSS pour colorer le bouton en bleu */
 .custom-add-button {
-  --ion-color-primary: rgb(72, 99, 160); /* Couleur de fond */
-  --ion-color-primary-contrast: #ffffff; /* Couleur du texte */
+  --background: #4863A0; /* Couleur de fond bleue */
+  --color: white; /* Couleur du texte blanche */
 }
-

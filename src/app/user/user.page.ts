@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { Component } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -10,14 +8,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UserComponent {
   data: any;
-  item :any;
+  searchTerm: string ;
 
+  constructor(private adminService: AdminService) {}
 
-  constructor(private adminService : AdminService,
-    private router: Router,
-    private route: ActivatedRoute,) {}
-
-    ionViewWillEnter(): void {
+  ionViewWillEnter(): void {
     this.loadUsers();
   }
 
@@ -28,19 +23,9 @@ export class UserComponent {
     });
   }
 
-   deleteUser(id: any) {
-     this.adminService.deleteUser(id).subscribe((data) => {
-      this.data = data
-     });
-   }
-
-
-
+  deleteUser(id: any): void {
+    this.adminService.deleteUser(id).subscribe((data) => {
+      this.loadUsers();
+    });
+  }
 }
-
-
-
-
-
-
-

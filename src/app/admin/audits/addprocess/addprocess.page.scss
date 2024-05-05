@@ -7,10 +7,77 @@ ion-header{
     color: white;
   }
   }
+/* Global styles */
+/* Global styles */
+ion-content {
+  --ion-background-color: #f4f4f4; /* Couleur de fond */
+}
 
-  .my-form {
-    --ion-color-primary: rgb(72, 99, 160); /* Couleur de fond */
-    --ion-color-primary-contrast: #ffffff; /* Couleur du texte */
-  }
+.custom-toolbar-color {
+  --ion-background-color: #2c3e50; /* Couleur de la barre d'outils */
+  --ion-color-base: #ffffff; /* Couleur du texte */
+}
+
+.my-form {
+  padding: 20px; /* Espacement intérieur de la carte */
+}
+
+/* Styles spécifiques aux champs de formulaire */
+ion-label {
+  font-size: 18px; /* Taille de police pour les étiquettes */
+  color: #3498db; /* Couleur bleue pour les étiquettes */
+}
+
+/* Styles spécifiques aux champs de formulaire */
+ion-input {
+  border-radius: 12px; /* Augmente le rayon des bords */
+  border: 2px solid #3498db; /* Augmente l'épaisseur de la bordure et défini la couleur */
+  padding: 8px; /* Augmente l'espacement intérieur */
+  font-size: 15px; /* Taille de police */
+  width: 500%; /* Augmente la largeur à 90% de la largeur disponible */
+  height: 80%;
+}
+
+
+/* Bouton Ajouter */
+.button {
+  --background: #3498db; /* Couleur de fond du bouton */
+  --border-radius: 8px; /* Bordures arrondies */
+  --color: #ffffff; /* Couleur du texte */
+  font-weight: bold; /* Gras */
+  width: 100%; /* Largeur */
+  height:50%;
+  margin-top: 20px; /* Espacement en haut */
+}
+
+/* Effet de survol du bouton */
+.button:hover {
+  --background: #2980b9; /* Couleur de fond au survol */
+}
 
 //
+ion-label {
+  color: blue; /* Change la couleur du texte en bleu */
+}
+ion-label.processus-label {
+  font-size: 30px; /* Taille de police */
+  font-style: italic; /* Met le texte en italique */
+  --color: blue; 
+}
+ion-button.button {
+  --background: rgb(72, 99, 160); /* Couleur de fond */
+  --color: white; /* Couleur du texte */
+}
+.custom-icon {
+  font-size: 30px; /* Ou toute autre taille souhaitée */
+}
+.title {
+  display: flex;
+  align-items: center;
+}
+ion-buttons[slot="start"] {
+  display: flex;
+  align-items: center;
+}
+
+

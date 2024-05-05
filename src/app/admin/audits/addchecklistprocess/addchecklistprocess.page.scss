@@ -1,16 +1,67 @@
-ion-header{
-    ion-toolbar{
-      --background: rgb(72, 99, 160);
-      color: white;
-    }
-    .color{
-      color: white;
-    }
-    }
+/* Styles for ion-header */
+ion-header {
+  ion-toolbar {
+    --background: rgb(72, 99, 160);
+    color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre douce */
+  }
+}
 
-    .my-form {
-      --ion-color-primary: rgb(72, 99, 160); /* Couleur de fond */
-      --ion-color-primary-contrast: #ffffff; /* Couleur du texte */
-    }
+/* Styles for ion-content */
+ion-content {
+  --ion-background-color: #f4f4f4; /* Couleur de fond */
+}
 
-  //
+/* Styles for ion-card */
+ion-card {
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for ion-card-content */
+ion-card-content {
+  padding: 20px;
+}
+
+/* Styles for form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styles for ion-label */
+/* Styles for ion-label */
+ion-label {
+  font-family: 'italic';
+  font-size: 30px;
+  color: #0810b1; /* Couleur du texte */
+  margin-bottom: 8px; /* Ajoute un espace en bas */
+}
+
+/* Styles for ion-input */
+ion-input {
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #3a3091; /* Bordure */
+  padding: 10px;
+  margin-bottom: 10px; /* Ajoute un espace en bas */
+  color: #000000; /* Couleur du texte */
+}
+
+
+/* Styles for ion-button */
+ion-button.button {
+  --background: rgb(72, 99, 160);
+  --color: white;
+  --border-radius: 8px;
+  --box-shadow: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Transition fluide */
+  margin-top: 10px;
+}
+
+ion-button.button:hover {
+  --background: rgba(72, 99, 160, 0.8);
+}
+

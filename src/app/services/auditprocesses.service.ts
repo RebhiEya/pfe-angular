@@ -123,9 +123,9 @@ export class AuditprocessesService {
          getChecklistByaudit(id: any) {
           return this.httpClient.get<any[]>(`http://localhost:8089/processCheklist/getByIdAudit/${id}`);
           }
-          updateConformity(auditId: number, checklistId: number, conformity: boolean): Observable<any> {
+          updateConformity(auditId: number,checklistId :number, conformity: boolean): Observable<any> {
             // Méthode pour mettre à jour la conformité d'un élément de checklist
-            return this.httpClient.put<any>(`http://localhost:8089/processCheklist/updateConformity/${auditId}/${checklistId}`, { conformity });
+            return this.httpClient.put(`http://localhost:8089/processCheklist/updateConformity?auditId=${auditId}&checklistId=${checklistId}&conformity=${conformity}`, {});
           }
           
           

@@ -40,19 +40,19 @@ export class ChecklistprocessPage {
     );
   }
 
-  deleteItem(id: any) {
-    console.log("id",id)
-    this.dataService.deleteProcessChecklist(id).subscribe(
-      () => {
-        // If deletion is successful, reload the data to update the display
-        this.loadData(this.idProcess);
-        console.log('Checklist successfully deleted.');
-      },
-      (error: any) => {
-        console.error('An error occurred while deleting the checklist:', error);
-      }
-    );
-  }
+  // deleteItem(id: any) {
+  //   console.log("id",id)
+  //   this.dataService.deleteProcessChecklist(id).subscribe(
+  //     () => {
+  //       // If deletion is successful, reload the data to update the display
+  //       this.loadData(this.idProcess);
+  //       console.log('Checklist successfully deleted.');
+  //     },
+  //     (error: any) => {
+  //       console.error('An error occurred while deleting the checklist:', error);
+  //     }
+  //   );
+  // }
   
 
   navigateToAddChecklistProcess() {

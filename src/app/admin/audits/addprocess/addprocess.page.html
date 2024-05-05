@@ -1,38 +1,73 @@
 <ion-header [translucent]="true">
-  <ion-toolbar class="custom-toolbar-color" >
-    <ion-title>Ajouter Un Processus</ion-title>
+  <ion-toolbar class="custom-toolbar-color">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/auditprocess">
+        <ion-icon name="arrow-back" class="custom-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="title">Ajouter Un Processus</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-card>
     <ion-card-content class="my-form">
-      <form (ngSubmit)=" ajouterProcesses()">
-        <ion-list>
-          <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Nom du processus</ion-label>
-            <ion-input type="text" name="nom" [(ngModel)]="auditprocesses.nom" required></ion-input>
-          </ion-item>
-          <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Recommendation</ion-label>
-            <ion-input type="text" name="category" [(ngModel)]="auditprocesses.recommendation" required></ion-input>
-          </ion-item>
-          <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Point Fort</ion-label>
-            <ion-input type="text" name="Famille" [(ngModel)]="auditprocesses.strength"></ion-input>
-          </ion-item>
-          <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Point Faible</ion-label>
-            <ion-input type="text" name="designation" [(ngModel)]="auditprocesses.weakness"></ion-input>
-          </ion-item>
-        </ion-list>
+      <form (ngSubmit)="ajouterProcesses()">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" >
+              <ion-item lines="full">
+                <ion-label  position="stacked" class="ion-text processus-label" style="font-size: 25px;">*Nom du processus :</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6"> 
+              <ion-item lines="full">
+                <ion-input type="text" name="nom" [(ngModel)]="auditprocesses.nom" required></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12" size-md="6">
+              <ion-item lines="full">
+                <ion-label position="stacked" class="ion-text processus-label" style="font-size: 25px;">*Recommendation :</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <ion-item lines="full">
+                <ion-input type="text" name="category" [(ngModel)]="auditprocesses.recommendation" required></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12" size-md="6">
+              <ion-item lines="full">
+                <ion-label position="stacked" class="ion-text processus-label" style="font-size: 25px;">*Point Fort :</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <ion-item lines="full">
+                <ion-input type="text" name="Famille" [(ngModel)]="auditprocesses.strength"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12" size-md="6">
+              <ion-item lines="full">
+                <ion-label position="stacked" class="ion-text processus-label" style="font-size: 25px;">*Point Faible :</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <ion-item lines="full">
+                <ion-input type="text" name="designation" [(ngModel)]="auditprocesses.weakness"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
         <ion-row>
           <ion-col>
-            <ion-button class="button"  type="submit">Ajouter</ion-button>
+            <ion-button class="button" type="submit">Ajouter</ion-button>
           </ion-col>
         </ion-row>
       </form>
     </ion-card-content>
   </ion-card>
 </ion-content>
-
