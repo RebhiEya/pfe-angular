@@ -1,8 +1,10 @@
+
+// authentification.page.ts
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import * as moment from 'moment';
-
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.page.html',
@@ -11,32 +13,32 @@ import * as moment from 'moment';
 export class AuthentificationPage {
   credentials = { email: '', password: '' };
   error: string = '';
-  isEmployee: any;
-  isAdmin: any;
+  isAdmin: boolean;
+  isEmployee: boolean;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router ,) {}
 
   onLogin() {
-    this.authService.login(this.credentials)
+    this.authService.login(this.credentials.email , this.credentials.password)
       .subscribe(response => {
 
-          if (response.role[0] === "ADMIN"){
+          if (response.roles[0] === "ADMIN"){
               this.isAdmin=true
-          } else if (response.role[0]==="EMPLOYEE"){
+          }else if (response.roles[0]==="EMPLOYEE"){
               this.isEmployee=true
           }
         console.log("auth",response)
         localStorage.setItem('currentUser', JSON.stringify({
-          loginToken: response.token,
-          role: response.role[0],
-          idUser:response.idUser,
+          loginToken: response.jwt,
+          roles: response.roles[0],
+          idUser:response.id,
           isEmployee : this.isEmployee,
           isAdmin:this.isAdmin,
           name:response.name,
           expiration: moment().add(1,'days').toDate()
         }))
 
-          switch(response.role[0]) {
+          switch(response.roles[0]) {
             case 'ADMIN':
               this.router.navigate(['/tabbord']);
               break;
@@ -50,4 +52,6 @@ export class AuthentificationPage {
       }
     );
   }
+
+
 }

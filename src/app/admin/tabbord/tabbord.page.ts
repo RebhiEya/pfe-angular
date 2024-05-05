@@ -12,6 +12,8 @@ export class TabbordPage implements OnInit {
   ngOnInit() {
   }
 
+  
+
 }
 
 

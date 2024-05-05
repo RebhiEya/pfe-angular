@@ -50,11 +50,11 @@ export class MycontrolPage  {
   }
 
   loadData() {
-    this.mycontrolService.all_qualiyControl().subscribe((data) => {
-      this.data = data;
-      console.log(this.data);
-  });
-
+    const currentUser = this.authService.getCurrentUser();
+     this.mycontrolService.getControlByIdUser(currentUser.idUser).subscribe((data) => {
+         this.data = data;
+         console.log(this.data);
+     });
 }
 navigateToChecklist(id :number){
   this.router.navigate(['/control-checklist'],{ queryParams: { id: id }});

@@ -20,7 +20,6 @@ export class ControlPage  {
 
     ionViewWillEnter() {
       this.loadData();
-
       console.log("user" , this.authService.getCurrentUser())
     }
 
@@ -52,8 +51,6 @@ export class ControlPage  {
     });
     toast.present();
   }
-
-
 
   // delete(id : any){
   //   this.mycontrolService.deleteCQ(id).subscribe((data)=> {

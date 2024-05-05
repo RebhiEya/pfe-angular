@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { NavController } from '@ionic/angular';
 })
 export class TableauBordPage implements OnInit {
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController , private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -18,4 +19,9 @@ export class TableauBordPage implements OnInit {
   goToMenuPage() {
     this.navCtrl.navigateForward('/menu');
   }
+
+  logout(){
+    this.authService.Logout()
+  }
+
 }

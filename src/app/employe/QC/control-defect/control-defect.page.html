@@ -17,7 +17,6 @@
 
 
 <ion-content>
-  <!-- *ngFor="let item of DefautData" -->
   <ion-card >
     <form (ngSubmit)="savedefect(controldefect.idControlDefect)">
 
@@ -54,14 +53,9 @@
           <ion-input  name="quantity" [(ngModel)]="controldefect.quantity" placeholder="Quantité"></ion-input>
         </div>
       </div>
-      <div class="icon-row">
-        <ion-icon name="save" style="color: white; font-size: 2em;"></ion-icon>
-
         <ion-button type="submit" slot="end" fill="clear" color="danger"  class="button-spacing">
           <ion-icon slot="end" name="checkmark-circle" style="color: green; font-size: 2em;"></ion-icon>
                 </ion-button>
-      </div>
-      <!-- Utilisation correcte de ion-progress-bar -->
       <ion-progress-bar [value]="0.5" color="custom"></ion-progress-bar>
     </ion-card-content>
   </form>
@@ -99,9 +93,6 @@
       <ion-label class="ion-text-wrap">
       {{ file.name }}
       </ion-label>
-      <ion-button slot="end" fill="clear" (click)="startUpload(file)" >
-      <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
-      </ion-button>
       <ion-button slot="end" fill="clear" color="danger"  (click)="deleteImage(file)" >
       <ion-icon slot="icon-only" name="trash"></ion-icon>
       </ion-button>

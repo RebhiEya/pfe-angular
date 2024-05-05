@@ -25,7 +25,7 @@ export class UserService {
 
   createUser(user: User): Observable<object> {
     console.log(user)
-    return this.httpClient.post<User>(`${this.apiUrl }/add` , user ) ;
+    return this.httpClient.post<User>(`http://localhost:8089/auth/signup` , user ) ;
 
     }
 
