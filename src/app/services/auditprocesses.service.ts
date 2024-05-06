@@ -128,6 +128,9 @@ export class AuditprocessesService {
             return this.httpClient.put(`http://localhost:8089/processCheklist/updateConformity?auditId=${auditId}&checklistId=${checklistId}&conformity=${conformity}`, {});
           }
           
+      getControlByIdUser(id: any){
+        return this.httpClient.get<any[]>(`http://localhost:8089/audit/getUserAudit/${id}`);
+        }
           
           
       }

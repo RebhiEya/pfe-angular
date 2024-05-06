@@ -44,8 +44,9 @@ item:any;
 
   }
 
-  loadData() {
-    this.mycontrolService.all_qualiyControl().subscribe((data) => {
+  loadData() { 
+    const currentUser = this.authService.getCurrentUser();
+    this.mycontrolService.getControlByIdUser(currentUser.idUser).subscribe((data) => {
       this.data = data.map(item => ({
         ...item,
         date: this.datePipe.transform(item.date, 'yyyy-MM-dd')

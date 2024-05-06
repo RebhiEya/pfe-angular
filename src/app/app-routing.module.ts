@@ -107,7 +107,6 @@ const routes: Routes = [
     loadChildren: () => import('./employe/QC/mycontrol/mycontrol.module').then( m => m.MycontrolPageModule)
   },
 
-
   {
     path: 'process',
     canActivate: [AuthGuard , EmployeGuard],
