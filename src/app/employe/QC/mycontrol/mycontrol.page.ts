@@ -7,8 +7,6 @@ import { Controldefect } from 'src/app/models/Controldefect.model';
 import { EmployeService } from 'src/app/services/employe.service';
 import { DatePipe } from '@angular/common';
 
-
-
 @Component({
   selector: 'app-mycontrol',
   templateUrl: './mycontrol.page.html',
@@ -90,5 +88,5 @@ navigateTodetails(id :number){
     logout(){
       this.authService.Logout()
     }
-    
+
 }
