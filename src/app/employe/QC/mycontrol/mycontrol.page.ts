@@ -5,6 +5,9 @@ import {Qualitycontrol} from 'src/app/models/Qualitycontrol.model'
 import { AuthService } from 'src/app/services/auth.service';
 import { Controldefect } from 'src/app/models/Controldefect.model';
 import { EmployeService } from 'src/app/services/employe.service';
+import { DatePipe } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-mycontrol',
@@ -42,7 +45,8 @@ export class MycontrolPage  {
   constructor(private mycontrolService :MycontrolService, private authService : AuthService,
     private employeService : EmployeService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private datePipe: DatePipe) {}
+
 
   ionViewWillEnter() {
     this.selecteddefect = this.employeService.getDefect();
@@ -51,11 +55,23 @@ export class MycontrolPage  {
 
   loadData() {
     const currentUser = this.authService.getCurrentUser();
-     this.mycontrolService.getControlByIdUser(currentUser.idUser).subscribe((data) => {
-         this.data = data;
-         console.log(this.data);
-     });
-}
+    this.mycontrolService.getControlByIdUser(currentUser.idUser).subscribe((data) => {
+      this.data = data.map(item => ({
+        ...item,
+        date: this.datePipe.transform(item.date, 'yyyy-MM-dd')
+      }));
+      console.log(this.data);
+    });
+  }
+
+
+//   loadData() {
+//     const currentUser = this.authService.getCurrentUser();
+//      this.mycontrolService.getControlByIdUser(currentUser.idUser).subscribe((data) => {
+//          this.data = data;
+//          console.log(this.data);
+//      });
+// }
 navigateToChecklist(id :number){
   this.router.navigate(['/control-checklist'],{ queryParams: { id: id }});
 }
@@ -70,4 +86,9 @@ navigateTodetails(id :number){
     // console.log(this.mycontrolService);
     this.router.navigate(['/control-defect'],{ queryParams: { id: id }});
     }
+
+    logout(){
+      this.authService.Logout()
+    }
+    
 }

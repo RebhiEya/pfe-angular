@@ -25,13 +25,13 @@
           <ion-label>Contrôle Qualité</ion-label>
         </ion-item>
 
-        <ion-item routerLink="/add-audit"  >
+        <ion-item routerLink="/my-audit"  >
           <ion-icon slot="start" name="document-text"></ion-icon>
           <ion-label>les audits</ion-label>
         </ion-item>
 
         <!-- Log Out button -->
-        <ion-item button >
+        <ion-item button (click)="logout()" >
           <ion-icon slot="start" name="exit"></ion-icon>
           <ion-label>Log Out</ion-label>
         </ion-item>
@@ -67,7 +67,7 @@
               <div style="display: flex; align-items: center;">
                 <p style="font-size: 18px; color: #4863A0; margin-right: 10px;">État :</p>
                 <p style="font-size: 18px; color: black; margin-right: 20px;">{{ item.state }}</p>
-                
+
               </div>
             </div>
           </div>

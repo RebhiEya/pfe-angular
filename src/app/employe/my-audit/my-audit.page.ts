@@ -5,6 +5,9 @@ import { MycontrolService } from 'src/app/services/mycontrol.service';
 import {Audit} from 'src/app/models/audit.model'
 import { AuthService } from 'src/app/services/auth.service';
 import { AuditprocessesService } from 'src/app/services/auditprocesses.service';
+import { DatePipe } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-my-audit',
@@ -28,9 +31,11 @@ item:any;
   reference:'',
 }
 
-  constructor(private mycontrolService :AuditprocessesService, private authService : AuthService,
+  constructor(private mycontrolService :AuditprocessesService,
+    private authService : AuthService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private datePipe: DatePipe) { }
 
   ionViewWillEnter() {
     this.loadData();
@@ -41,8 +46,10 @@ item:any;
 
   loadData() {
     this.mycontrolService.all_qualiyControl().subscribe((data) => {
-      this.data = data;
-      console.log(this.data);
+      this.data = data.map(item => ({
+        ...item,
+        date: this.datePipe.transform(item.date, 'yyyy-MM-dd')
+      }));      console.log(this.data);
   });
     // const currentUser = this.authService.getCurrentUser();
     // this.mycontrolService.getControlByIdUser(currentUser.idUser).subscribe((data) => {
@@ -61,5 +68,8 @@ navigateToChecklist(id :number){
 //   this.router.navigate(['/control-checklist',control.id]);
 //   }
 
+logout(){
+  this.authService.Logout()
+}
 
 }

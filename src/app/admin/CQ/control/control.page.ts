@@ -3,6 +3,7 @@ import { MycontrolService } from 'src/app/services/mycontrol.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-control',
@@ -15,7 +16,9 @@ export class ControlPage  {
 
   constructor(private mycontrolService: MycontrolService ,
     private router: Router ,
-    private toastController: ToastController, private authService : AuthService,
+    private datePipe: DatePipe,
+    private toastController: ToastController,
+     private authService : AuthService,
     private route: ActivatedRoute) { }
 
     ionViewWillEnter() {
@@ -25,8 +28,10 @@ export class ControlPage  {
 
     loadData() {
       this.mycontrolService.all_qualiyControl().subscribe((data) => {
-        this.data = data;
-        console.log(this.data);
+        this.data = data.map(item => ({
+          ...item,
+          date: this.datePipe.transform(item.date, 'yyyy-MM-dd')
+        }));        console.log(this.data);
     });
   }
 
@@ -57,5 +62,9 @@ export class ControlPage  {
   //     this.data = data
   //     });
   // }
+
+  logout(){
+    this.authService.Logout()
+  }
 
 }

@@ -81,7 +81,7 @@ export class AddAuditPage  {
       }
     );
   }
-  getuser(){ 
+  getuser(){
     this.router.navigate(['/equipe-audit']);
 
   }

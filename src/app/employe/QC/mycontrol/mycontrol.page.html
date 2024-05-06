@@ -20,20 +20,18 @@
     <ion-list class="menu-items menu-icons" lines="none">
       <ion-accordion-group>
 
-
         <ion-item routerLink="/mycontrol"  >
           <ion-icon slot="start" name="document-text"></ion-icon>
           <ion-label>Contrôle Qualité</ion-label>
         </ion-item>
 
-        <ion-item routerLink="/add-audit"  >
+        <ion-item routerLink="/my-audit"  >
           <ion-icon slot="start" name="document-text"></ion-icon>
           <ion-label>les audits</ion-label>
         </ion-item>
 
-
         <!-- Log Out button -->
-        <ion-item button >
+        <ion-item button (click)="logout()" >
           <ion-icon slot="start" name="exit"></ion-icon>
           <ion-label>Log Out</ion-label>
         </ion-item>
@@ -81,18 +79,6 @@
             <ion-button (click)="navigateTodefect(item.idQualityControl)"  style="--background: #bfd7ea; --color: #1b3a51; font-size: 20px;">
               <ion-icon name="warning" style="--color: #4d83ab;"></ion-icon>
             </ion-button>
-
-
-            <ion-button routerLink="/details"  style="--background:#bfd7ea; --color: #1b3a51; font-size: 20px;">
-              <ion-icon name="create" style="--color: #4d83ab;"></ion-icon>
-            </ion-button>
-
-
-
-            <ion-button routerLink="/decision" style="--background:#bfd7ea; --color: #1b3a51; font-size: 20px;">
-              <ion-icon name="document" style="--color: #4d83ab;"></ion-icon>
-            </ion-button>
-
           </div>
 
 

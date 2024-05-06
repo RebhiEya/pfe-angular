@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-user',
@@ -10,7 +11,7 @@ export class UserComponent {
   data: any;
   searchTerm: string ;
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService , private authService : AuthService) {}
 
   ionViewWillEnter(): void {
     this.loadUsers();
@@ -27,5 +28,9 @@ export class UserComponent {
     this.adminService.deleteUser(id).subscribe((data) => {
       this.loadUsers();
     });
+  }
+
+  logout(){
+    this.authService.Logout()
   }
 }

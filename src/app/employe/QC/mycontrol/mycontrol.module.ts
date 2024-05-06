@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { MycontrolPageRoutingModule } from './mycontrol-routing.module';
-
+import { DatePipe } from '@angular/common';
 import { MycontrolPage } from './mycontrol.page';
 
 @NgModule({
@@ -15,6 +15,8 @@ import { MycontrolPage } from './mycontrol.page';
     IonicModule,
     MycontrolPageRoutingModule
   ],
+  providers: [DatePipe],
+
   declarations: [MycontrolPage]
 })
 export class MycontrolPageModule {}

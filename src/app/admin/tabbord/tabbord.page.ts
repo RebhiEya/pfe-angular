@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-tabbord',
@@ -7,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabbordPage implements OnInit {
 
-  constructor() { }
+  constructor( private authService : AuthService) { }
 
   ngOnInit() {
   }
 
-  
+  logout(){
+    this.authService.Logout()
+  }
 
 }
 

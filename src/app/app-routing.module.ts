@@ -61,19 +61,15 @@ const routes: Routes = [
     canActivate: [AuthGuard ,AdminGuard],
     loadChildren: () => import('./admin/audits/auditprocess/auditprocess.module').then( m => m.AuditprocessPageModule)
   },
-
-  {
-    path: 'equipe-audit',
-    loadChildren: () => import('./admin/audits/equipe-audit/equipe-audit.module').then( m => m.EquipeAuditPageModule)
-  },
-  {
-     path: 'les-audits',
-    canActivate: [AuthGuard ,AdminGuard],
-    loadChildren: () => import('./admin/audits/les-audits/les-audits.module').then( m => m.LesAuditsPageModule)
-  },
   {
     path: 'checklistprocess/:idProcess',
+    canActivate: [AuthGuard ,AdminGuard],
     loadChildren: () => import('./admin/audits/checklistprocess/checklistprocess.module').then( m => m.ChecklistprocessPageModule)
+  },
+  {
+    path: 'les-audits',
+    canActivate: [AuthGuard ,AdminGuard],
+    loadChildren: () => import('./admin/audits/les-audits/les-audits.module').then( m => m.LesAuditsPageModule)
   },
   {
     path: 'addchecklistprocess/:idProcess',
@@ -110,23 +106,17 @@ const routes: Routes = [
     canActivate: [AuthGuard , EmployeGuard],
     loadChildren: () => import('./employe/QC/mycontrol/mycontrol.module').then( m => m.MycontrolPageModule)
   },
-  {
-    path: 'details',
-    canActivate: [AuthGuard , EmployeGuard],
-    loadChildren: () => import('./employe/QC/details/details.module').then( m => m.DetailsPageModule)
-  },
-
 
 
   {
     path: 'process',
     canActivate: [AuthGuard , EmployeGuard],
-    loadChildren: () => import('./employe/audit/process/process.module').then( m => m.ProcessPageModule)
+    loadChildren: () => import('./employe/process/process.module').then( m => m.ProcessPageModule)
   },
   {
     path: 'my-audit',
     canActivate: [AuthGuard , EmployeGuard],
-    loadChildren: () => import('./employe/audit/my-audit/my-audit.module').then( m => m.MyAuditPageModule)
+    loadChildren: () => import('./employe/my-audit/my-audit.module').then( m => m.MyAuditPageModule)
   },
   {
   path: 'useradd',
@@ -162,6 +152,11 @@ const routes: Routes = [
     path: 'unauthorize',
     loadChildren: () => import('./unauthorize/unauthorize.module').then( m => m.UnauthorizePageModule)
   },
+  {
+    path: 'equipe-audit',
+    canActivate: [AuthGuard , AdminGuard],
+    loadChildren: () => import('./admin/audits/equipe-audit/equipe-audit.module').then( m => m.EquipeAuditPageModule)
+  }
 
 ];
 

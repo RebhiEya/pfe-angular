@@ -7,6 +7,7 @@ import { DataService } from 'src/app/services/data.service';
 import { Qualitycontrol } from 'src/app/models/Qualitycontrol.model';
 import { AdminService } from 'src/app/services/admin.service';
 import { AlertController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -33,13 +34,14 @@ export class AddControlPage  {
     reference: '',
     famille:''
   };
-  
+
   selectedChecklists: ControlCheckList[] = [];
   selectedUser: any;
   constructor(  private router: Router ,
      private productService: DataService,
      private adminService: AdminService,
-     private checklistService : ChecklistService ,private alertController: AlertController) { }
+     private checklistService : ChecklistService ,private alertController: AlertController,
+    private authService : AuthService) { }
 
   ionViewWillEnter() {
     this.selectedProduit = this.productService.getProduct();
@@ -111,5 +113,8 @@ export class AddControlPage  {
   }
 
 
+  logout(){
+    this.authService.Logout()
+  }
 }
 

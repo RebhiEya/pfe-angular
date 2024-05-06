@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-equipe-audit',
   templateUrl: './equipe-audit.page.html',
@@ -11,7 +12,7 @@ export class EquipeAuditPage  {
   item :any;
 
   constructor(private adminService: AdminService ,
-    private router: Router ,) { }
+    private router: Router , private authService: AuthService) { }
 
     ionViewWillEnter() {
       this.loadUsers();
@@ -30,8 +31,11 @@ export class EquipeAuditPage  {
       this.router.navigate(['/add-audit'])
     }
 
+    logout(){
+      this.authService.Logout()
+    }
 }
 
 
 
-  
+

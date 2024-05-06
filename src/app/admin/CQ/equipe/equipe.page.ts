@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { AdminService } from 'src/app/services/admin.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-equipe',
@@ -17,7 +18,7 @@ export class EquipePage  {
   selectedEquipe: User[] = [];
 
   constructor(private adminService: AdminService ,
-    private router: Router ,) { }
+    private router: Router , private authService : AuthService) { }
 
     ionViewWillEnter() {
       this.loadUsers();
@@ -41,4 +42,7 @@ export class EquipePage  {
       return this.selectedEquipe.some(item => item.idUser === users.idUser);
     }
 
+    logout(){
+      this.authService.Logout()
+    }
 }
