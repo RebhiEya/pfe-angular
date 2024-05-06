@@ -16,20 +16,17 @@ export class UserComponent {
   ionViewWillEnter(): void {
     this.loadUsers();
   }
-
   loadUsers(): void {
     this.adminService.getAllUsers().subscribe((data) => {
       this.data = data;
       console.log(this.data);
     });
   }
-
   deleteUser(id: any): void {
     this.adminService.deleteUser(id).subscribe((data) => {
       this.loadUsers();
     });
   }
-
   logout(){
     this.authService.Logout()
   }

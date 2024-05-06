@@ -62,6 +62,7 @@ export class DataService {
       console.log( controlCheckList);
       return this.httpClient.post(`http://localhost:8089/produit/assign-checklist-to-produit/${id}` , controlCheckList ) ;
     }
+
   }
 
 

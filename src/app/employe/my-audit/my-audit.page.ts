@@ -61,7 +61,6 @@ navigateToChecklist(id :number){
   this.router.navigate(['/checklistprocesss'],{ queryParams: { id: id }});
 }
 
-
 // async navigateToChecklists(control: any) {
 //   const controlData = await this.mycontrolService.getControlById(control.id);
 //   console.log(this.mycontrolService);
