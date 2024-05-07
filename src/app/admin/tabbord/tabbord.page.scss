@@ -111,3 +111,50 @@ ion-header{
 .data-card-4 {
   background-color: #ffffcc; /* Jaune clair */
 }
+/* Style général pour le contenu */
+ion-content {
+  background-color: #f4f4f4; /* Couleur de fond */
+}
+
+/* Conteneur des statistiques */
+.statistic-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Style des éléments statistiques */
+.statistic-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex-basis: calc(50% - 10px);
+}
+
+/* Titre des statistiques */
+.statistic-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Valeur des statistiques */
+.statistic-value {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Libellé des statistiques */
+.statistic-label {
+  font-size: 14px;
+  color: #666;
+}
+/* Couleurs spécifiques */
+.statistic-container:nth-child(odd) .statistic-item {
+  background-color: #d3caf7; /* Rouge clair */
+}
+
+.statistic-container:nth-child(even) .statistic-item {
+  background-color: #ffa8cc; /* Bleu clair */
+}

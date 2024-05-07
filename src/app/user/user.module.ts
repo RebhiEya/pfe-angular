@@ -6,6 +6,7 @@ import { UserComponent } from './user.page';
 import { UserPageRoutingModule } from './user-routing.module';
 import { CustomFilterPipe } from '../pipes/custom-filter-pipe.pipe';
 
+
 @NgModule({
   imports: [
     CommonModule,

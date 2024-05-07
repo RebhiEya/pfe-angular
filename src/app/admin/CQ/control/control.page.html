@@ -59,8 +59,14 @@
 
   <ion-content class="item-details">
     <ion-list>
-      <ion-item *ngFor="let item of data; index as i " >
-        <ion-label class="item-label">
+      <ion-searchbar
+      placeholder='saisir le nom utilisateur'
+      [(ngModel)]="searchTerm"
+      showCancelButton="focus"
+      animated>
+    </ion-searchbar>
+    <ion-item *ngFor="let item of data index as i">
+      <ion-label class="item-label">
           <div class="item-container">
             <div class="flex-container">
               <div class="item-header">

@@ -53,63 +53,36 @@
 
 
 
-  <ion-content contentId="main-content" class="ion-padding">
+  <ion-content class="ion-padding">
+    
+    <ion-content class="ion-padding">
+      <div class="statistic-container">
+        <div class="statistic-item">
+          <div class="statistic-title">Statistiques des produits</div>
+          <div class="statistic-value">{{ produitsStatistiques.length }}</div>
+          <div class="statistic-label">Nombre total de produits</div>
+        </div>
+        <div class="statistic-item">
+          <div class="statistic-title">Statistiques des processus</div>
+          <div class="statistic-value">{{ processusStatistiques.length }}</div>
+          <div class="statistic-label">Nombre total de processus</div>
+        </div>
+      </div>
+      <div class="statistic-container">
+        <div class="statistic-item">
+          <div class="statistic-title">Statistiques des audits</div>
+          <div class="statistic-value">{{ controleStatistiques.length }}</div>
+          <div class="statistic-label">Nombre total de produits</div>
+        </div>
+        <div class="statistic-item">
+          <div class="statistic-title">Statistiques des controles</div>
+          <div class="statistic-value">{{ auditStatistiques.length }}</div>
+          <div class="statistic-label">Nombre total de processus</div>
+        </div>
+      </div>
+    </ion-content>
+    
+    
+    
+  </ion-content>
 
-<ion-grid>
-  <h2> Controle Qualités </h2>
-  <ion-row>
-    <ion-col size="6">
-      <ion-card class="data-card data-card-1">
-        <ion-card-header>
-          <ion-card-title >A réaliser </ion-card-title>
-        </ion-card-header>
-
-      </ion-card>
-    </ion-col>
-
-    <ion-col size="6">
-      <ion-card class="data-card data-card-2">
-        <ion-card-header>
-          <ion-card-title>A Clôturer </ion-card-title>
-        </ion-card-header>
-
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-  <h2> les audits </h2>
-  <ion-row>
-    <ion-col size="6">
-      <ion-card class="data-card data-card-3">
-        <ion-card-header>
-          <ion-card-title>Audités</ion-card-title>
-        </ion-card-header>
-
-      </ion-card>
-    </ion-col>
-
-    <ion-col size="6">
-      <ion-card class="data-card data-card-4">
-        <ion-card-header>
-          <ion-card-title>Auditeurs</ion-card-title>
-        </ion-card-header>
-
-      </ion-card>
-    </ion-col>
-
-    <ion-col size="6">
-      <ion-card class="data-card data-card-2">
-        <ion-card-header>
-          <ion-card-title>A Clôturer </ion-card-title>
-        </ion-card-header>
-
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-
-</ion-grid>
-<ion-router-outlet id="main"></ion-router-outlet>
-
-</ion-content>
-</div>

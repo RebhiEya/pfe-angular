@@ -12,6 +12,7 @@ import { DatePipe } from '@angular/common';
 })
 export class ControlPage  {
   data: any;
+  searchTerm: string ;
 
 
   constructor(private mycontrolService: MycontrolService ,

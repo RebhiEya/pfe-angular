@@ -22,8 +22,8 @@ export class DataService {
     reference: '',
     famille:''
   };
-
-
+  private apiUrl = 'URL_VERS_VOTRE_API';
+  
   setProduct(product: any) {
     this.product = product;
   }
@@ -62,7 +62,7 @@ export class DataService {
       console.log( controlCheckList);
       return this.httpClient.post(`http://localhost:8089/produit/assign-checklist-to-produit/${id}` , controlCheckList ) ;
     }
-
+   
   }
 
 
