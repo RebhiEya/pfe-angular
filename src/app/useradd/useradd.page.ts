@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular'; // Importez AlertController
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'; // Importez FormBuilder et FormGroup
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-useradd',
@@ -12,7 +11,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class UseraddComponent implements OnInit {
 
-  user: User = {
+  userForm: FormGroup;
+  user: User = { // Déclarez la propriété user ici
     idUser: 0,
     username:'',
     firstName: '',
@@ -22,43 +22,36 @@ export class UseraddComponent implements OnInit {
     email: '',
   };
 
-  userForm: FormGroup;
-  hero: any;
-  heroForm: FormGroup<{ name: FormControl<any>; alterEgo: FormControl<any>; power: FormControl<any>; }>;
-
-
   constructor(
+    private formBuilder: FormBuilder,
     private dataService: UserService,
-    private router: Router,
-    private alertController: AlertController ,
-    private formBuilder: FormBuilder
-
-  ) { }
-
-  ngOnInit(): void {
-    this.heroForm = new FormGroup({
-      name: new FormControl(this.hero.name, [
-        Validators.required,
-        Validators.minLength(4),
-        forbiddenNameValidator(/bob/i), // <-- Here's how you pass in the custom validator.
-      ]),
-      alterEgo: new FormControl(this.hero.alterEgo),
-      power: new FormControl(this.hero.power, Validators.required),
+    private router: Router
+  ) {
+    this.userForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      matricule: [''],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      email: ['', [Validators.required, Validators.email]]
     });
   }
-  
 
-   ajouterUser() {
-      this.dataService.createUser(this.user).subscribe((data) => {
-        this.router.navigate(['/user']);
-        },
-      );
-
-    }
-
+  ngOnInit() {
   }
 
-function forbiddenNameValidator(arg0: RegExp): import("@angular/forms").ValidatorFn {
-  throw new Error('Function not implemented.');
+  ajouterUser() {
+    if (this.userForm.valid) {
+      const userData: User = this.userForm.value;
+      this.dataService.createUser(userData).subscribe(
+        () => {
+          this.router.navigate(['/user']);
+        },
+        (error) => {
+          console.error('Une erreur est survenue lors de l\'ajout de l\'utilisateur : ', error);
+        }
+      );
+    } else {
+      console.error('Le formulaire est invalide. Veuillez vérifier les champs.');
+    }
+  }
 }
-
