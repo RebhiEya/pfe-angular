@@ -8,6 +8,8 @@ import { Qualitycontrol } from 'src/app/models/Qualitycontrol.model';
 import { AdminService } from 'src/app/services/admin.service';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
+import { MenuController } from '@ionic/angular';
+import { Inject } from '@angular/core';
 
 
 @Component({
@@ -40,8 +42,10 @@ export class AddControlPage  {
   constructor(  private router: Router ,
      private productService: DataService,
      private adminService: AdminService,
-     private checklistService : ChecklistService ,private alertController: AlertController,
-    private authService : AuthService) { }
+     private checklistService : ChecklistService ,
+     private alertController: AlertController,
+     @Inject(MenuController) private menuController: MenuController,
+         private authService : AuthService) { }
 
   ionViewWillEnter() {
     this.selectedProduit = this.productService.getProduct();
@@ -112,6 +116,9 @@ export class AddControlPage  {
     await alert.present();
   }
 
+  async openFirstMenu() {
+    await this.menuController.open('main-content');
+  }
 
   logout(){
     this.authService.Logout()

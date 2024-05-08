@@ -14,7 +14,7 @@ import { ProcessChecklist } from 'src/app/models/ProcessChecklist.model';
 export class AuditprocessesService {
   baseUrl = 'http://localhost:8089/process';
 
-  
+
   apiUrl = 'http://localhost:8089/processCheklist';
   APIURL= 'http://localhost:8089/audit';
 
@@ -35,7 +35,12 @@ export class AuditprocessesService {
     addAudit(auditData: any): Observable<any> {
       return this.httpClient.post<any>(`${this.APIURL}/add`, auditData);
     }
-    
+
+    getControlByIdUser(id: any){
+      return this.httpClient.get<any[]>(`${this.APIURL}/getUserAudit/${id}`);
+      }
+
+
 
     getAllProcesses(){
       return this.httpClient.get<any[]>(`${this.baseUrl}/getAll`);
@@ -62,7 +67,7 @@ export class AuditprocessesService {
       return this.httpClient.post(`${this.baseUrl}/add`, process);
     }
 
-  
+
 
     addProcessWithChecklist(process: auditProcesses, checklistId: number): Observable<auditProcesses> {
       return this.httpClient.post<auditProcesses>(`${this.baseUrl}/process/process-with-checklist?checklistId=${checklistId}`, process);
@@ -79,9 +84,9 @@ export class AuditprocessesService {
     deleteProcessChecklist(checklistId: any): Observable<any> {
       return this.httpClient.delete<any>(`${this.apiUrl}/delete/${checklistId}`);
     }
-    
-  
-    
+
+
+
     setProcess(process : any){
       this.process = process;
 
@@ -90,7 +95,7 @@ export class AuditprocessesService {
     getProcessbyid(processId: number){
 
     }
-   
+
     createchecklistprocess (idProcess: number, controlCheckList: any): Observable<object> {
       console.log( controlCheckList);
       return this.httpClient.post<auditProcesses>(`${this.baseUrl}/assign-checklist-to-process/${idProcess}`, controlCheckList);
@@ -105,14 +110,14 @@ export class AuditprocessesService {
         getChecklist(): ProcessChecklist[] {
           return this.checklist;
         }
-      
+
         // Method to set the checklist
         setChecklist(items: ProcessChecklist[]) {
           this.checklist = items;
         }
         all_qualiyControl(){
           return this.httpClient.get<any[]>(`${this.APIURL}/getAll`);
-      
+
         }
          deleteCQ(id: any): Observable<string> {
            return this.httpClient.delete(`http://localhost:8089/audit/delete/${id}`, { responseType: 'text' });
@@ -127,10 +132,11 @@ export class AuditprocessesService {
             // Méthode pour mettre à jour la conformité d'un élément de checklist
             return this.httpClient.put(`http://localhost:8089/processCheklist/updateConformity?auditId=${auditId}&checklistId=${checklistId}&conformity=${conformity}`, {});
           }
-          
-      getControlByIdUser(id: any){
-        return this.httpClient.get<any[]>(`http://localhost:8089/audit/getUserAudit/${id}`);
-        }
-          
-       
+
+
+
+
+
+
+
       }

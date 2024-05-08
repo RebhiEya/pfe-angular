@@ -31,7 +31,7 @@ item:any;
   reference:'',
 }
 
-  constructor(private mycontrolService :AuditprocessesService,
+  constructor(private AuditprocessesService :AuditprocessesService,
     private authService : AuthService,
     private router: Router,
     private route: ActivatedRoute,
@@ -44,9 +44,9 @@ item:any;
 
   }
 
-  loadData() { 
+  loadData() {
     const currentUser = this.authService.getCurrentUser();
-    this.mycontrolService.getControlByIdUser(currentUser.idUser).subscribe((data) => {
+    this.AuditprocessesService.getControlByIdUser(currentUser.idUser).subscribe((data) => {
       this.data = data.map(item => ({
         ...item,
         date: this.datePipe.transform(item.date, 'yyyy-MM-dd')
@@ -61,6 +61,7 @@ item:any;
 navigateToChecklist(id :number){
   this.router.navigate(['/checklistprocesss'],{ queryParams: { id: id }});
 }
+
 
 // async navigateToChecklists(control: any) {
 //   const controlData = await this.mycontrolService.getControlById(control.id);

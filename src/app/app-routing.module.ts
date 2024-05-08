@@ -42,11 +42,6 @@ const routes: Routes = [
     loadChildren: () => import('./admin/CQ/produits/produits.module').then( m => m.ProduitsPageModule)
   },
   {
-    path: 'defects',
-    canActivate: [AuthGuard ,AdminGuard],
-    loadChildren: () => import('./admin/CQ/defects/defects.module').then( m => m.DefectsPageModule)
-  },
-  {
     path: 'add-produit',
     canActivate: [AuthGuard ,AdminGuard],
     loadChildren: () => import('./admin/CQ/add-produit/add-produit.module').then( m => m.AddProduitPageModule)
@@ -155,7 +150,12 @@ const routes: Routes = [
     path: 'equipe-audit',
     canActivate: [AuthGuard , AdminGuard],
     loadChildren: () => import('./admin/audits/equipe-audit/equipe-audit.module').then( m => m.EquipeAuditPageModule)
+  },
+  {
+    path: 'document',
+    loadChildren: () => import('./employe/QC/document/document.module').then( m => m.DocumentPageModule)
   }
+
 
 ];
 

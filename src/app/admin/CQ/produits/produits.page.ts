@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -17,7 +17,9 @@ export class ProduitsPage  {
   constructor(private dataService: DataService ,
       private router: Router ,
       private toastController: ToastController,
-      private route: ActivatedRoute) {}
+      private route: ActivatedRoute,
+      private alertController: AlertController
+    ) {}
 
   ionViewWillEnter() {
     this.loadData();
@@ -36,14 +38,34 @@ export class ProduitsPage  {
     this.router.navigate(['/add-control'])
   }
 
-  delete(id : any){
+  async delete(id : any){
+    const alert = await this.alertController.create({
+      header: 'Confirmation',
+      message: 'Êtes-vous sûr de vouloir supprimer cet produit ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            // L'utilisateur a cliqué sur Annuler, ne rien faire
+          }
+        }, {
+          text: 'OK',
+          handler: () => {
     this.dataService.deleteProduit(id).subscribe((data)=> {
       this.data = data
     });
   }
+}
+]
+});
+
+await alert.present();
+}
 
   update(produit : any){
-   this.router.navigate(['/updat-produit'],{ state:produit })
+  this.router.navigate(['/updat-produit'],{ state:produit })
   }
 
   }

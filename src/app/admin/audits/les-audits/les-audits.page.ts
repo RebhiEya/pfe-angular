@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { AuditprocessesService } from 'src/app/services/auditprocesses.service';
 import { DatePipe } from '@angular/common';
@@ -19,7 +19,9 @@ export class LesAuditsPage  {
   constructor(private AuditprocessesService: AuditprocessesService ,
     private router: Router ,
     private toastController: ToastController, private authService : AuthService,
-    private route: ActivatedRoute , private datePipe: DatePipe) { }
+    private route: ActivatedRoute , private datePipe: DatePipe,
+    private alertController: AlertController
+  ) { }
 
     ionViewWillEnter() {
       this.loadData();
@@ -37,19 +39,32 @@ export class LesAuditsPage  {
   }
 
 
-  delete(id: any) {
+  async delete(id: any) {
+    const alert = await this.alertController.create({
+      header: 'Confirmation',
+      message: 'Êtes-vous sûr de vouloir supprimer cet audit ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            // L'utilisateur a cliqué sur Annuler, ne rien faire
+          }
+        }, {
+          text: 'OK',
+          handler: () => {
      this.AuditprocessesService.deleteCQ(id).subscribe(
-
        () => {
          this.loadData();
-         this.presentToast('Control deleted successfully');
-       },
-       (error) => {
-         console.error('HTTP Error:', error);
-        this.presentToast('Error deleting control');
-       }
-     );
-   }
+        });
+      }
+    }
+  ]
+});
+
+await alert.present();
+}
 
   async presentToast(message: string) {
     const toast = await this.toastController.create({

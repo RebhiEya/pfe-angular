@@ -9,10 +9,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./tableau-bord.page.scss'],
 })
 export class TableauBordPage implements OnInit {
-
+name : string;
   constructor(private navCtrl: NavController , private authService: AuthService) { }
 
   ngOnInit() {
+    const currentUser = this.authService.getCurrentUser();
+    // Assuming currentUser contains role information
+    this.name = currentUser.name
   }
 
 

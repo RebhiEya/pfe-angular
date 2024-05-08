@@ -1,0 +1,52 @@
+/* Style pour rendre le bouton rouge et l'agrandir */
+button {
+  background-color: rgb(251, 94, 94);
+  color: white;
+  padding: 10px 20px; /* Ajoutez du rembourrage pour agrandir le bouton */
+  font-size: 18px; /* Définissez une taille de police plus grande */
+}
+
+/* Style pour centrer l'image */
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%; /* Définir une largeur maximale pour l'image */
+  height: auto; /* Pour conserver le ratio d'aspect */
+  max-height: 300px; /* Définir une hauteur maximale pour l'image */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Style pour centrer le bouton horizontalement */
+ion-content > div {
+  text-align: center ;
+  max-width: 300px; /* Définir une largeur maximale pour le conteneur du bouton */
+  margin: 0 auto; /* Centrer le conteneur lui-même */
+}
+
+
+
+
+/* Style pour rendre le bouton rouge et l'agrandir */
+// button {
+//   background-color: rgb(251, 94, 94);
+//   color: white;
+//   padding: 10px 20px; /* Ajoutez du rembourrage pour agrandir le bouton */
+//   font-size: 18px; /* Définissez une taille de police plus grande */
+// }
+
+// img {
+//   display: block;
+//   margin: 0 auto;
+//   max-width: 100%; /* Définir une largeur maximale pour l'image */
+//   height: auto; /* Pour conserver le ratio d'aspect */
+//   max-height: 300px; /* Définir une hauteur maximale pour l'image */
+// }
+// ion-content > div > div {
+//   text-align: center;
+//   max-width: 300px; /* Définir une largeur maximale pour le conteneur du bouton */
+//   margin: 0 auto; /* Centrer le conteneur lui-même */
+//   position: relative; /* Assurez-vous que le conteneur est positionné de façon relative */
+// }

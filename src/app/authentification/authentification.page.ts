@@ -32,9 +32,9 @@ export class AuthentificationPage {
           loginToken: response.jwt,
           roles: response.roles[0],
           idUser:response.id,
+          name:response.firstName,
           isEmployee : this.isEmployee,
           isAdmin:this.isAdmin,
-          name:response.name,
           expiration: moment().add(1,'days').toDate()
         }))
 

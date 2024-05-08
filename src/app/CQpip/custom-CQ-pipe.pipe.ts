@@ -28,4 +28,4 @@ export class CustomCQPipe implements PipeTransform {
     });
   }
   }
-      
+

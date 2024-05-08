@@ -7,6 +7,7 @@ import { Controldefect } from 'src/app/models/Controldefect.model';
 import { EmployeService } from 'src/app/services/employe.service';
 import { DatePipe } from '@angular/common';
 
+
 @Component({
   selector: 'app-mycontrol',
   templateUrl: './mycontrol.page.html',
@@ -44,7 +45,6 @@ export class MycontrolPage  {
     private employeService : EmployeService,
     private router: Router,
     private route: ActivatedRoute, private datePipe: DatePipe) {}
-
 
   ionViewWillEnter() {
     this.selecteddefect = this.employeService.getDefect();

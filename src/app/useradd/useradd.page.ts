@@ -3,6 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular'; // Importez AlertController
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Importez FormBuilder et FormGroup
 
 @Component({
   selector: 'app-useradd',
@@ -21,39 +22,34 @@ export class UseraddComponent implements OnInit {
     email: '',
   };
 
+  userForm: FormGroup;
+
+
   constructor(
-    private dataService: UserService, 
+    private dataService: UserService,
     private router: Router,
-    private alertController: AlertController // Injectez AlertController
+    private alertController: AlertController ,
+    private formBuilder: FormBuilder
+
   ) { }
 
   ngOnInit() {
+    this.userForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      matricule: [''],
+      password: ['', [Validators.required, Validators.minLength(9)]],
+      email: ['', [Validators.required, Validators.email]],
+    });
   }
 
-  async ajouterUser() {
-    if (this.validateForm()) {
-      this.dataService.createUser(this.user).subscribe(
-        () => {
-          this.router.navigate(['/user']);
+   ajouterUser() {
+      this.dataService.createUser(this.user).subscribe((data) => {
+        this.router.navigate(['/user']);
         },
       );
-    } else {
-      // Afficher une alerte si tous les champs ne sont pas remplis
-      const alert = await this.alertController.create({
-        header: 'Erreur',
-        message: 'Veuillez remplir tous les champs.',
-        buttons: ['OK']
-      });
 
-      await alert.present();
     }
+
   }
 
-  validateForm(): boolean {
-    if (!this.user.firstName || !this.user.lastName || !this.user.matricule || !this.user.password || !this.user.email) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-}

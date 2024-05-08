@@ -1,48 +1,3 @@
-  <ion-menu contentId="main-content">
-
-    <ion-content contentId="main-content" class="ion-padding">
-
-      <div class="menu-header-bg"></div>
-      <div class="header-content">
-        <img src="../assets/qalitas.jpeg" alt="">
-        <ion-label>
-          <h2>TIM GROUP</h2>
-          <p>Qalitas</p>
-        </ion-label>
-      </div>
-
-      <div class="action-button">
-        <ion-button routerLink="/tableau-bord">
-          <ion-icon slot="start" name="add"></ion-icon>HOME
-        </ion-button>
-      </div>
-
-      <ion-list class="menu-items menu-icons" lines="none">
-        <ion-accordion-group>
-
-
-          <ion-item routerLink="/mycontrol"  >
-            <ion-icon slot="start" name="document-text"></ion-icon>
-            <ion-label>Contrôle Qualité</ion-label>
-          </ion-item>
-
-          <ion-item routerLink="/add-audit"  >
-            <ion-icon slot="start" name="document-text"></ion-icon>
-            <ion-label>les audits</ion-label>
-          </ion-item>
-
-
-          <!-- Log Out button -->
-          <ion-item button (click)="logout()" >
-            <ion-icon slot="start" name="exit"></ion-icon>
-            <ion-label >Log Out</ion-label>
-          </ion-item>
-
-        </ion-accordion-group>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-
   <div class="ion-page" id="main-content">
     <ion-header>
       <ion-toolbar>
@@ -54,61 +9,45 @@
     </ion-header>
     <ion-content class="ion-padding">
 
-  <ion-grid>
-    <h2> Controle Qualités </h2>
-    <ion-row>
-      <ion-col size="6">
-        <ion-card class="data-card data-card-1">
-          <ion-card-header>
-            <ion-card-title >A réaliser </ion-card-title>
-          </ion-card-header>
+      <section class="slider_section ">
+        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container ">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="detail-box">
 
-        </ion-card>
-      </ion-col>
+                      <h1>
+                        Bonjour {{name}} 
+                      </h1>
+                      <p>
+                        Nous conjuguons expertise et digitalisation pour fournir un accompagnement collaboratif, réactif et robuste pour vos systèmes de management.                      </p>
 
-      <ion-col size="6">
-        <ion-card class="data-card data-card-2">
-          <ion-card-header>
-            <ion-card-title>A Clôturer </ion-card-title>
-          </ion-card-header>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="img-box">
+                      <img src="assets/QC.png" alt="">
+                    </div>
+                  </div>
+                  <div class="detail-box">
+                  <a routerLink="/my-audit">
+                    Audit
+                  </a>
+                  <div></div>
+                 <a routerLink="/mycontrol" >
+                    contrôle
+                  </a>
+                </div>
+                </div>
+              </div>
+            </div>
 
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <h2> les audits </h2>
-    <ion-row>
-      <ion-col size="6">
-        <ion-card class="data-card data-card-3">
-          <ion-card-header>
-            <ion-card-title>Audités</ion-card-title>
-          </ion-card-header>
-
-        </ion-card>
-      </ion-col>
-
-      <ion-col size="6">
-        <ion-card class="data-card data-card-4">
-          <ion-card-header>
-            <ion-card-title>Auditeurs</ion-card-title>
-          </ion-card-header>
-
-        </ion-card>
-      </ion-col>
-
-      <ion-col size="6">
-        <ion-card class="data-card data-card-2">
-          <ion-card-header>
-            <ion-card-title>A Clôturer </ion-card-title>
-          </ion-card-header>
-
-        </ion-card>
-      </ion-col>
-    </ion-row>
+          </div>
 
 
-  </ion-grid>
-  <ion-router-outlet id="main"></ion-router-outlet>
-
+          </div>
+      </section>
 </ion-content>
 </div>

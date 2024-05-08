@@ -18,8 +18,12 @@ export class CustomFilterPipe implements PipeTransform {
     const toCompare = term.toLowerCase();
 
     return items.filter(function (item) {
-      // Check if the firstName property contains the search term
-      return item['firstName'].toLowerCase().startsWith(toCompare);
+      // Check if item and item['firstName'] are not null
+      if (item && item['firstName']) {
+        // Check if the firstName property contains the search term
+        return item['firstName'].toLowerCase().startsWith(toCompare);
+      }
+      return false; // Exclude items with null firstName
     });
   }
 }
