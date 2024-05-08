@@ -1,53 +1,46 @@
-  <div class="ion-page" id="main-content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>tableau de bord</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>tableau de bord</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
 
-      <section class="slider_section ">
-        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="container ">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="detail-box">
-
-                      <h1>
-                        Bonjour {{name}} 
-                      </h1>
-                      <p>
-                        Nous conjuguons expertise et digitalisation pour fournir un accompagnement collaboratif, réactif et robuste pour vos systèmes de management.                      </p>
-
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="img-box">
-                      <img src="assets/QC.png" alt="">
-                    </div>
-                  </div>
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6">
                   <div class="detail-box">
-                  <a routerLink="/my-audit">
-                    Audit
-                  </a>
-                  <div></div>
-                 <a routerLink="/mycontrol" >
-                    contrôle
-                  </a>
+                    <h1>Bonjour {{ name | uppercase }}</h1>
+                    <p>Nous conjuguons expertise et digitalisation pour fournir un accompagnement collaboratif, réactif et robuste pour vos systèmes de management.</p>
+                  </div>
                 </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="assets/QC.png" alt="">
+                  </div>
+                </div>
+                <!-- Contacts -->
+                <div class="contact-info">
+                  <ion-icon name="mail"></ion-icon>
+                  <a href="mailto:exemple&#64;email.com">commercial&#64;tim-tunisie.com</a>
+                </div>
+                <div class="contact-info">
+                  <ion-icon name="call"></ion-icon>
+                  <a href="tel:+1234567890">+216 20200575</a>
                 </div>
               </div>
             </div>
-
           </div>
+        </div>
+      </div>
+    </section>
 
-
-          </div>
-      </section>
-</ion-content>
+  </ion-content>
 </div>

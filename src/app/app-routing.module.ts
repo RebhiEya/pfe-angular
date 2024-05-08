@@ -151,10 +151,7 @@ const routes: Routes = [
     canActivate: [AuthGuard , AdminGuard],
     loadChildren: () => import('./admin/audits/equipe-audit/equipe-audit.module').then( m => m.EquipeAuditPageModule)
   },
-  {
-    path: 'document',
-    loadChildren: () => import('./employe/QC/document/document.module').then( m => m.DocumentPageModule)
-  }
+
 
 
 ];

@@ -85,8 +85,6 @@ export class ControlDefectPage {
     })
     this.loadData();
     this.loadFile();
-    this.loadAudio();
-    VoiceRecorder.requestAudioRecordingPermission();
     this.getControlDefect();
     }
 
@@ -200,55 +198,6 @@ delete(id : any){
     this.allDefects = data
   });
 }
-
-
-//audio
-
-
-async loadAudio() {
-  Filesystem.readdir({
-    path: '',
-    directory: Directory.Data
-  }).then(result => {
-    console.log(result);
-    this.storedFileNames = result.files;
-  });
-}
-
-startRecording() {
-  if (this.recording) {
-    return;
-  }
-  this.recording = true;
-  VoiceRecorder.startRecording();
-}
-
-stopRecording() {
-  if (!this.recording) {
-    return;
-  }
-  VoiceRecorder.stopRecording().then(async (result: RecordingData) => {
-    this.recording = false;
-    if (result.value && result.value.recordDataBase64) {
-      const recordData = result.value.recordDataBase64;
-      console.log("hi... line 110044", recordData);
-      const fileName = new Date().getTime() + '.wav';
-      await Filesystem.writeFile({
-        path: fileName,
-        directory: Directory.Data,
-        data: recordData
-      });
-      this.loadAudio();
-    }
-  });
-}
-
-
-
-
-
-
-
     //image
   async loadFile() {
     this.images = [];

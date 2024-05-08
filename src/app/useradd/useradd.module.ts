@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { UseraddPageRoutingModule } from './useradd-routing.module';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { UseraddComponent } from './useradd.page';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { UseraddComponent } from './useradd.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    UseraddPageRoutingModule
+    UseraddPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [UseraddComponent]
 })
