@@ -1,6 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>checklist de processus</ion-title>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/add-audit">
+        <ion-icon slot="icon-only" name="arrow-back" style="--color: #4d83ab;"></ion-icon> <!-- Icône de flèche -->
+      </ion-button>
+    </ion-buttons>
+    <ion-title>checklist</ion-title>
     <ion-buttons slot="end">
       <ion-button class="iconajouter" (click)="navigateToAddChecklistProcess()">
         <ion-icon slot="start" name="add"></ion-icon>
@@ -18,19 +23,15 @@
             <div>
               <ion-checkbox color="secondary" (ionChange)="toggleSelection(item)" [checked]="isSelected(item)"></ion-checkbox>
             </div>
-            <div>
-              <p style="font-size: 18px; color: #4863A0;">Requirement :</p>
-              <p style="font-size: 18px; color: black;">{{ item.requirement }}</p>
+
+              <p style="font-size: 18px; color: #4863A0;">Requirement :<span style="font-size: 18px; color: black;">{{ item.requirement }}</span></p>
+
+              <p style="font-size: 18px; color: #4863A0;">Category :<span style="font-size: 18px; color: black;">{{ item.category }}</span></p>
             </div>
-            
-            <ion-button fill="clear" color="primary" class="button-spacing">
-              <ion-icon name="document-text-outline"></ion-icon>
-            </ion-button>
-          </div>
         </div>
       </ion-label>
     </ion-item>
-    <ion-button (click)="saveSelectedChecklists()" class="my-form" expand="block" color="primary" type="submit">    valider</ion-button>
+    <ion-button (click)="saveSelectedChecklists()" class="my-form" expand="block" color="primary" type="submit"> valider</ion-button>
   </ion-list>
- 
+
 </ion-content>

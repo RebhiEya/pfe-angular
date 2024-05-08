@@ -10,7 +10,7 @@ import { AlertController } from '@ionic/angular';
   templateUrl: './auditprocess.page.html',
   styleUrls: ['./auditprocess.page.scss'],
 })
-export class ProcessusPage implements OnInit {
+export class ProcessusPage {
   data: any;
   processes: auditProcesses[] = [];
   auditId: number = 0;
@@ -24,7 +24,7 @@ export class ProcessusPage implements OnInit {
     private alertController: AlertController
   ) {}
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.loadData();
   }
 
@@ -78,7 +78,7 @@ export class ProcessusPage implements OnInit {
   redirectToChecklistProcessPage(idProcess: number) {
     this.router.navigate(['/checklistprocess', idProcess]); // Utilise simplement le processId comme paramètre dans l'URL
   }
-  
+
   selectProcess(process : any){
     this.processesService.setProcess(process);
     this.router.navigate(['/add-audit'])

@@ -88,5 +88,4 @@ navigateTodetails(id :number){
     logout(){
       this.authService.Logout()
     }
-
 }

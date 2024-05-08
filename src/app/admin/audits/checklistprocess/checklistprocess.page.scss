@@ -7,6 +7,11 @@ ion-header{
       color: white;
     }
     }
+
+    .my-form {
+      --ion-color-primary: rgb(72, 99, 160); /* Couleur de fond */
+      --ion-color-primary-contrast: #ffffff; /* Couleur du texte */
+    }
     /* CSS personnalisé pour agrandir la taille du bouton */
   .iconajouter {
     --padding-start: 20px; /* Espacement à gauche du bouton */

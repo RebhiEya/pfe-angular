@@ -1,6 +1,13 @@
-.custom-toolbar-color {
-    --ion-background-color: #4863A0;
+ion-header{
+  ion-toolbar{
+    --background: rgb(72, 99, 160);
+    color: white;
   }
-  .custom-toolbar-color ion-title {
-    color: #ffffff; /* Blanc */
+  .color{
+    color: white;
+  }
+  }
+  .my-form {
+    --ion-color-primary: rgb(72, 99, 160); /* Couleur de fond */
+    --ion-color-primary-contrast: #ffffff; /* Couleur du texte */
   }
