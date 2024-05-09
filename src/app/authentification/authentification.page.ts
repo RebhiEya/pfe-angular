@@ -37,7 +37,7 @@ export class AuthentificationPage {
             idUser: response.id,
             isEmployee: this.isEmployee,
             isAdmin: this.isAdmin,
-            name: response.name,
+            name: response.firstName,
             expiration: moment().add(1,'days').toDate()
           }));
 

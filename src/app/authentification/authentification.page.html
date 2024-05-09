@@ -23,7 +23,7 @@
     
           <ion-item>
             <ion-icon name="lock-closed" slot="start"></ion-icon>
-            <ion-input placeholder="saisir votre password " name="password" [(ngModel)]="credentials.password" required minlength="6" #password="ngModel"></ion-input>
+            <ion-input placeholder="saisir votre password " type="password" name="password" [(ngModel)]="credentials.password" required minlength="6" #password="ngModel"></ion-input>
           </ion-item>
           <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
             <div *ngIf="password.errors?.['required']">Mot de passe est requis.</div>

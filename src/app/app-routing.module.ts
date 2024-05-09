@@ -108,6 +108,16 @@ const routes: Routes = [
     loadChildren: () => import('./employe/process/process.module').then( m => m.ProcessPageModule)
   },
   {
+    path: 'checklistprocesss',
+    canActivate: [AuthGuard , EmployeGuard],
+    loadChildren: () => import('./employe/checklistprocesss/checklistprocesss.module').then( m => m.ChecklistprocesssPageModule)
+  },
+  {
+    path: 'process',
+    canActivate: [AuthGuard , EmployeGuard],
+    loadChildren: () => import('./employe/process/process.module').then( m => m.ProcessPageModule)
+  },
+  {
     path: 'my-audit',
     canActivate: [AuthGuard , EmployeGuard],
     loadChildren: () => import('./employe/my-audit/my-audit.module').then( m => m.MyAuditPageModule)
