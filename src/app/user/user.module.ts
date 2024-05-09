@@ -15,6 +15,6 @@ import { CustomFilterPipe } from '../pipes/custom-filter-pipe.pipe';
     UserPageRoutingModule,
 
   ],
-  declarations: [UserComponent,CustomFilterPipe]
+  declarations: [UserComponent , CustomFilterPipe]
 })
 export class UserPageModule {}

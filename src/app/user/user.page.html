@@ -24,8 +24,8 @@
     showCancelButton="focus"
     animated>
   </ion-searchbar>
-  <ion-card  *ngFor="let item of data | customFilter: searchTerm" >
-    <ion-item  >
+  <ion-card *ngFor="let item of data | customFilter: searchTerm">
+    <ion-item>
       <ion-label class="item-label">
           <div class="flex-container">
               <p class="reference-text"> Nom: {{ item.firstName }}</p>

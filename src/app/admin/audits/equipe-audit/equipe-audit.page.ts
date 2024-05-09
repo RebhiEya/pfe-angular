@@ -15,19 +15,18 @@ export class EquipeAuditPage  {
 
 
   constructor(private adminService: AdminService ,
-    private router: Router , private authService: AuthService) { }
+    private router: Router ,
+    private authService: AuthService) { }
 
     ionViewWillEnter() {
       this.loadUsers();
       }
-
       loadUsers(): void {
         this.adminService.getAllUsers().subscribe((data) => {
           this.data = data;
           console.log(this.data);
         });
       }
-
 
     selectProcess(userId : any){
       this.adminService.setUser(userId);
