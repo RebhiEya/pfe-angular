@@ -1,89 +1,3 @@
-*{
-  font-family: lato;
-  }
-  .menu-header-bg {
-  height: 180px;
-  width: 350px;
-  background: #7590d6;
-  background: linear-gradient(90deg, #7590d6 0%, #4863A0 100%);
-  box-shadow: 0px 1px 10px ☐ #4863A0;
-  transform: rotate(-15deg);
-  border-radius: 10px 10px 10px 50px;
-  margin-left: -18px;
-  margin-top: -60px;
-  margin-bottom: 60px;
-  }
-  .header-content {
-      position: absolute;
-      top: 30px;
-      left: 15px;
-      display: flex;
-      align-items: center;
-
-      img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      border: 7px solid #5e7ccc;
-      margin-right: 14px ;
-      }
-      h2 {
-      font-weight: 300;
-      color:#fff;
-
-      P{
-          font-size: 12px;
-          color: #fff;
-          font-weight: 100;
-          letter-spacing: 0.4px;
-      }}}
-
-      .action-button{
-          display: flex;
-          justify-content: center;
-          margin-bottom: 20px;
-
-          ion-button {
-          text-transform: capitalize;
-          font-weight: 4000;
-          --background: #4863A0;
-          --border-radius: 7px;
-          --box-shadow: none;
-          }
-
-          ion-icon{
-            margin-right:1px;
-          }}
-
-
-        .menu-items {
-          margin: 0px;
-
-            ion-icon {
-              margin-right: 20px;
-              color: #86979f;
-          }
-          ion-item {
-          padding-left: 5px;
-          margin-bottom: 10px;
-          }
-
-          .active {
-              border-left: 5px solid;
-              color: #628cff;
-              padding-left: 15px;
-              ion-icon {
-              color: #628cff;}}
-
-      }
-      .menu-icons ion-icon {
-        color: #4863A0; /* Couleur bleue pour les icônes */
-      }
-
-
-
-
-
 ion-header{
   ion-toolbar{
     --background: #4863A0;
@@ -124,26 +38,6 @@ ion-item {
   margin-right: 10px;
 }
 
-.checkbox-label {
-  margin-left: 5px;
-}
-
-/* Style for Description textarea */
-ion-item textarea {
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 8px;
-  margin-top: 8px;
-}
-
-/* Adjustments for checkbox position */
-ion-checkbox {
-  margin-right: 8px;
-}
-
-
-
 /* Optional: Style for hover effect on checkboxes */
 .checkbox-container:hover {
   cursor: pointer;
@@ -155,17 +49,25 @@ ion-checkbox {
   justify-content: space-between;
 }
 
-/* Flexbox styles for item-left and item-right */
-.item-details .item-left,
-.item-details .item-right {
-  width: 48%; /* Adjust as needed */
-}
-.red-text {
-  color: red; /* Couleur rouge pour le texte */
-  font-size: 15px;
+
+/* Style général des icônes */
+.icon-blue {
+  color: blue;
+  cursor: pointer;
+  font-size: 24px; /* Taille par défaut des icônes */
 }
 
-.g-text {
-  color: rgb(161, 158, 158); /* Couleur rouge pour le texte */
+/* Style spécifique pour l'icône "arrow-up" */
+.icon-blue[name="arrow-up"] {
+  margin-right: 5px; /* Ajoute une marge à droite pour espacer l'icône "arrow-up" */
 }
 
+/* Style spécifique pour l'icône "arrow-down" */
+.icon-blue[name="arrow-down"] {
+  margin-left: 5px; /* Ajoute une marge à gauche pour espacer l'icône "arrow-down" */
+}
+
+/* Animation au survol des icônes */
+.icon-blue:hover {
+  transform: scale(1.1); /* Augmente légèrement la taille de l'icône au survol */
+}

@@ -6,14 +6,20 @@
           <ion-icon slot="icon-only" name="arrow-back" style="--color: #4d83ab;"></ion-icon> <!-- Icône de flèche -->
         </ion-button>
       </ion-buttons>
-      <ion-title>Équipe</ion-title>
+      <ion-title>Équipe de contrôle</ion-title>
     </ion-toolbar>
   </ion-header>
 
 
 
   <ion-content contentId="main-content" class="ion-content">
-    <ion-card  *ngFor="let item of data; index as i" >
+    <ion-searchbar
+    placeholder='saisir le nom utilisateur'
+    [(ngModel)]="searchTerm"
+    showCancelButton="focus"
+    animated>
+  </ion-searchbar>
+    <ion-card *ngFor="let item of data | customFilter: searchTerm">
       <ion-item  >
         <ion-label class="item-label">
             <div class="flex-container">

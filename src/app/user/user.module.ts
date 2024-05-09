@@ -13,7 +13,7 @@ import { CustomFilterPipe } from '../pipes/custom-filter-pipe.pipe';
     FormsModule,
     IonicModule,
     UserPageRoutingModule,
- 
+
   ],
   declarations: [UserComponent,CustomFilterPipe]
 })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
 import { AuthService } from 'src/app/services/auth.service';
+
 @Component({
   selector: 'app-equipe-audit',
   templateUrl: './equipe-audit.page.html',
@@ -10,6 +11,8 @@ import { AuthService } from 'src/app/services/auth.service';
 export class EquipeAuditPage  {
   data: any;
   item :any;
+  searchTerm: string ;
+
 
   constructor(private adminService: AdminService ,
     private router: Router , private authService: AuthService) { }

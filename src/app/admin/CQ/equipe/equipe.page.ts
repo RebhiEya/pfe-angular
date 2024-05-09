@@ -13,6 +13,8 @@ export class EquipePage  {
 
   data: any;
   item :any;
+  searchTerm: string ;
+
 
 
   selectedEquipe: User[] = [];

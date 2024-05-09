@@ -11,6 +11,9 @@
 
 <ion-content class="item-details">
   <ion-list>
+    <ion-icon (click)="sortByDate()" class="icon-blue icon-right"  name="arrow-up"></ion-icon>
+    <ion-icon (click)="sortOldDatesFirst()" class="icon-blue icon-right"  name="arrow-down"></ion-icon>
+
     <ion-item  *ngFor="let item of data; index as i ">
       <ion-label class="item-label">
         <div class="item-container">
@@ -26,11 +29,11 @@
           <div>
 
             <ion-button (click)="navigateToChecklist(item.idQualityControl)" style="--background:#bfd7ea; --color: #1b3a51; font-size: 20px;">
-              <ion-icon name="list" style="--color: #4d83ab;"></ion-icon>
+              <ion-icon  name="list" style="--color: #4d83ab;"></ion-icon>
             </ion-button>
 
 
-            <ion-button (click)="navigateTodefect(item.idQualityControl)"  style="--background: #bfd7ea; --color: #1b3a51; font-size: 20px;">
+            <ion-button (click)="navigateTodefect(item.idQualityControl)"  style="--background: #f69b9b; --color: #1b3a51; font-size: 20px;">
               <ion-icon name="warning" style="--color: #4d83ab;"></ion-icon>
             </ion-button>
           </div>

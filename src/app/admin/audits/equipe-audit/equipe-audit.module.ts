@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { EquipeAuditPageRoutingModule } from './equipe-audit-routing.module';
+import {CustomFilterPipe} from 'src/app/pipes/custom-filter-pipe.pipe';
 
 import { EquipeAuditPage } from './equipe-audit.page';
 
@@ -15,6 +16,6 @@ import { EquipeAuditPage } from './equipe-audit.page';
     IonicModule,
     EquipeAuditPageRoutingModule
   ],
-  declarations: [EquipeAuditPage]
+  declarations: [EquipeAuditPage , CustomFilterPipe]
 })
 export class EquipeAuditPageModule {}

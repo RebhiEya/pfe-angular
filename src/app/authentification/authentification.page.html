@@ -1,12 +1,13 @@
 <ion-content>
   <div id="header">
-    <div id="ap-bar">
+    <div id="app-bar">
+
       <div id="logo">
         <img src="../assets/qalitas.jpeg" alt="">
       </div>
       <div></div>
     </div>
-    <h1>Login to your workspace</h1>
+    <h1>Connectez-vous à votre compte</h1>
   </div>
   <div class="wrapper">
     <ion-card class="form-wrapper">
@@ -20,10 +21,10 @@
             <div *ngIf="email.errors?.['required']">Email est requis.</div>
             <div *ngIf="email.errors?.['email']">Email n'est pas valide.</div>
           </div>
-    
+
           <ion-item>
             <ion-icon name="lock-closed" slot="start"></ion-icon>
-            <ion-input placeholder="saisir votre password " type="password" name="password" [(ngModel)]="credentials.password" required minlength="6" #password="ngModel"></ion-input>
+            <ion-input placeholder="Mot de passe"  type="password" name="password" [(ngModel)]="credentials.password",required minlength="6" #password="ngModel"></ion-input>
           </ion-item>
           <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
             <div *ngIf="password.errors?.['required']">Mot de passe est requis.</div>

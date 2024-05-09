@@ -63,6 +63,21 @@ export class MycontrolPage  {
   }
 
 
+  sortByDate() {
+    // Tri des éléments par date
+    this.data.sort((a: any, b: any) => {
+      return <any>new Date(b.date) - <any>new Date(a.date);
+    });
+  }
+
+  sortOldDatesFirst() {
+    // Tri des éléments pour afficher les anciennes dates en premier
+    this.data.sort((a: any, b: any) => {
+      return <any>new Date(a.date) - <any>new Date(b.date);
+    });
+  }
+
+
 //   loadData() {
 //     const currentUser = this.authService.getCurrentUser();
 //      this.mycontrolService.getControlByIdUser(currentUser.idUser).subscribe((data) => {
