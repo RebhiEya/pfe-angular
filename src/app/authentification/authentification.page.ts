@@ -16,7 +16,8 @@ export class AuthentificationPage {
   isAdmin: boolean;
   isEmployee: boolean;
 
-  constructor(private authService: AuthService, private router: Router ,) {}
+  constructor(private authService: AuthService,
+     private router: Router ,) {}
 
   onLogin() {
     this.authService.login(this.credentials.email , this.credentials.password)
