@@ -8,7 +8,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>les utilisateurs</ion-title>
+    <ion-title>Les utilisateurs</ion-title>
     <ion-buttons slot="end">
       <ion-button class="iconajouter" routerLink="/useradd">
         <ion-icon slot="start" name="add"></ion-icon>
@@ -20,11 +20,11 @@
 <ion-content class="ion-content">
 <ion-searchbar
     placeholder='saisir le nom utilisateur'
-    [(ngModel)]="searchTerm"
+    [(ngModel)]="searchCharacter"
     showCancelButton="focus"
     animated>
   </ion-searchbar>
-  <ion-card *ngFor="let item of data | customFilter: searchTerm">
+  <ion-card *ngFor="let item of data | customFilter : searchCharacter">
     <ion-item>
       <ion-label class="item-label">
           <div class="flex-container">

@@ -17,19 +17,19 @@
             <ion-icon name="mail" slot="start"></ion-icon>
             <ion-input placeholder="saisir votre Email" name="email"  [(ngModel)]="credentials.email" required email #email="ngModel"></ion-input>
           </ion-item>
-          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+          <!-- <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
             <div *ngIf="email.errors?.['required']">Email est requis.</div>
             <div *ngIf="email.errors?.['email']">Email n'est pas valide.</div>
-          </div>
+          </div> -->
 
           <ion-item>
             <ion-icon name="lock-closed" slot="start"></ion-icon>
-            <ion-input placeholder="Mot de passe"  type="password" name="password" [(ngModel)]="credentials.password",required minlength="6" #password="ngModel"></ion-input>
+            <ion-input placeholder="Mot de passe"  type="password" name="password" [(ngModel)]="credentials.password" required minlength="6" #password="ngModel"></ion-input>
           </ion-item>
-          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
+          <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
             <div *ngIf="password.errors?.['required']">Mot de passe est requis.</div>
             <div *ngIf="password.errors?.['minlength']">Mot de passe doit avoir au moins 8 caractères.</div>
-          </div>
+          </div> -->
           <ion-button (click)="onLogin()" type="button" expand="block">Sign in</ion-button>
         </form>
       </ion-card-content>

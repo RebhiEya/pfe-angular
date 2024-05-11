@@ -11,7 +11,7 @@ import { AlertController, ToastController } from '@ionic/angular';
 })
 export class UserComponent {
   data: any;
-  searchTerm: string ;
+  searchCharacter: string = '';
 
   constructor(private adminService: AdminService ,
     private authService : AuthService,

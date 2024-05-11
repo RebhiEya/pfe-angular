@@ -4,7 +4,7 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>control</ion-title>
+      <ion-title>Les contrôles</ion-title>
       <ion-buttons slot="end">
         <ion-button class="iconajouter" routerLink="/add-control">
           <ion-icon slot="start" name="add"></ion-icon>
@@ -27,13 +27,13 @@
           <div class="item-container">
             <div class="flex-container">
               <div class="item-header">
-                <div class="item-title"  style="color: #4863A0;"> reference : <span style="color: black;"> {{ item.reference }} </span></div>
+                <div class="item-title"  style="color: #4863A0;"> Référence : <span style="color: black;"> {{ item.reference }} </span></div>
               </div>
-                  <p style="font-size: 18px; color: #4863A0;">Internal Reference : <span style="color: black;">{{ item.internalReference}}</span> </p>
-                  <p class="red-text" style="font-size: 18px; color: #4863A0;" > description : <span style="color: black;"> {{item.description}} </span>  </p>
+                  <p style="font-size: 18px; color: #4863A0;">Référence interne: <span style="color: black;">{{ item.internalReference}}</span> </p>
+                  <p class="red-text" style="font-size: 18px; color: #4863A0;" > Description : <span style="color: black;"> {{item.description}} </span>  </p>
                 </div>
-                  <p  style="font-size: 18px; color: #4863A0;"> state : <span style="color: black;"> {{item.state}}</span>  </p>
-                  <p class="red-text"  style="font-size: 18px; color: #4863A0;">date : <span style="color: black;">{{item.date}} </span>  </p>
+                  <p  style="font-size: 18px; color: #4863A0;"> Etat : <span style="color: black;"> {{item.state}}</span>  </p>
+                  <p class="red-text"  style="font-size: 18px; color: #4863A0;">Date : <span style="color: black;">{{item.date}} </span>  </p>
                 <ion-button fill="clear" color="danger" (click)="delete(item.idQualityControl)" class="button-spacing">
                   <ion-icon name="trash"></ion-icon>
                 </ion-button>

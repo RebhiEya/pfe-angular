@@ -5,17 +5,20 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { EquipeAuditPageRoutingModule } from './equipe-audit-routing.module';
-import {CustomFilterPipe} from 'src/app/pipes/custom-filter-pipe.pipe';
+
 
 import { EquipeAuditPage } from './equipe-audit.page';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EquipeAuditPageRoutingModule
+    EquipeAuditPageRoutingModule,
+    SharedModuleModule
   ],
-  declarations: [EquipeAuditPage , CustomFilterPipe]
+  declarations: [EquipeAuditPage ],
+  exports:[]
 })
 export class EquipeAuditPageModule {}

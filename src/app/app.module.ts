@@ -11,11 +11,12 @@ import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import{VideoCapturePlus}  from "@ionic-native/video-capture-plus/ngx";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { CustomFilterPipe } from './pipes/custom-filter-pipe.pipe';
+
+
 
 @NgModule({
-  declarations: [AppComponent,CustomFilterPipe],
-  exports:[CustomFilterPipe],
+  declarations: [AppComponent],
+  exports:[],
 
 
   imports: [
@@ -25,6 +26,7 @@ import { CustomFilterPipe } from './pipes/custom-filter-pipe.pipe';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+
 
   ],
   providers: [
