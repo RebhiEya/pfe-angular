@@ -30,11 +30,6 @@
           <div class="flex-container">
               <p class="reference-text"> Nom: {{ item.firstName }}</p>
               <p class="reference-value">Prénom:{{ item.lastName }}</p>
-              <!-- Bouton de modification -->
-              <!-- <ion-button fill="clear" color="primary"  class="button-spacing">
-                <ion-icon  slot="icon-only" name="create"></ion-icon>
-              </ion-button> -->
-              <!-- Bouton de suppression -->
               <ion-button  slot="end" fill="clear" color="danger"  class="button-spacing" (click)="deleteUser(item.idUser)">
                 <ion-icon slot="icon-only" name="trash"></ion-icon>
               </ion-button>

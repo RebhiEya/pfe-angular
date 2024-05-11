@@ -55,7 +55,20 @@ export class AuthentificationPage {
         },
         async error => {
 
-          
+          const alert =  this.alertController.create({
+            header: 'ERREUR',
+            message: 'Email ou mot de passe invalide',
+            buttons: [
+              {
+                text: 'OK',
+                role: 'cancel',
+                cssClass: 'secondary',
+                handler: () => {
+                }
+              }]});
+
+          (await alert).present();
+
         }
       );
   }

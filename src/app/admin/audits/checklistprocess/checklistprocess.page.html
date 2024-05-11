@@ -23,12 +23,13 @@
             <div>
               <ion-checkbox color="secondary" (ionChange)="toggleSelection(item)" [checked]="isSelected(item)"></ion-checkbox>
             </div>
-
+             <div>
               <p style="font-size: 18px; color: #4863A0;">Exigence :<span style="font-size: 18px; color: black;">{{ item.requirement }}</span></p>
-               <br> 
-               <br>
-              <p style="font-size: 18px; color: #4863A0;">Categorie:<span style="font-size: 18px; color: black;">{{ item.category }}</span></p>
             </div>
+          <div>
+              <p style="font-size: 18px; color: #4863A0;">Catégorie :<span style="font-size: 18px; color: black;">{{ item.category }}</span></p>
+            </div>
+          </div>
         </div>
       </ion-label>
     </ion-item>

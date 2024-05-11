@@ -13,15 +13,15 @@
   <ion-card>
     <ion-card-content class="my-form">
       <form (ngSubmit)="ajouterchecklist()">
-        <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Exigence:</ion-label>
+        <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Exigence :</ion-label>
         <br>
         <ion-input type="text" name="requirement" [(ngModel)]="controlCheckList.requirement" required></ion-input>
 
-        <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Categorie :</ion-label>
+        <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Catégorie :</ion-label>
         <br>
         <ion-input type="text" name="category" [(ngModel)]="controlCheckList.category" required></ion-input>
 
-        <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Etat :</ion-label>
+        <ion-label position="stacked" class="ion-text" style="font-size: 25px;">État:</ion-label>
         <br>
         <ion-input type="text" name="state" [(ngModel)]="controlCheckList.state" required></ion-input>
 
