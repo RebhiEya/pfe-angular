@@ -11,6 +11,8 @@ import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import{VideoCapturePlus}  from "@ionic-native/video-capture-plus/ngx";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SharedModuleModule } from './shared-module/shared-module.module';
+
 
 
 
@@ -26,6 +28,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModuleModule,
 
   ],
   providers: [

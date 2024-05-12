@@ -39,7 +39,7 @@
             <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Password</ion-label>
             <ion-input type="password" formControlName="password" [(ngModel)]="user.password"></ion-input>
             <div slot="error"*ngIf="userForm.controls['password'].errors && userForm.controls['password'].touched">
-              lastname is  required
+              password is  required
             </div>
           </ion-item>
           <ion-item lines="full">

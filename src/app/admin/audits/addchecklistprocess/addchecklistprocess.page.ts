@@ -12,6 +12,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./addchecklistprocess.page.scss'],
 })
 export class AddchecklistprocessPage  {
+idProcess : any
   controlCheckList : ProcessChecklist = {
     idProcessChecklist:0,
     requirement : '',
@@ -21,19 +22,20 @@ export class AddchecklistprocessPage  {
     description : '',
     }
     selectedProcess: auditProcesses ={
-     
+
         idProcess:0,
           nom: '',
           recommendation: '',
           strength: '',
           weakness: '',
           checklistScore: 0
-      
-          
+
+
     }
     ionViewWillEnter() {
       this.route.params.subscribe(params => {
         this.selectedProcess.idProcess= params['idProcess'];
+        this.idProcess = this.selectedProcess.idProcess
       })
       console.log("hiiii",this.selectedProcess.idProcess)
     }
@@ -41,7 +43,7 @@ export class AddchecklistprocessPage  {
       private dataService:DataService,
       private router: Router,private alertController: AlertController,private route: ActivatedRoute) { }
 
-     
+
       ajouterchecklist() {
         if (this.selectedProcess && this.controlCheckList) {
           this.checklistService.createchecklistprocess(this.selectedProcess.idProcess, this.controlCheckList)
@@ -58,6 +60,6 @@ export class AddchecklistprocessPage  {
           console.error('Veuillez sélectionner un processus et remplir tous les champs de la checklist.');
         }
       }
-    
+
 
         }

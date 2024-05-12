@@ -48,9 +48,7 @@ export class AuthentificationPage {
             case 'EMPLOYEE':
               this.router.navigate(['/tableau-bord']);
               break;
-            default:
-              this.router.navigate(['tabbord']);
-              break;
+
           }
         },
         async error => {
