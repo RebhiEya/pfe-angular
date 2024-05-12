@@ -12,7 +12,6 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./addchecklistprocess.page.scss'],
 })
 export class AddchecklistprocessPage  {
-idProcess : any
   controlCheckList : ProcessChecklist = {
     idProcessChecklist:0,
     requirement : '',

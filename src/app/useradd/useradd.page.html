@@ -15,39 +15,38 @@
       <form [formGroup]="userForm" (ngSubmit)="ajouterUser()">
         <ion-list>
           <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Nom </ion-label>
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Prénom </ion-label>
             <ion-input type="text" formControlName="firstName" [(ngModel)]="user.firstName" required></ion-input>
             <div slot="error"*ngIf="userForm.controls['firstName'].errors && userForm.controls['firstName'].touched">
-              lastname is  required
-            </div>
+              Le prénom est requis            </div>
           </ion-item>
           <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Prenom</ion-label>
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Nom</ion-label>
             <ion-input type="text" formControlName="lastName" [(ngModel)]="user.lastName" required></ion-input>
             <div slot="error"*ngIf="userForm.controls['lastName'].errors && userForm.controls['lastName'].touched">
-              lastname is  required
+              Le nom de famille est obligatoire
             </div>
           </ion-item>
           <ion-item lines="full">
             <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Matricule</ion-label>
             <ion-input type="text" formControlName="matricule" [(ngModel)]="user.matricule"></ion-input>
             <div slot="error"*ngIf="userForm.controls['matricule'].errors && userForm.controls['matricule'].touched">
-              lastname is  required
+              Matricule est obligatoire
             </div>
           </ion-item>
           <ion-item lines="full">
-            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Password</ion-label>
+            <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Mot de passe</ion-label>
             <ion-input type="password" formControlName="password" [(ngModel)]="user.password"></ion-input>
             <div slot="error"*ngIf="userForm.controls['password'].errors && userForm.controls['password'].touched">
-              password is  required
+              Le mot de passe est obligatoire
             </div>
           </ion-item>
           <ion-item lines="full">
             <ion-label position="stacked" class="ion-text" style="font-size: 25px;">Email</ion-label>
             <ion-input type="text" formControlName="email" [(ngModel)]="user.email"></ion-input>
             <div slot="error"*ngIf="userForm.controls['email'].errors && userForm.controls['email'].touched">
-              lastname is  required
-            </div>
+              L'email est obligatoire
+          </div>
     </ion-item>
         </ion-list>
         <ion-row>

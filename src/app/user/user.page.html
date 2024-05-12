@@ -28,8 +28,8 @@
     <ion-item>
       <ion-label class="item-label">
           <div class="flex-container">
-              <p class="reference-text"> Nom: {{ item.firstName }}</p>
-              <p class="reference-value">Prénom:{{ item.lastName }}</p>
+              <p class="reference-text">Prénom: {{ item.firstName }}</p>
+              <p class="reference-value">Nom:{{ item.lastName }}</p>
               <ion-button  slot="end" fill="clear" color="danger"  class="button-spacing" (click)="deleteUser(item.idUser)">
                 <ion-icon slot="icon-only" name="trash"></ion-icon>
               </ion-button>
