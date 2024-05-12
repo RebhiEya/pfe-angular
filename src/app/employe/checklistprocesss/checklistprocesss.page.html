@@ -33,15 +33,23 @@
             </div>
             <div style="display: flex; align-items: center;">
               <p style="font-size: 18px; color: #4863A0; margin-right: 10px;">Etat:</p>
-              <p  style="font-size: 18px; color: black; margin-right: 20px;">{{ item.checklist.state }}</p> 
+              <p  style="font-size: 18px; color: black; margin-right: 20px;">{{ item.checklist.state }}</p>
             </div>
             <div style="display: flex; align-items: center;">
               <p style="font-size: 18px; color: #4863A0; margin-right: 10px;">Description:</p>
               <p  style="font-size: 18px; color: black; margin-right: 20px;">{{ item.checklist.description }}</p>
             </div>
           </div>
-          <ion-button (click)="markAs(item.checklist.idProcessChecklist)" color="success">Conforme</ion-button>
-        <ion-button (click)="MarkAs(item.checklist.idProcessChecklist)"  color="danger">Non Conforme</ion-button>
+          <ion-radio-group [(ngModel)]="item.selectedButton">
+            <ion-item>
+              <ion-label>Conforme</ion-label>
+              <ion-radio slot="start" value="Conforme" (click)="markAs(item.checklist.idProcessChecklist)"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Non Conforme</ion-label>
+              <ion-radio slot="start" value="Non Conforme" (click)="MarkAs(item.checklist.idProcessChecklist)"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
         </div>
       </ion-label>
     </ion-item>

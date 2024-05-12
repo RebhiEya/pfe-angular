@@ -8,8 +8,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./checklistprocesss.page.scss'],
 })
 export class ChecklistprocesssPage implements OnInit {
-
+  private selectedButtons: { [checklistId: number]: string } = {};
   constructor(  private router: Router , private route: ActivatedRoute , private ChecklistService : AuditprocessesService) { }
+
 
   ngOnInit() {
   }
@@ -19,7 +20,7 @@ export class ChecklistprocesssPage implements OnInit {
   data: any;
 
 
-  
+
 
   ionViewWillEnter() {
     this.route.queryParams.subscribe(params => {

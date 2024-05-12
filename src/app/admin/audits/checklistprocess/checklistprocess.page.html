@@ -16,24 +16,23 @@
 
 <ion-content class="item-details">
   <ion-list>
-    <ion-item *ngFor="let item of data" >
+    <ion-item *ngFor="let item of data">
       <ion-label class="item-label">
         <div class="item-container">
-          <div class="flex-container">
-            <div>
-              <ion-checkbox color="secondary" (ionChange)="toggleSelection(item)" [checked]="isSelected(item)"></ion-checkbox>
-            </div>
-             <div>
-              <p style="font-size: 18px; color: #4863A0;">Exigence :<span style="font-size: 18px; color: black;">{{ item.requirement }}</span></p>
-            </div>
           <div>
-              <p style="font-size: 18px; color: #4863A0;">Catégorie :<span style="font-size: 18px; color: black;">{{ item.category }}</span></p>
-            </div>
+            <ion-checkbox color="secondary" (ionChange)="toggleSelection(item)" [checked]="isSelected(item)"></ion-checkbox>
+          </div>
+          <div>
+            <p style="font-size: 18px; color: #4863A0;">Exigence :</p>
+            <p style="font-size: 18px; color: black;">{{ item.requirement }}</p>
+          </div>
+          <div>
+            <p style="font-size: 18px; color: #4863A0;">Catégorie :</p>
+            <p style="font-size: 18px; color: black;">{{ item.category }}</p>
           </div>
         </div>
       </ion-label>
     </ion-item>
     <ion-button (click)="saveSelectedChecklists()" class="my-form" expand="block" color="primary" type="submit"> valider</ion-button>
   </ion-list>
-
 </ion-content>

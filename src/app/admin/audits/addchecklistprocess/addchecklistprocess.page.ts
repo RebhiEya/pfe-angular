@@ -21,6 +21,7 @@ idProcess : any
     conformity : true,
     description : '',
     }
+    idProcess : number
     selectedProcess: auditProcesses ={
 
         idProcess:0,
@@ -38,6 +39,7 @@ idProcess : any
         this.idProcess = this.selectedProcess.idProcess
       })
       console.log("hiiii",this.selectedProcess.idProcess)
+      this.idProcess = this.selectedProcess.idProcess
     }
     constructor(private checklistService: AuditprocessesService,
       private dataService:DataService,
